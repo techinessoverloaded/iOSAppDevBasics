@@ -13,6 +13,7 @@
 - It is the world's second-most widely installed mobile operating system, after Android. 
 - It is the basis for three other operating systems made by Apple: iPadOS, tvOS, and watchOS. 
 - It is a proprietary software, although some parts of it are open source under the Apple Public Source License and other licenses.
+
 <span style="float: left">
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Index</a>
 </span>
