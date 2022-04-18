@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 18 Apr 2022** • *Last Updated on 18 April 2022*
+**Published by Arunprasadh C on 18 Apr 2022** • *Last Updated on 18 Apr 2022*
 
 ## iOS Introduction
 <p align="center">
@@ -13,6 +13,9 @@
 - It is the world's second-most widely installed mobile operating system, after Android. 
 - It is the basis for three other operating systems made by Apple: iPadOS, tvOS, and watchOS. 
 - It is a proprietary software, although some parts of it are open source under the Apple Public Source License and other licenses.
-
+<span style="float: left">
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Index</a>
+</span>
+<span style="float: right">
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/iosintro.html">iOS Introduction &rarr;</a>
+</span>
