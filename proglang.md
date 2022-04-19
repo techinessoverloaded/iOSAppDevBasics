@@ -16,5 +16,5 @@ We can also use **Flutter SDK, React Native, Kotlin Multiplatform Mobile** or an
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/appdevreq.html">&larr; iOS App Developer Requirements</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/appdevreq.html"> &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/apparch.html">iOS App Architecture &rarr;</a>
 </span>
