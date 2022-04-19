@@ -15,5 +15,5 @@ The good news is that Xcode offers much more than just the ability to sign and p
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/iosintro.html">&larr; iOS Introduction</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/appdevreq.html">iOS App Developer Requirements &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/proglang.html">Programming Languages used for iOS App Development &rarr;</a>
 </span>
