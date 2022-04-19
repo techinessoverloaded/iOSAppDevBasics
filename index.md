@@ -6,6 +6,7 @@ You can visit each of the Topic Pages using the below Index
 |----|
 | [iOS Introduction](https://techinessoverloaded.github.io/iOSAppDevBasics/iosintro.html) |
 | [iOS App Developer Requirements](https://techinessoverloaded.github.io/iOSAppDevBasics/appdevreq.html) |
+| [Programming Languages used for iOS App Development](https://techinessoverloaded.github.io/iOSAppDevBasics/proglang.html) |
 
 <p align="right">
   <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/iosintro.html">iOS Introduction &rarr;</a>
