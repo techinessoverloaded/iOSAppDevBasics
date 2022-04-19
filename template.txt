@@ -1,2 +1,8 @@
 **Published by Arunprasadh C on 18 Apr 2022** • *Last Updated on 19 Apr 2022*
 
+<span style="float: left">
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Index</a>
+</span>
+<span style="float: right">
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/appdevreq.html">iOS App Developer Requirements &rarr;</a>
+</span>
