@@ -62,6 +62,8 @@ This provides support for users to share their game related data online using Ga
 
 #### MapKit Framework
 This provides a scrollable map which can be included into the app user interface.
+<br><br>
+Before moving on to Swift, we will see why iOS is quite good and is popular among consumers.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
@@ -69,5 +71,5 @@ This provides a scrollable map which can be included into the app user interface
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/proglang.html">&larr; Programming Languages used for iOS App Development</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/"> &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/whyios.html">Why iOS is quite good and popular amongst users ? &rarr;</a>
 </span>
