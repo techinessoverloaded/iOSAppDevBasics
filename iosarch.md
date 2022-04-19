@@ -71,5 +71,5 @@ Before moving on to Swift, we will see why iOS is quite good and is popular amon
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/proglang.html">&larr; Programming Languages used for iOS App Development</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/whyios.html">Why iOS is quite good and popular amongst users ? &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/whyios.html">Why iOS ? &rarr;</a>
 </span>
