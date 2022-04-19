@@ -15,7 +15,7 @@
 - It is a proprietary software, although some parts of it are open source under the Apple Public Source License and other licenses.
 
 <span style="float: left">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Index</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 </span>
 <span style="float: right">
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/appdevreq.html">iOS App Developer Requirements &rarr;</a>
