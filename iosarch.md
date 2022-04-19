@@ -3,7 +3,7 @@
 ## iOS Architecture
 The general architecture of iOS is as shown below:
 <p align="center">
-<img src="https://github.com/techinessoverloaded/iOSAppDevBasics/blob/main/assets/images/ios_app_arch.png" height="40%" width="40%">
+<img src="./assets/images/ios_app_arch.png" height="40%" width="40%">
 </p>
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
