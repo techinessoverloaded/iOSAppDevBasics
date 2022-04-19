@@ -10,9 +10,8 @@ To develop an App for iOS, you need:
 These three requirements work together: Only active members of the Apple Developer Program can post an app to the Apple App Store. Only apps signed and published by Xcode are eligible for submission to the App Store. Xcode runs only on macOS, and macOS runs only on Apple computers.
 The good news is that Xcode offers much more than just the ability to sign and publish your completed app. The IDE contains a user interface designer, code editor, testing engine, asset catalogue and more—virtually everything you need for iOS app development.
 
-<p align="right">
-  <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
-</p>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
+<br>
 <span style="float: left">
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/iosintro.html">&larr; iOS Introduction</a>
 </span>
