@@ -9,6 +9,6 @@ You can visit each of the Topic Pages using the below Index
 | [Programming Languages used for iOS App Development](https://techinessoverloaded.github.io/iOSAppDevBasics/proglang.html) |
 | [iOS App Architecture](https://techinessoverloaded.github.io/iOSAppDevBasics/apparch.html) |
 
-<p align="right">
+<span style="float: right">
   <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/iosintro.html">iOS Introduction &rarr;</a>
-</p>
+</span>
