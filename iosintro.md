@@ -4,7 +4,7 @@
 <p align="center">
   <img src="./assets/images/apple_Logo.png" height="10%" width="10%">
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="./assets/images/iOS_Logo.png" height="10%" width="10%">
+  <img src="./assets/images/iOS_Logo.png" height="15%" width="15%">
 </p>
 
 - iOS (formerly iPhone OS) is a mobile operating system created and developed by Apple Inc. exclusively for its hardware.
