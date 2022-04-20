@@ -14,7 +14,7 @@ Now, as we have seen why iOS is popular, we can now move on to seeing the basics
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Index</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/iosarch.html">&larr; iOS Architecture</a>
 </span>
 <span style="float: right">
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/swiftintro.html">Introduction to Swift &rarr;</a>
