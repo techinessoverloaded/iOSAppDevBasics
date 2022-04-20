@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 18 Apr 2022** • *Last Updated on 19 Apr 2022*
+**Published by Arunprasadh C on 18 Apr 2022** • *Last Updated on 20 Apr 2022*
 
 You can visit each of the Topic Pages using the below Index
 
@@ -9,6 +9,7 @@ You can visit each of the Topic Pages using the below Index
 | [Programming Languages used for iOS App Development](https://techinessoverloaded.github.io/iOSAppDevBasics/proglang.html) |
 | [iOS Architecture](https://techinessoverloaded.github.io/iOSAppDevBasics/iosarch.html) |
 | [Why iOS is quite good and popular amongst users ?](https://techinessoverloaded.github.io/iOSAppDevBasics/whyios.html) |
+| [Introduction to Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/swiftintro.html) |
 
 
 <span style="float: right">
