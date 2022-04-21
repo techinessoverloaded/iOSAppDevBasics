@@ -8,7 +8,7 @@ In any programming language, Data Types are quite important as they decide the a
 - **Double** − This is used to represent a 64-bit floating-point number and used when floating-point values must be very large. For example, 3.14159874897578.
 - **Bool** − This represents a Boolean value which is either `true` or `false`.
 - **String** − This is an ordered collection of characters. For example, "Hello, World!".
-- **Character** − This is a single-character string literal. For example, "C"
+- **Character** − This is a single-character string literal. For example, "C".
 - **Optional** − This represents a variable that can hold either a value or no value.
 - **Tuples** − This is used to group multiple values in single Compound Value.
 
@@ -57,11 +57,13 @@ var a = 4 // Inferred as Int
 var b = "Hello World" // Inferred as String
 ```
 
+Now that we have seen about Data types in Swift, we can move on to learn about Variables, Literals and Constants in Swift.
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/swiftintro.html">&larr; Introduction to Swift</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html"> &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html">Variables, Literals and Constants &rarr;</a>
 </span>
