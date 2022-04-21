@@ -13,6 +13,7 @@ In any programming language, Data Types are quite important as they decide the a
 - **Tuples** − This is used to group multiple values in single Compound Value.
 
 Now that we have seen the various Data types, let's see how much space is allocated for variables of each Data Type and the range of values that can be represented using each data type:
+
 | Data Type | Space required for single Variable | Range of values that can be represented |
 | :---: | :---: | :---: |
 | Int8 | 1 byte | -128 to 127 |
