@@ -33,14 +33,17 @@ var word:String
 word = "Hello"
 ```
 ### Constants
-Constants can be considered as **Immutable** (or **read-only**) Variables. Constants allow the values to be assigned only once. After assignment, the value can't be changed. It can only be accessed.  In Swift, constants can be declared by using `let` Keyword.
-
+Constants can be considered as **Immutable** (or **read-only**) Variables. Constants allow the values to be assigned only once. After assignment, the value can't be changed. It can only be accessed.  In Swift, constants can be declared by using `let` Keyword. The general syntax of declaring constants is as follows:
+```swift
+let constantName = <initial value>
+```
 **Example :**
 ```swift
 let pi = 3.14
 var radius = 7
 var area = pi*radius*radius
 ```
+As with variables, **Type Annotations** can also be used with Constants in Swift (Simply replace `var` with `let`).
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
