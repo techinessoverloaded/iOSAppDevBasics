@@ -8,5 +8,5 @@
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html">&larr; </a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/appdevreq.html">iOS App Developer Requirements &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html"> &rarr;</a>
 </span>
