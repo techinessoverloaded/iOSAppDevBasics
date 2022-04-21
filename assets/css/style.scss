@@ -15,26 +15,26 @@
     color: #1e6bb8;
 }
 
-highlight { 
+.main-content highlight { 
   background-color: #ffffff;
   padding: 5px 10px;
   margin: 20px 0;
 }
 
-.highlight pre {
+.main-content .highlight pre {
   /* overflow: scroll; Prefer no word wrap? Uncomment this line and comment out the 2 lines below. */
   word-break: break-all;
   word-wrap: break-word;
 }
 
 
-code {
+.main-content code {
   font-family:'Bitstream Vera Sans Mono','Courier', monospace;
   font-size: 15px;
   font-weight: bold;
 }
 
-.highlight {
+.main-content .highlight {
   background-color: #f6f8fa;
   margin-bottom: 1.5em;
   pre {
