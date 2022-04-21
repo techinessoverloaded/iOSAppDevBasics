@@ -17,5 +17,5 @@ Now, let's move on to learn about the Data Types available in Swift.
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/whyios.html">&larr; Why iOS ?</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html">Data Types in Swift &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/datatypes.html">Data Types available in Swift &rarr;</a>
 </span>
