@@ -20,7 +20,18 @@ In the previous Topic Pages, you would have seen the word "Variable" in many pla
 var a = 45 // Statement 1
 var b: String = "Hello" // Statement 2
 ```
-As we saw in the Previous Topic, Swift can infer the Data Type of variable using the assigned Literal. This kind of declaration is used in Statement 1 above. On the other hand, in Statement 2, the Data Type of the Variable is explicitly specified in the Declaration. This kind of explicit Type Specification is called as **Type Annotation** in Swift.
+As we saw in the Previous Topic, Swift can infer the Data Type of variable using the assigned Literal. This kind of declaration is used in Statement 1 above. On the other hand, in Statement 2, the Data Type of the Variable is explicitly specified in the Declaration. This kind of explicit Type Specification is called as **Type Annotation** in Swift. The general syntax of **Type Annotation** is as shown below:
+```swift
+var variableName:<data type> = <optional initial value>
+```
+**Type Annotation** is not compulsory in Swift as Data Types are inferred automatically. Usually, **Type Annotations** are used for enhancing the readability of the code. **Type Annotations** also allow the variables to be declared without any initial value. These variables can be assigned with value in the later part of the code.
+
+**Example :**
+```swift
+var word:String
+// Some statements
+word = "Hello"
+```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
