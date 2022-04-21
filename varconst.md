@@ -39,9 +39,9 @@ let constantName = <initial value>
 ```
 **Example :**
 ```swift
-let pi = 3.14
-var radius = 7
-var area = pi*radius*radius
+let pi = 3.14 // CONSTANT
+var radius = 7 // VARIABLE
+var area = pi*radius*radius // VARIABLE
 ```
 As with variables, **Type Annotations** can also be used with Constants in Swift (Simply replace `var` with `let`).
 
