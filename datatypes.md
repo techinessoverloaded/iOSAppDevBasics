@@ -65,5 +65,5 @@ Now that we have seen about Data types in Swift, we can move on to learn about V
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/swiftintro.html">&larr; Introduction to Swift</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html">Variables, Literals and Constants &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/varconst.html">Variables, Literals and Constants &rarr;</a>
 </span>
