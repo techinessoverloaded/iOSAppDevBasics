@@ -28,6 +28,18 @@ Now that we have seen the various Data types, let's see how much space is alloca
 | Double | 8 bytes | 2.3E-308 to 1.7E+308 (~15 digits) |
 | Bool | 1 byte | Range not Applicable. Can hold either `true` or `false` |
 
+### Type Aliases
+Swift allows us to define new names for existing Data Types. These new names can be used as actual Data Type Names. Type Aliases can be defined using the following Syntax:
+
+```swift
+typealias newname = type
+```
+
+**Example :**
+```swift
+typealias Number = Int
+var x: Number = 56
+```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
