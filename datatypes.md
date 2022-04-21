@@ -14,7 +14,7 @@ In any programming language, Data Types are quite important as they decide the a
 
 Now that we have seen the various Data types, let's see how much space is allocated for variables of each Data Type and the range of values that can be represented using each data type:
 
-| Data Type | Space required for single Variable | Range of values that can be represented |
+| Data Type | Space required for a single Variable | Range of values that can be represented |
 | :---: | :---: | :---: |
 | Int8 | 1 byte | -128 to 127 |
 | UInt8 | 1 byte | 0 to 255 |
@@ -26,6 +26,7 @@ Now that we have seen the various Data types, let's see how much space is alloca
 | UInt64 | 8 bytes | 0 to 18446744073709551615 |
 | Float | 4 bytes | 1.2E-38 to 3.4E+38 (~6 digits) |
 | Double | 8 bytes | 2.3E-308 to 1.7E+308 (~15 digits) |
+| Bool | 1 byte | Range not Applicable. Can hold either `true` or `false` |
 
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
