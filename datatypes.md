@@ -42,10 +42,19 @@ var x: Number = 56
 ```
 
 ### Type Safety
-Swift is a type-safe language, which means that we can't assign a literal or object of a different type to a variable of some other type. For example, the following code will produce the error `error: cannot assign value of type 'String' to type 'Int'` at Compile time :
+Swift is a type-safe language, which means that we can't assign a literal or object of a different type to a variable/constant of some other type. For example, the following code will produce the error `error: cannot assign value of type 'String' to type 'Int'` at Compile time :
 ```swift
 var a: Int = 5
 a = "Hello"
+```
+
+### Type Inference
+Swift can infer the Data Type from the type of literal/object assigned to a variable/constant.
+
+**Example :**
+```swift
+var a = 4 // Inferred as Int
+var b = "Hello World" // Inferred as String
 ```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
