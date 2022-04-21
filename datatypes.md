@@ -1,7 +1,7 @@
 **Published by Arunprasadh C on 21 Apr 2022** • *Last Updated on 21 Apr 2022*
 
 ## Data Types available in Swift
-In any programming language, Data Types are quite important as they decide the amount of memory to be allocated to a variable/constant. Swift supports the following built-in Data Types:
+In any programming language, Data Types are quite important as they decide the amount of memory to be allocated to a variable/constant. Swift supports the following **Built-in Data Types** :
 
 - **Int or UInt** − This is used for whole numbers. More specifically, you can use Int32, Int64 to define 32 or 64 bit signed integer, whereas UInt32 or UInt64 to define 32 or 64 bit unsigned integer variables. For example, 42 and -23. On 32-bit Platforms, Int or UInt will automatically refer to Int32 or UInt32 respectively. Similar reference is done on 64-bit Platforms. Even 8-bit and 16-bit versions of Int/Uint types are available.
 - **Float** − This is used to represent a 32-bit floating-point number and numbers with smaller decimal points. For example, 3.14159, 0.1, and -273.158.
@@ -39,6 +39,13 @@ typealias newname = type
 ```swift
 typealias Number = Int
 var x: Number = 56
+```
+
+### Type Safety
+Swift is a type-safe language, which means that we can't assign a literal or object of a different type to a variable of some other type. For example, the following code will produce the error `error: cannot assign value of type 'String' to type 'Int'` at Compile time :
+```swift
+var a: Int = 5
+a = "Hello"
 ```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
