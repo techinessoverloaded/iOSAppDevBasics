@@ -19,9 +19,10 @@ print("Hello World")
 ```
 
 **Output 1 :**
-```swift
+```
 Hello World
 ```
+
 **Example 2 :**
 ```swift
 var name = "Kris"
@@ -30,7 +31,7 @@ print("!")
 ```
 
 **Output 2 :**
-```swift
+```
 Good morning,Kris !
 ```
 
