@@ -94,7 +94,41 @@ Optional<String>
 Hello
 String
 ```
-Small
+#### Using Optional Binding
+**Optional Binding** is similar to using an `if`-`else` block. The only difference is that if the `Optional` value is not `nil`, the unwrapped value is assigned to a new constant and further operations are performed on the constant. It can be done using `if`-`let` block :
+**Example 4 :**
+```swift
+var sample:String? = "Hello"
+if let unwrappedSample = sample
+{
+print("Sample is \(unwrappedSample)")
+}
+```
+**Output 4 :**
+```
+Sample is Hello
+```
+
+#### Using `nil` Coalescing Operator `??`
+The `nil` Coalescing Operator `??` is like a shorthand for `if`-`else` Block. If the Optional has a value, that value will be used. Else, a provided Default Value will be used.
+**Example 5 :**
+```swift
+var str1: String?
+var str2: String = str1 ?? "Default"
+print(str2)
+str1 = "Provided"
+str2 = str1 ?? "Default"
+print(str2)
+```
+**Output 5 :**
+```
+Default
+Provided
+```
+#### Using Optional Chaining
+This method will be discussed after seeing about Classes in Swift.
+
+Now that we have seen about Optionals and Tuples in Swift, we can see about Basic I/O functions in Swift.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
