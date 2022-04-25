@@ -37,7 +37,7 @@ Good morning,Kris !
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/varconst.html">&larr; Variables, Literals and Constants in Swift</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/optuples.html">&larr; Tuples and Optionals in Swift</a>
 </span>
 <span style="float: right">
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html"> &rarr;</a>
