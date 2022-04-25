@@ -94,6 +94,7 @@ Optional<String>
 Hello
 String
 ```
+Small
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
