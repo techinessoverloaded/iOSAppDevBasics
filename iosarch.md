@@ -10,7 +10,7 @@ The general architecture of iOS consists of four layers as shown below:
 All the iOS technologies are build on the low level features provided by the Core OS layer. These technologies include Core Bluetooth Framework, External Accessory Framework, Accelerate Framework, Security Services Framework, Local Authorisation Framework etc.
 
 ### Core Services Layer
-There are many frameworks available in the cure services layer. Details about some of these are given as follows :
+There are many frameworks available in the core services layer. Details about some of these are given as follows :
 
 #### Cloudkit Framework
 The data can be moved between the app the iCloud using the Cloudkit Framework.
