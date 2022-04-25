@@ -6,7 +6,7 @@ Basic I/O Functions are used to print output to the standard output (usually con
 ### Output Function
 Swift provides the `print()` function for printing output on the console. The `print()` function accepts three parameters. The prototype is as follows :
 ```swift
-print(items: Any..., separator: String = " ", terminator: String = "\n")
+print(_ items: Any..., separator: String = " ", terminator: String = "\n")
 ```
 
 - `items` - The variable argument object(s) of `Any` type to be printed.
@@ -34,6 +34,8 @@ print("!")
 ```
 Good morning,Kris !
 ```
+
+### String Interpolation
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
