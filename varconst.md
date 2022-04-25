@@ -45,7 +45,7 @@ var area = pi*radius*radius // VARIABLE
 ```
 As with variables, **Type Annotations** can also be used with Constants in Swift (Simply replace `var` with `let`).
 <br>
-The next Topic will cover about the Basic Input and Output functions in Swift. 
+The next Topic will cover about Tuples and Optionals in Swift. 
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
@@ -53,5 +53,5 @@ The next Topic will cover about the Basic Input and Output functions in Swift.
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/datatypes.html">&larr; Data Types available in Swift</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/basicio.html">Basic Input and Output in Swift &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/optuples.html">Tuples and Optionals in Swift &rarr;</a>
 </span>
