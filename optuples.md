@@ -133,7 +133,7 @@ Now that we have seen about Optionals and Tuples in Swift, we can see about Vari
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/optuples.html">&larr; Optionals and Tuples</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/datatypes.html">&larr; Data Types in Swift</a>
 </span>
 <span style="float: right">
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/varconst.html">Variables, Literals and Constants &rarr;</a>
