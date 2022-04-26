@@ -1,9 +1,10 @@
 # theme: jekyll-theme-cayman
 # remote_theme: lewismiddleton/cayman-dark
-remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+# remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+remote_theme: "chrisrhymes/bulma-clean-theme"
 plugins:
 - jekyll-remote-theme
-- jekyll-include-cache
+# - jekyll-include-cache
 title: iOS App Development Basics
 description: A simple Blog which helps to learn/recall the basics of iOS App Development using Swift Programming Language.
 author: Arunprasadh C
