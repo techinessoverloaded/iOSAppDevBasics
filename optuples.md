@@ -26,7 +26,7 @@ The error code is : 404
 The error description is : Not Found
 ```
 
-I have used **String Interpolation** in the above example. It will be covered in the Next Topic Page.
+I have used **String Interpolation** in the above example. It will be covered in the Basic I/O Functions Page.
 
 ### Optionals
 `Optional` is a Data Type which is used in situations where either there can be a Value or there can be no Value at all. When there is no value, it is represented as `nil` (Just like `NULL` in **C/C++** or like `null` in **Java**. But `nil` is not a Pointer as in other languages). `nil` can be assigned only to variables/constants of `Optional` type. General Syntax of declaring an `Optional` variable is as follows:
@@ -128,13 +128,13 @@ Provided
 #### Using Optional Chaining
 This method will be discussed after seeing about Classes in Swift.
 
-Now that we have seen about Optionals and Tuples in Swift, we can see about Basic I/O functions in Swift.
+Now that we have seen about Optionals and Tuples in Swift, we can see about Variables, Literals and Constants in Swift.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/varconst.html">&larr; Variables, Literals and Constants in Swift</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/optuples.html">&larr; Optionals and Tuples</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/basicio.html">Basic I/O in Swift &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/varconst.html">Variables, Literals and Constants &rarr;</a>
 </span>
