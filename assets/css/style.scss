@@ -2,6 +2,7 @@
 ---
 
 @import 'jekyll-theme-cayman';
+
 .page-header {
   color: #fff;
   text-align: center;
@@ -16,6 +17,19 @@
 }
 body {
   color: #ffffff;
+}
+.main-content code {
+    color: rgb(213 209 202);
+    background-color: rgb(47 51 53);
+}
+.main-content pre > code {
+    color: #ffffff;
+}
+.highlight .s {
+    color: #aac4e0;
+}
+a {
+    color: #8bb8ee;
 }
 // .main-content highlight { 
 //   background-color: #ffffff;
