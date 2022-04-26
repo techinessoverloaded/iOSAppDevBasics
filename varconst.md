@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 21 Apr 2022** • *Last Updated on 21 Apr 2022*
+**Published by Arunprasadh C on 21 Apr 2022** • *Last Updated on 26 Apr 2022*
 
 ## Variables, Literals and Constants in Swift
 ### Literals
@@ -45,7 +45,7 @@ var area = pi*radius*radius // VARIABLE
 ```
 As with variables, **Type Annotations** can also be used with Constants in Swift (Simply replace `var` with `let`).
 <br>
-The next Topic will cover about Tuples and Optionals in Swift. 
+The next Topic will cover about Basic I/O Functions in Swift. 
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
@@ -53,5 +53,5 @@ The next Topic will cover about Tuples and Optionals in Swift.
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/datatypes.html">&larr; Data Types available in Swift</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/optuples.html">Tuples and Optionals in Swift &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/basicio.html">Basic I/O in Swift &rarr;</a>
 </span>
