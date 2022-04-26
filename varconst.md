@@ -32,6 +32,29 @@ var word:String
 // Some statements
 word = "Hello"
 ```
+#### Declaring Multiple Variables on a single line
+Multiple variables can be declared without initialization in a single line provided that the variables are annotated with their types.
+
+**Syntax :**
+```swift
+var v1:DataType1, v2:DataType2, v3:DataType3, ...
+```
+**Example :**
+```swift
+var name: String, age: Int, native: String
+```
+#### Initializing/Assigning values to Multiple Variables using Tuple Syntax
+Multiple variables can be initialized/assigned to values at once using the Tuple Syntax:
+
+**Syntax :**
+```swift
+(v1, v2, v3, ...) = (value1, value2, value3, ...)
+```
+**Example :**
+Consider the variables declared in the previous example:
+```swift
+(v1, v2, v3, ...) = (value1, value2, value3, ...)
+```
 ### Constants
 Constants can be considered as **Immutable** (or **read-only**) Variables. Constants allow the values to be assigned only once. After assignment, the value can't be changed. It can only be accessed.  In Swift, constants can be declared by using `let` Keyword. The general syntax of declaring constants is as follows:
 ```swift
