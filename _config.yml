@@ -1,7 +1,6 @@
 # theme: jekyll-theme-cayman
-# remote_theme: lewismiddleton/cayman-dark
+remote_theme: "lewismiddleton/cayman-dark"
 # remote_theme: "mmistakes/minimal-mistakes@4.24.0"
-remote_theme: "chrisrhymes/bulma-clean-theme"
 plugins:
 - jekyll-remote-theme
 # - jekyll-include-cache
