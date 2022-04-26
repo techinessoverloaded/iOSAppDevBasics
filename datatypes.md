@@ -57,7 +57,7 @@ var a = 4 // Inferred as Int
 var b = "Hello World" // Inferred as String
 ```
 
-Now that we have seen about Data types in Swift, we can move on to learn about Variables, Literals and Constants in Swift.
+Now that we have seen basically  about Data types in Swift, we can move on to see in Detail about Tuples and Optionals in Swift.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
@@ -65,5 +65,5 @@ Now that we have seen about Data types in Swift, we can move on to learn about V
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/swiftintro.html">&larr; Introduction to Swift</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/varconst.html">Variables, Literals and Constants &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/optuples.html">Tuples and Optionals &rarr;</a>
 </span>
