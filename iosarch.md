@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 19 Apr 2022** • *Last Updated on 19 Apr 2022* {% include read_time.html %}
+**Published by Arunprasadh C on 19 Apr 2022** • *Last Updated on 19 Apr 2022*
 
 ## iOS Architecture
 The general architecture of iOS consists of four layers as shown below:
