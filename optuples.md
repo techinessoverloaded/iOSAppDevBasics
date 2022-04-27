@@ -3,7 +3,7 @@
 ## Tuples and Optionals in Swift
 
 ### Tuples
-Tuples are used to group multiple values in a single compound value. The values can be of different Data Types. Type Annotation cannot be used with Tuples as they are statically defined. The basic syntax of `Tuple` is as follows:
+Tuples are used to group multiple values in a single compound value. The values can be of different Data Types. The basic syntax of `Tuple` is as follows:
 ```swift
 var TupleName = (value1, value2,… any number of values) // for Variables
 ```
