@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 21 Apr 2022** • *Last Updated on 26 Apr 2022*
+**Published by Arunprasadh C on 21 Apr 2022** • *Last Updated on 27 Apr 2022*
 
 ## Variables, Literals and Constants in Swift
 ### Literals
@@ -53,8 +53,15 @@ Multiple variables can be initialized/assigned to values at once using the Tuple
 **Example :**
 Consider the variables declared in the previous example:
 ```swift
-(v1, v2, v3, ...) = (value1, value2, value3, ...)
+(name, age, native) = ("Kris", 21, "Madras")
+native = "Chennai"
+print("\(name) is a \(age) year old boy whose native is \(native)")
 ```
+**Output :**
+```
+Kris is a 21 year old boy whose native is Chennai
+```
+
 ### Constants
 Constants can be considered as **Immutable** (or **read-only**) Variables. Constants allow the values to be assigned only once. After assignment, the value can't be changed. It can only be accessed.  In Swift, constants can be declared by using `let` Keyword. The general syntax of declaring constants is as follows:
 ```swift
@@ -66,7 +73,7 @@ let pi = 3.14 // CONSTANT
 var radius = 7 // VARIABLE
 var area = pi*radius*radius // VARIABLE
 ```
-As with variables, **Type Annotations** can also be used with Constants in Swift (Simply replace `var` with `let`).
+As with variables, **Type Annotations** can also be used with Constants in Swift (Simply replace `var` with `let`). Also, like variables, many constants can also be declared at once in a single line and be can initialized using tuple syntax.
 <br>
 The next Topic will cover about Basic I/O Functions in Swift. 
 
