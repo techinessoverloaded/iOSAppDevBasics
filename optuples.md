@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 25 Apr 2022** • *Last Updated on 26 Apr 2022*
+**Published by Arunprasadh C on 25 Apr 2022** • *Last Updated on 27 Apr 2022*
 
 ## Tuples and Optionals in Swift
 
@@ -26,7 +26,35 @@ The error code is : 404
 The error description is : Not Found
 ```
 
-I have used **String Interpolation** in the above example. It will be covered in the Basic I/O Functions Page.
+I have used **String Interpolation** in the above example. It will be covered in the Basic I/O Functions Page.<br>
+The elements of a `Tuple` can also be given Labels. When such Labels are used, the elements can be accessed with the Labels instead of Index Values. And even a combination of Index Values and Labels can be used.
+
+**Example :**
+```swift
+var tup1 = (a: (c: 4,d: 5),"Hello")
+print(tup1.a.d,tup1.1,separator: ", ")
+```
+
+**Output :**
+```
+5, Hello
+```
+
+There may be some situations where we might want to prefer using `Tuple` over `struct` or `class` to keep the code simpler. But, if we want to reuse the `Tuple` again and again, declaring a `Tuple` again and again might not be the best solution. Instead, we can use `typealias` for declaring the `Tuple` structure once and then reuse the structure like a data type anywhere. Consider the situation where we want to use `Tuple` for storing the attributes of a Circle. We can use `typealias` in the following way :
+
+**Example :**
+```swift
+typealias Circle = (center: (x: Double, y: Double), radius: Double)
+let unitCircle: Circle = Circle(center: (0.0, 0.0), radius: 1.0)
+var circleTwo: Circle = Circle((4.5, 3.5), 10.5)
+print(type(of: circleTwo))
+print(unitCircle.center == circleTwo.center)
+```
+**Output :**
+```
+(center: (x: Double, y: Double), radius: Double)
+false
+```
 
 ### Optionals
 `Optional` is a Data Type which is used in situations where either there can be a Value or there can be no Value at all. When there is no value, it is represented as `nil` (Just like `NULL` in **C/C++** or like `null` in **Java**. But `nil` is not a Pointer as in other languages). `nil` can be assigned only to variables/constants of `Optional` type. General Syntax of declaring an `Optional` variable is as follows:
