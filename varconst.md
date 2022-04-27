@@ -51,7 +51,7 @@ Multiple variables can be initialized/assigned to values at once using the Tuple
 (v1, v2, v3, ...) = (value1, value2, value3, ...)
 ```
 **Example :**
-Consider the variables declared in the previous example:
+Consider the variables declared in the previous example
 ```swift
 (name, age, native) = ("Kris", 21, "Madras")
 native = "Chennai"
@@ -74,7 +74,7 @@ var radius = 7 // VARIABLE
 var area = pi*radius*radius // VARIABLE
 ```
 As with variables, **Type Annotations** can also be used with Constants in Swift (Simply replace `var` with `let`). Also, like variables, many constants can also be declared at once in a single line and be can initialized using tuple syntax.
-<br>
+<br><br>
 The next Topic will cover about Basic I/O Functions in Swift. 
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
