@@ -62,7 +62,9 @@ false
 #### Why there are no explicit pointers in Swift ?
 There are no explicit pointers in Swift (just like other modern languages). The reasons are quite obvious :
 - **Pointers can violate Type Safety :** For example, in C language, the `malloc()` function returns a `void*` pointer which does not refer to any specific Data Type pointer. The value stored at the address can an `int` or `char` or any other Data Type. This causes ambiguity in the type of value stored at the location. It can lead to loss of data when incompatible typecasting is done.
+
 - **Pointers can violate Memory Safety :** Again consider the `malloc()` function in C language. It returns a `void*` pointer after allocating memory blocks dynamically. Suppose, if `free(pointer)` function is not called after the use of the pointer is over, the memory block reserved by `malloc()` remains reserved throughout the execution of the program, thus depriving other programs/threads/variables of the access to that memory block, thus causing a memory leak.
+
 - **Pointers can be potentially unsafe to use :** When wrong addresses are referenced via pointers, it may even lead to accessing of the global variables of the OS and can lead to system crashes.
 
 But, Swift does provide some ways to access pointers (which is known as unsafe Swift) like `UnsafeRawPointer` class which should be used with caution.
