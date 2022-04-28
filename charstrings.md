@@ -32,7 +32,6 @@ let str3 = String(45.5)
 print(type(of: str),type(of: str2),type(of: str3),separator: ", ")
 print(str, str2, str3, separator: ", ")
 ```
-
 **Output :**
 ```
 String, String, String
@@ -50,13 +49,31 @@ This is a paragraph.
 """
 print(paragraph)
 ```
-
 **Output :**
 ```
 This is a paragraph.
 
     This is a new paragraph.
 ```
+
+If we want to avoid line breaks in the `String` value, we can use the `\` character within Multiline Literals.
+
+**Example :**
+```swift
+var paragraph: String = """
+This is a paragraph.\
+\
+    This is not a new paragraph.
+"""
+print(paragraph)
+```
+**Output :**
+```
+This is a paragraph.    This is not a new paragraph.
+```
+
+#### String Indices
+If you are a C/C++/Python developer, you would be familiar with getting characters of a String using the indexing/subscript operator `[]` with Integer indices. If you are a Java developer, you would be familiar with using the `String.charAt()` method to obtain the character at the specific Integer Index. But in Swift, neither of these approaches are followed. Rather, a modified version of the C/C++/Python Character access approach is used. As we saw earlier, Swift allows Unicode characters to be used. Swift also allows combining of Unicode characters graphically. For example, the Letter `é` is represented in Unicode as `\u{E9}`. It can be used as such in Swift too. Additionally, Swift can also combine the Unicode characters of `e` (`\u{65}`) and ` ́` (`\u{301}`) graphically when used in succession, to obtain the character `é` (as `\u{65}\u{301}`). Due to such possibilities, each `Character` of a `String` might take different space in memory. Hence, Swift does not allow Integer indices for accessing the characters of a `String`. 
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
