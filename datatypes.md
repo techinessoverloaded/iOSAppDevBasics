@@ -65,5 +65,5 @@ Now that we have seen basically  about Data types in Swift, we can move on to se
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/swiftintro.html">&larr; Introduction to Swift</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/optuples.html">Tuples and Optionals &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/charstrings.html">Characters and Strings &rarr;</a>
 </span>
