@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 21 Apr 2022** • *Last Updated on 26 Apr 2022*
+**Published by Arunprasadh C on 21 Apr 2022** • *Last Updated on 28 Apr 2022*
 
 ## Data Types available in Swift
 In any programming language, Data Types are quite important as they decide the amount of memory to be allocated to a variable/constant. Swift supports the following **Built-in Data Types** :
@@ -57,7 +57,7 @@ var a = 4 // Inferred as Int
 var b = "Hello World" // Inferred as String
 ```
 
-Now that we have seen basically  about Data types in Swift, we can move on to see in Detail about Tuples and Optionals in Swift.
+Now that we have seen basically  about Data types in Swift, we can move on to see in Detail about Characters and Strings in Swift.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
