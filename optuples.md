@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 25 Apr 2022** • *Last Updated on 27 Apr 2022*
+**Published by Arunprasadh C on 25 Apr 2022** • *Last Updated on 28 Apr 2022*
 
 ## Tuples and Optionals in Swift
 
@@ -173,7 +173,7 @@ Now that we have seen about Optionals and Tuples in Swift, we can see about Vari
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/datatypes.html">&larr; Data Types in Swift</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/charstrings.html">&larr; Characters and Strings in Swift</a>
 </span>
 <span style="float: right">
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/varconst.html">Variables, Literals and Constants &rarr;</a>
