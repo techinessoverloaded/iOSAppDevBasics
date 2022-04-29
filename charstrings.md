@@ -128,6 +128,30 @@ o
 n
 ```
 
+We can also simply iterate the Characters of a `String` with a `for`-`in` loop.
+
+**Example :**
+```swift
+var str : String = "Poke\u{301}mon"
+print(str)
+for c in str
+{
+    print(c)
+}
+```
+**Output :**
+```
+Pokémon
+P
+o
+k
+é
+m
+o
+n
+```
+
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
