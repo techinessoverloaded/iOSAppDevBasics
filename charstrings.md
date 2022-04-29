@@ -79,7 +79,13 @@ If you are a C/C++/Python developer, you would be familiar with getting characte
 In Swift, neither of these approaches are followed. Rather, a modified version of the C/C++/Python Character access approach is used. As we saw earlier, Swift allows Unicode characters to be used. Swift also allows combining of Unicode characters graphically. For example, the Letter `é` is represented in Unicode as `\u{E9}`. It can be used as such in Swift too. Additionally, Swift can also combine the Unicode characters of `e` (`\u{65}`) and ` ́` (`\u{301}`) graphically when used in succession, to obtain the character `é` (as `\u{65}\u{301}`). Hence, different characters can require different amounts of memory to store, so in order to determine which `Character` is at a particular position, you must iterate over each Unicode scalar from the start or end of that `String`. For this reason, Swift strings cannot be indexed by integer values.
 
 #### How to access the Characters of a String ?
-Swift uses a `struct` called `String.Index` for storing the position of each `Character` of the `String`. We can use the subscript operator `[]` with `String.Index` values to access the characters of a `String`.
+Swift uses a `struct` called `String.Index` for storing the position of each `Character` of the `String`. We can use the subscript operator `[]` with `String.Index` values to access the characters of a `String`. The starting Index of the `String` can be accessed by using `String.startIndex` and using values before `startIndex` can cause an error.
+
+**Example :**
+```swift
+
+```
+
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
