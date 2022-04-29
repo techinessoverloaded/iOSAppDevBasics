@@ -75,17 +75,58 @@ This is a paragraph.    This is not a new paragraph.
 #### String Indices
 If you are a C/C++/Python developer, you would be familiar with getting characters of a String using the indexing/subscript operator `[]` with Integer indices. If you are a Java developer, you would be familiar with using the `String.charAt()` method to obtain the character at the specific Integer Index. 
 
-##### Integer Indices are not allowed in Swift !
+##### Integer Indices are not allowed in Swift for Strings !
 In Swift, neither of these approaches are followed. Rather, a modified version of the C/C++/Python Character access approach is used. As we saw earlier, Swift allows Unicode characters to be used. Swift also allows combining of Unicode characters graphically. For example, the Letter `é` is represented in Unicode as `\u{E9}`. It can be used as such in Swift too. Additionally, Swift can also combine the Unicode characters of `e` (`\u{65}`) and "` ́`" (`\u{301}`) graphically when used in succession, to obtain the character `é` (as `\u{65}\u{301}`). Hence, different characters can require different amounts of memory to store, so in order to determine which `Character` is at a particular position, you must iterate over each Unicode scalar from the start or end of that `String`. For this reason, Swift strings cannot be indexed by integer values.
 
-#### How to access the Characters of a String ?
-Swift uses a `struct` called `String.Index` for storing the position of each `Character` of the `String`. We can use the subscript operator `[]` with `String.Index` values to access the characters of a `String`. The starting Index of the `String` can be accessed by using `String.startIndex` and using values before `startIndex` can cause an error.
+##### How to access the Characters of a String ?
+Swift uses a `struct` called `String.Index` for storing the position of each `Character` of the `String`. We can use the subscript operator `[]` with `String.Index` values to access the characters of a `String`. The starting Index of the `String` can be accessed by using `String.startIndex` and using values before `startIndex` will cause an error. The ending Index, that is, the Index value after the last `Character` can be accessed via `String.endIndex` and using values after `endIndex` will cause an error. 
 
 **Example :**
 ```swift
-
+var str : String = "Poke"+"\u{301}mon"
+print(str)
+print(str[str.startIndex])
+print(str[str.index(after: str.startIndex)])
+print(str[str.index(str.startIndex, offsetBy: 2)])
+print(str[str.index(str.startIndex, offsetBy: 3)])
+print(str[str.index(str.startIndex, offsetBy: 4)])
+print(str[str.index(str.startIndex, offsetBy: 5)])
+print(str[str.index(before: str.endIndex)])
+```
+**Output :**
+```
+Pokémon
+P
+o
+k
+é
+m
+o
+n
 ```
 
+We can use the `String.indices` property to get a collection of indices which can be iterated and used.
+
+**Example :**
+```swift
+var str : String = "Poke"+"\u{301}mon"
+print(str)
+for x in str.indices {
+    print(str[x])
+}
+```
+
+**Output :**
+```
+Pokémon
+P
+o
+k
+é
+m
+o
+n
+```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
