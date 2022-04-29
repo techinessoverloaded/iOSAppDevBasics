@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 27 Apr 2022** • *Last Updated on 28 Apr 2022*
+**Published by Arunprasadh C on 27 Apr 2022** • *Last Updated on 29 Apr 2022*
 
 ## Characters and Strings in Swift
 ### Characters
