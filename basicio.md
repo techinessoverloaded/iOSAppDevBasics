@@ -71,18 +71,37 @@ else
 
 When "45.6" is entered as Input, we get the following Output:
 
-**Output 1 :**
+**Output 2 :**
 ```
 45.6
 Float value : 45.6
 Int value : 45
 ```
 
+We can also get multiple inputs separated by some characters as input and split the resultant unwrapped `String` to access individual values and use them.
+
+**Example 3 :**
+```swift
+var str = readLine() ?? ""
+var elements = str.split(separator: ",")
+var firstElement = Int(elements[0]) ?? 0
+print("The first element is: \(firstElement) with type: \(type(of: firstElement))")
+```
+
+When "45,67,Hello" is entered as Input, we get the following Output:
+
+**Output 3 :**
+```
+45,67,Hello
+The first element is: 45 with type: Int
+```
+
+Now as we have seen about Basic I/O in Swift, we can move on to see about Operators in Swift
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/optuples.html">&larr; Tuples and Optionals in Swift</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/varconst.html">&larr; Variables, Literals and Constants</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html"> &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/operators.html">Operators &rarr;</a>
 </span>
