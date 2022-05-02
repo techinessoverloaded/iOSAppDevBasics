@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 25 Apr 2022** • *Last Updated on 28 Apr 2022*
+**Published by Arunprasadh C on 25 Apr 2022** • *Last Updated on 02 May 2022*
 
 ## Tuples and Optionals in Swift
 
@@ -26,7 +26,6 @@ The error code is : 404
 The error description is : Not Found
 ```
 
-I have used **String Interpolation** in the above example. It will be covered in the Basic I/O Functions Page.<br>
 The elements of a `Tuple` can also be given Labels. When such Labels are used, the elements can be accessed with the Labels instead of Index Values. And even a combination of Index Values and Labels can be used.
 
 **Example :**
