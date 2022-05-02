@@ -213,7 +213,7 @@ Today, the Temperature in Chennai is over 35°C
 | `insert()` | Function | Insert a `Character` into the `String` at given `String.Index` |
 | `write()` | Function | Write the `String` value to a File or Stream |
 | `replaceSubrange()` | Function | Replace the given range of `String.Index` with given `Character`s |
-| `remove()`, `removeAll`, `removeFirst()`, `removeLast()`, `removeSubrange()` | Function(s) | Used for removing `Character` or `Substring` from `String` |
+| `remove()`, `removeAll()`, `removeFirst()`, `removeLast()`, `removeSubrange()` | Function(s) | Used for removing `Character` or `Substring` from `String` |
 | `contains()` | Function | Returns `true` if the `String` contains the given `Character` |
 
 Now, we can move on to learn about Tuples and Optionals in Swift.
