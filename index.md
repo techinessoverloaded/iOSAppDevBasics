@@ -15,6 +15,7 @@ You can visit each of the Topic Pages using the below Index
 | [Tuples and Optionals in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/optuples.html) |
 | [Variables, Literals and Constants in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/varconst.html) |
 | [Basic Input and Output in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/basicio.html) |
+| [Operators in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/operators.html) |
 
 <span style="float: right">
   <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/iosintro.html">iOS Introduction &rarr;</a>
