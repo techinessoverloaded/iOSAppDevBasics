@@ -96,7 +96,8 @@ When "45,67,Hello" is entered as Input, we get the following Output:
 The first element is: 45 with type: Int
 ```
 
-Now as we have seen about Basic I/O in Swift, we can move on to see about Operators in Swift
+Now as we have seen about Basic I/O in Swift, we can move on to see about Operators in Swift.
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
