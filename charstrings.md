@@ -150,7 +150,73 @@ m
 o
 n
 ```
+#### String Concatenation
+Strings can be concatenated using `+` operator or can be concatenated and reassigned using `+=` operator or the `append()` function of `String` can also be used for concatenation in Swift.
 
+**Example :**
+```swift
+var greeting = "Good " + "Morning !"
+greeting += " Hope you are doing well !"
+greeting.append(contentsOf: "\nI will call you in the evening.")
+print(greeting)
+```
+**Output :**
+```
+Good Morning ! Hope you are doing well !
+I will call you in the evening.
+```
+
+#### String Comparison
+Strings can be compared by using the `==` operator or by using the `elementsEqual()` function of `String`.
+
+**Example :**
+```swift
+var greeting = "Hello"
+var greeting2 = "Hello"
+var greeting3 = "HELLO"
+print(greeting.elementsEqual(greeting2))
+print(greeting == greeting3)
+```
+
+**Output :**
+```
+true
+false
+```
+
+#### String Interpolation
+String Interpolation in Swift allows us to include variables and constants inside a `String` value (You can find it in `printf()` in other languages).
+String Interpolation can be done using the `\` character followed by the variable or constant name enclosed within parantheses `()`.
+
+**Example: **
+```swift
+var temperature = 35
+print("Today, the Temperature in Chennai is over \(temperature)°C")
+```
+
+**Output :**
+```
+Today, the Temperature in Chennai is over 35°C
+```
+
+#### Other useful functions and property in `String` Type
+
+| Name | Function/Properties | Description |
+| --- | --- | --- |
+| `count` | Property | Gets the number of `Characters` present in the `String` |
+| `isEmpty` | Property | Has the value `true` if the `String` is Empty |
+| `uppercased()` | Function | Returns the upper case version of the `String` |
+| `lowercased()` | Function | Returns the lower case version of the `String` |
+| `hasPrefix()` | Function | Returns `true` if the `String` starts with the given Prefix |
+| `hasSuffix()` | Function | Returns `true` if the `String` ends with the given Suffix |
+| `write()` | Function | Write the `String` value to a File or Stream |
+| `insert()` | Function | Insert a `Character` into the `String` at given `String.Index` |
+| `write()` | Function | Write the `String` value to a File or Stream |
+| `replaceSubrange()` | Function | Replace the given range of `String.Index` with given `Character`s |
+| `remove()`, `removeAll`, `removeFirst()`, `removeLast()`, `removeSubrange()` | Function(s) | Used for removing `Character` or `Substring` from `String` |
+| `contains()` | Function | Returns `true` if the `String` contains the given `Character` |
+
+Now, we can move on to learn about Tuples and Optionals in Swift.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
