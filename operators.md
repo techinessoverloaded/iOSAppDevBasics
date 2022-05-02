@@ -5,7 +5,7 @@
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html">&larr; </a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/basicio.html">&larr; Basic I/O in Swift</a>
 </span>
 <span style="float: right">
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html"> &rarr;</a>
