@@ -73,6 +73,35 @@ Comparison operators compare two operands and return either boolean `true` or `f
 | `>=` | Greater Than or Equal To | `2 >= 2 //true` |
 | `<=` | Less Than or Equal To | `5 <= 2 //false` |
 
+**Example :**
+```swift
+var greeting1 = "Good morning"
+var greeting2 = "Good afternoon"
+var hour = 13
+if hour > 12
+{
+    print(greeting2)
+}
+else
+{
+    print(greeting1)
+}
+```
+
+**Output :**
+```
+Good afternoon
+```
+
+### Logical Operators
+Logical operators are used to check whether an expression is `true` or `false`. They are used in decision-making. Swift supports the following Logical Operators:
+
+| Operator | Description | Example |
+| :---: | :---: | :---: |
+| `&&` | **Logical AND:** Returns `true` only when both operands are `true` | `5 == 2 //false` |
+| `||` | **Logical OR:** Returns `true` only when any of the operands is `true` | `5 != 2 //true` |
+| `!` | **Logical NOT:** Returns `true` if the operand is `false` and vice-versa | `5 > 2 //true` |
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
