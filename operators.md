@@ -152,11 +152,90 @@ Quotient of dividing 5 by 4 is : 1
 Product of multiplying 5 by 4 is : 20
 ```
 
+A combo of assignment and bitwise operators can also be used (like `<<=`).
+
+### Miscellaneous Operators
+These are the other operators available in Swift:
+
+#### Ternary Operator
+The ternary operator represented by `? :` is used to evaluate a condition and execute some code based on the condition. It is like a shorthand for `if`-`else` block.
+
+**Syntax :**
+```swift
+condition ? expression1 : expression2
+```
+
+**Example :**
+```swift
+var marks = 90
+let result = (marks > 45) ? "Pass" : "Fail"
+print("Result : \(result)")
+```
+
+**Output :**
+```
+Result : Pass
+```
+#### Nil Coalescing Operator `??` and Forced Unwrapping Operator `!`
+We have seen about these operators in [Optionals and Tuples](https://techinessoverloaded.github.io/iOSAppDevBasics/optuples.html).
+
+#### Range Operators
+Swift allows to generate Numeric ranges using Range Operators. When floating point numbers are used, the range can't be iterated through as there can be infinite possible numbers. Similarly, for character ranges, they can't be iterated as they don't conform to the `Strideable` Protocol. But, other methods can be used. When integers are used, they can be iterated through using a `for`-`in` loop. There are three kinds of Ranges:
+
+##### Closed Range
+When the `...` operator is used, a range is generated between `lowerBound` and `upperBound` with both the bounds inclusive.
+
+**Example :**
+```swift
+let intRange = 1...10
+for x in intRange
+{
+    print(x, terminator: ", ")
+}
+```
+
+**Output :**
+```
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+```
+
+##### Half-Open Range
+When the `..<` operator is used, a range is generated between `lowerBound` and `upperBound`, inclusive of the `lowerBound` and exclusive of the `upperBound`.
+
+**Example :**
+```swift
+let floatRange = 4.0..<9.0
+print("Is 9.0 present in \(floatRange) ? \(floatRange.contains(9.0))")
+```
+
+**Output :**
+```
+Is 9.0 present in 4.0..<9.0 ? false
+```
+
+##### One-sided Range
+We can create a one-sided range using either `...` or `..<` operator. A one-sided range contains range from one bound upto infinity in one direction.
+
+**Example :**
+```swift
+let minusInfinity = ..<10
+let plusInfinity = 1...
+print(minusInfinity.contains(-999999))
+print(plusInfinity.contains(65535))
+```
+
+**Output :**
+```
+true
+true
+```
+Now that we have seen about Operators in Swift, let's move on to see about Decision-making Constructs in Swift.
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/basicio.html">&larr; Basic I/O in Swift</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html"> &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/decision.html">Decision-making Constructs &rarr;</a>
 </span>
