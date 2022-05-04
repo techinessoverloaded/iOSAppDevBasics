@@ -8,6 +8,7 @@ Operators are the special symbols that perform operations on variables and value
 4. Logical Operators
 5. Bitwise Operators
 6. Miscellaneous Operators
+
 ### Arithmetic Operators
 Arithmetic operators are used to perform mathematical operations like addition, subtraction, multiplication, etc. Swift supports the following Arithmetic Operators:
 
@@ -32,6 +33,34 @@ print("\(a).0 + \(b).0 = \(c)")
 ```
 99.0 + 999.0 = 1098.0
 ```
+
+### Assignment Operators
+Assignment operators are used to assign values to variables. Swift supports the following Assignment Operators:
+
+| Operator | Name | Example |
+| :---: | :---: | :---: |
+| `=` | Assignment Operator | `a = 5` |
+| `+=` | Addition Assignment | `a += 2 // a = a + 2 = 7` |
+| `-=` | Subtraction Assignment | `a -= 2 // a = a - 2 = 5` |
+| `*=` | Multiplication Assignment | `a *= 2 // a = a * 2 = 10` |
+| `/=` | Division Assignment | `a /= 2 // a = a * 2 = 5` |
+| `%=` | Remainder Assignment | `a %= 2 // a = a % 2 = 1` |
+
+**Example :**
+```swift
+var a = 99
+var b = 999
+let oldB = b
+b %= a
+print("\(oldB) %= \(a) = \(b)")
+```
+
+**Output :**
+```
+999 %= 99 = 9
+```
+Note that for the arithmetic assignment combo operators, the operands should be mutable variables declared with `var` keyword.
+
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
