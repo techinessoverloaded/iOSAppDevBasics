@@ -16,6 +16,8 @@ You can visit each of the Topic Pages using the below Index
 | [Variables, Literals and Constants in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/varconst.html) |
 | [Basic Input and Output in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/basicio.html) |
 | [Operators in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/operators.html) |
+| [Decision-making Constructs in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/decision.html) |
+| [Loops in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/loops.html) |
 
 <span style="float: right">
   <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/iosintro.html">iOS Introduction &rarr;</a>
