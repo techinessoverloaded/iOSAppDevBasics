@@ -61,6 +61,17 @@ print("\(oldB) %= \(a) = \(b)")
 ```
 Note that for the arithmetic assignment combo operators, the operands should be mutable variables declared with `var` keyword.
 
+### Comparison Operators
+Comparison operators compare two operands and return either boolean `true` or `false`. The following Comparison operators are supported in Swift:
+
+| Operator | Description | Example |
+| :---: | :---: | :---: |
+| `==` | Is Equal To | `5 == 2 //false` |
+| `!=` | Is Not Equal To | `5 != 2 //true` |
+| `>` | Greater Than | `5 > 2 //true` |
+| `<` | Less Than | `5 < 2 //false` |
+| `>=` | Greater Than or Equal To | `2 >= 2 //true` |
+| `<=` | Less Than or Equal To | `5 <= 2 //false` |
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
