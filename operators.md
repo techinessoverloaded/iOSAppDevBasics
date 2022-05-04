@@ -8,7 +8,6 @@ Operators are the special symbols that perform operations on variables and value
 4. Logical Operators
 5. Bitwise Operators
 6. Miscellaneous Operators
-
 ### Arithmetic Operators
 Arithmetic operators are used to perform mathematical operations like addition, subtraction, multiplication, etc. Swift supports the following Arithmetic Operators:
 
@@ -26,12 +25,12 @@ var a = 99
 var b = 999
 let c:Float
 c = Float(a + b)
-print("\(a) + \(b) = \(c)")
+print("\(a).0 + \(b).0 = \(c)")
 ```
 
 **Output :**
 ```
-99 + 999 = 1098.0
+99.0 + 999.0 = 1098.0
 ```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
