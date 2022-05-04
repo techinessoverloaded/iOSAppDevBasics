@@ -98,9 +98,59 @@ Logical operators are used to check whether an expression is `true` or `false`. 
 
 | Operator | Description | Example |
 | :---: | :---: | :---: |
-| `&&` | **Logical AND:** Returns `true` only when both operands are `true` | `5 == 2 //false` |
-| `||` | **Logical OR:** Returns `true` only when any of the operands is `true` | `5 != 2 //true` |
-| `!` | **Logical NOT:** Returns `true` if the operand is `false` and vice-versa | `5 > 2 //true` |
+| `&&` | Logical AND | `5 == 2 //false` |
+| `||` | Logical OR | `5 != 2 //true` |
+| `!` | Logical NOT | `5 > 2 //true` |
+
+**Example :**
+```swift
+var age: UInt = 16
+if age >= 18 && age <= 100
+{
+    print("You are eligible to vote !")
+}
+else
+{
+    print("You are not eligible to vote !")
+}
+```
+
+**Output :**
+```
+You are not eligible to vote !
+```
+
+### Bitwise Operators
+Bitwise operators perform operations on integer data at the individual bit-level. These operations include testing, setting, or shifting the actual bits. The following Bitwise operators are supported in Swift:
+
+| Operator | Description | Example |
+| :---: | :---: | :---: |
+| `&` | Bitwise AND | `5 & 2 //0` |
+| `|` | Bitwise OR | `5 | 2 //7` |
+| `^` | Bitwise XOR | `5 ^ 2 //7` |
+| `~` | Bitwise NOT | `~5 //-6` |
+| `<<` | Bitwise Left Shift | `5 << 2 //20` |
+| `>>` | Bitwise Right Shift | `5 >> 2 //1` |
+
+**Example :**
+```swift
+print("Quotient of dividing 5 by 4 is : \(5 >> 2)") // equivalent to 5 / 2^2
+//101
+//0 -> 101 -> 1
+//0 -> 010 -> 0
+//001 = 1
+print("Product of multiplying 5 by 4 is : \(5 << 2)") // equivalent to 5 * 2^2
+//101
+//101 <- 0
+//1010 <- 0
+//10100 = 20
+```
+
+**Output :**
+```
+Quotient of dividing 5 by 4 is : 1
+Product of multiplying 5 by 4 is : 20
+```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
