@@ -188,7 +188,7 @@ false
 String Interpolation in Swift allows us to include variables and constants inside a `String` value (You can find it in `printf()` in other languages).
 String Interpolation can be done using the `\` character followed by the variable or constant name enclosed within parantheses `()`.
 
-**Example: **
+**Example :**
 ```swift
 var temperature = 35
 print("Today, the Temperature in Chennai is over \(temperature)°C")
