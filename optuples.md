@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 25 Apr 2022** • *Last Updated on 02 May 2022*
+**Published by Arunprasadh C on 25 Apr 2022** • *Last Updated on 06 May 2022*
 
 ## Tuples and Optionals in Swift
 
@@ -111,11 +111,12 @@ else{
 ```
 Nil
 ```
+
 #### Using Forced Unwrapping Operator `!` :
 Refer Example 1 for **Forced Unwrapping Operator** usage. If the `Optional` having `nil` value is tried to be unwrapped, an error `Unexpectedly found nil while unwrapping an Optional value` will be thrown at Runtime.
 
-#### Using Automatic Unwrapping /Implicitly Unwrapped Optionals:
-Declaring Optionals with `!` instead of `?` will make the variable to be automatically unwrapped during usage.
+#### Using Automatic Unwrapping/Implicitly Unwrapped Optionals:
+Declaring Optionals with `!` instead of `?` will make the variable to be automatically unwrapped when they are assigned
 
 **Example 3 :**
 ```swift
@@ -133,8 +134,12 @@ Optional<String>
 Hello
 String
 ```
-#### Using Optional Binding
+
+However, if `nil` is found in the implicitly optional variable, a fatal error will be thrown when it is assigned to non-optional variables.
+
+#### Using Optional Binding : `if`-`let`/`var`
 **Optional Binding** is similar to using an `if`-`else` block. The only difference is that if the `Optional` value is not `nil`, the unwrapped value is assigned to a new constant and further operations are performed on the constant. It can be done using `if`-`let` block :
+
 **Example 4 :**
 ```swift
 var sample:String? = "Hello"
@@ -148,9 +153,50 @@ print("Sample is \(unwrappedSample)")
 Sample is Hello
 ```
 
+If you want to mutate `unwrappedSample`, you can replace `let` with `var`. However, the constant/variable `unwrappedSample` can't be accessed out of the scope of `if`. So, what should you do if you want to use/mutate `unwrappedSample` after `if` block ? You have to instead prefer to use `guard`-`let`/`var` statement.
+
+#### Using Optional Binding : `guard`-`let`/`var`
+It is similar to using an `if`-`let`/`var` block. The key difference is that the `guard` code block is executed only when the given condition is false. The `guard` statement transfers the constrol out of scope when the condition is `false`. It must use `return` or `throw` to get out of scope when the condition is `false`. If the condition is `true`, it executes the succeeding statements. It literally guards the code from undesired scenarios. Also, on both `if`-`let`/`var` and `guard`-`let`/`var` Optional Binding, additional predicates can be checked by specifying them separated by comma. If the predicate turns out to be `false`, the `else`. block will only get executed even when the Optional has a non-`nil` value.
+
+**Example 5.1 :**
+```swift
+var sample: String? = "Hello"
+var isOkay = true
+guard var unwrappedSample = sample, isOkay else
+{
+    throw fatalError("sample had nil value or isOkay was false")
+}
+unwrappedSample += " World !"
+print(unwrappedSample)
+```
+**Output 5.1 :**
+```
+Hello World !
+```
+
+Let us make the value of variable `isOkay` as `false`. Now, we will get `fatalError` even though `unwrappedSample` got non-`nil` value, as `isOkay` is `false`.
+
+**Example 5.2 :**
+```swift
+var sample: String? = "Hello"
+var isOkay = false
+guard var unwrappedSample = sample, isOkay else
+{
+    throw fatalError("sample had nil value or isOkay was false")
+}
+unwrappedSample += " World !"
+print(unwrappedSample)
+```
+
+**Output 5.2 :**
+```
+helloworld/main.swift:36: Fatal error: sample had nil value or isOkay was false
+2022-05-06 12:13:03.177763+0530 helloworld[13685:124273] helloworld/main.swift:36: Fatal error: sample had nil value or isOkay was false
+```
+
 #### Using `nil` Coalescing Operator `??`
 The `nil` Coalescing Operator `??` is like a shorthand for `if`-`else` Block. If the Optional has a value, that value will be used. Else, a provided Default Value will be used.
-**Example 5 :**
+**Example 6 :**
 ```swift
 var str1: String?
 var str2: String = str1 ?? "Default"
@@ -159,11 +205,13 @@ str1 = "Provided"
 str2 = str1 ?? "Default"
 print(str2)
 ```
-**Output 5 :**
+
+**Output 6 :**
 ```
 Default
 Provided
 ```
+
 #### Using Optional Chaining
 This method will be discussed after seeing about Classes in Swift.
 
