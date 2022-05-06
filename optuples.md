@@ -55,6 +55,8 @@ print(unitCircle.center == circleTwo.center)
 false
 ```
 
+Tuple is a compound type which does not conform to the `Sequence` protocol and hence, it cannot be traversed using a loop. Two tuples can be compared with each other using `==` and other comparison operators when they have the same number of elements with exactly matching types in the same order. However, this comparison can be done only when the tuples contain no more than 6 elements due to the implementation difficulties mentioned [here](https://github.com/apple/swift-evolution/blob/master/proposals/0015-tuple-comparison-operators.md).
+
 ### Optionals
 `Optional` is a Data Type which is used in situations where either there can be a Value or there can be no Value at all. When there is no value, it is represented as `nil` (Just like `NULL` in **C/C++** or like `null` in **Java**. But `nil` is not a Pointer as in other languages). `nil` can be assigned only to variables/constants of `Optional` type. 
 
