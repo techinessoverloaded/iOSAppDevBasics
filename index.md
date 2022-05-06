@@ -18,6 +18,7 @@ You can visit each of the Topic Pages using the below Index
 | [Operators in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/operators.html) |
 | [Decision-making Constructs in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/decision.html) |
 | [Loops in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/loops.html) |
+| [Collections in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/collections.html) |
 
 <span style="float: right">
   <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/iosintro.html">iOS Introduction &rarr;</a>
