@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 21 Apr 2022** • *Last Updated on 27 Apr 2022*
+**Published by Arunprasadh C on 21 Apr 2022** • *Last Updated on 06 May 2022*
 
 ## Variables, Literals and Constants in Swift
 ### Literals
@@ -32,19 +32,26 @@ var word:String
 // Some statements
 word = "Hello"
 ```
-#### Declaring Multiple Variables on a single line
-Multiple variables can be declared without initialization in a single line provided that the variables are annotated with their types.
+#### Defining Multiple Variables on a single line
+Multiple variables can be declared/defined with/without initialization in a single line provided that the variables are annotated with their types.
 
 **Syntax :**
 ```swift
-var v1:DataType1, v2:DataType2, v3:DataType3, ...
+var v1:DataType1 = optInitialValue1, v2:DataType2 = optInitialValue1, v3:DataType3 = optInitialValue1, ...
 ```
 **Example :**
 ```swift
-var name: String, age: Int, native: String
+var name: String = "Kris", age: Int = 22, native: String = "Chennai"
+print("\(name), who is \(age) years old, is from \(native).")
 ```
+
+**Output :**
+```
+Kris, who is 22 years old, is from Chennai.
+```
+
 #### Initializing/Assigning values to Multiple Variables using Tuple Syntax
-Multiple variables can be initialized/assigned to values at once using the Tuple Syntax:
+Multiple variables can be reassigned to values at once using the Tuple Syntax:
 
 **Syntax :**
 ```swift
