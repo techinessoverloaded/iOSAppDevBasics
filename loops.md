@@ -144,7 +144,7 @@ while(true)
 .
 ```
 
-As we have seen about Loops in Swift, let's move on to see about Functions in Swift.
+As we have seen about Loops in Swift, let's move on to see about Collections in Swift.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
@@ -152,5 +152,5 @@ As we have seen about Loops in Swift, let's move on to see about Functions in Sw
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/decision.html">&larr; Decision-making Constructs</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html"> &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/collections.html">Collections &rarr;</a>
 </span>
