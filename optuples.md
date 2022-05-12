@@ -213,6 +213,50 @@ print(str2)
 Default
 Provided
 ```
+#### Using `switch` statement
+`switch` case will be explained in detail in [Decision-making Constructs](). `switch` statement can be used to unwrap optionals in the following manner:
+
+**Example :**
+```swift
+var intOpt: Int? = 5
+switch intOpt
+{
+case .some(let value):
+    print("The value of intOpt is \(value)")
+case .none:
+    print("intOpt is nil")
+}
+```
+
+**Output :**
+```
+The value of intOpt is 5
+```
+
+#### Using `if`-`case`-`let` statement
+The Swift `if`-`case`-`let` statement is a convenient shortcut to avoid a full `switch` statement when you only want to match a single case.
+
+**Example :**
+```swift
+var boolOpt: Bool? = true
+if case .some(let val) = boolOpt
+{
+    print(type(of: val))
+    print(val)
+}
+boolOpt = nil
+if case .none = boolOpt
+{
+    print("nil")
+}
+```
+
+**Output :**
+```
+Bool
+true
+nil
+```
 
 #### Using Optional Chaining
 This method will be discussed after seeing about Classes in Swift.
