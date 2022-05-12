@@ -85,5 +85,5 @@ Int, String, Double, Bool,
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/loops.html">&larr; Loops</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html"> &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/functions.html">Functions &rarr;</a>
 </span>
