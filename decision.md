@@ -276,7 +276,7 @@ case .none:
 The value of intOpt is 5
 ```
 
-Let's see a complex example showcasing optional tuple, array of tuples, random integer index and nested `switch` case.
+Let's see a complex example showcasing optional tuple, array of tuples, random array value and nested `switch` case.
 
 **Example 4:**
 ```swift
@@ -290,7 +290,7 @@ switch tupOpt
 {
 case .none:
     print("Found nil ! Assigning value...")
-    tupOpt = valueRepo[Int.random(in: 0...1)] //using Random Int as Index
+    tupOpt = valueRepo.randomElement() //Gets a random element from the array
     // fallthrough can't be used here as swift compiler doesn't allow to fallthrough nil case. hence shouldContinue boolean is used
 case .some(let value):
     switch value
