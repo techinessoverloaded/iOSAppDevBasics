@@ -259,7 +259,24 @@ nil
 ```
 
 #### Using Optional Chaining
-This method will be discussed after seeing about Classes in Swift.
+Optional chaining is a process for querying and calling properties, methods, and subscripts on an optional that might currently be nil. If the optional contains a value, the property, method, or subscript call succeeds; if the optional is nil, the property, method, or subscript call returns nil. Multiple queries can be chained together, and the entire chain fails gracefully if any link in the chain is nil. The `?` symbol is suffixed to the `Optional` variable to perform Optional Chaining. The benefit of this over Forced Unwrapping is that it doesn't throw error if `nil` is found. The result is always given as an `Optional`. Instead, it returns `nil` value. The following example shows Optional chaining using nested Tuples as we haven't seen about classes and structs in Swift.
+
+**Example :**
+```swift
+var a: Int? = 1, b: Int? = 8, c: Int? = 5, d: String? = "Hello"
+var innerTup1: (a: Int?, b: Int?, c: Int?)? = (a, b, c)
+var innerTup2: (c: Int?, d: String?)? = (c, d)
+var outerTup: (one: (a: Int?, b: Int?, c: Int?)?, two: (c: Int?, d: String?)?)? = (innerTup1, innerTup2)
+print(outerTup?.one?.b?.isMultiple(of: 4))
+outerTup?.two = nil
+print(outerTup?.two?.d)
+```
+
+**Output :**
+```
+Optional(true)
+nil //since two is set as nil
+```
 
 Now that we have seen about Optionals and Tuples in Swift, we can see about Variables, Literals and Constants in Swift.
 
