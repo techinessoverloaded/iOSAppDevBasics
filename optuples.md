@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 25 Apr 2022** • *Last Updated on 06 May 2022*
+**Published by Arunprasadh C on 25 Apr 2022** • *Last Updated on 12 May 2022*
 
 ## Tuples and Optionals in Swift
 
