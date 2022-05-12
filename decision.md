@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 04 May 2022** • *Last Updated on 05 May 2022*
+**Published by Arunprasadh C on 04 May 2022** • *Last Updated on 12 May 2022*
 
 ## Decision-making Constructs in Swift
 Decision-making constructs are used to control the flow of execution in a program based on some condition. Swift provides the following Decision-making Constructs:
@@ -193,7 +193,7 @@ while (i <= 20)
 We have seen about `if`-`let` Statement in [Optionals and Tuples](https://techinessoverloaded.github.io/iOSAppDevBasics/optuples.html). The `guard`-`let` Statement can also be used for the same purpose.
 
 ### The `switch` Statement
-The `switch` statement allows us to execute a block of code among many alternatives. The code block of the `case` which is matched is executed. When there is no match for any `case`, the `default` case code block is executed. An explicit `break` statement is not required for each case (unlike C/C++/Java), as the execution of the `switch` statement ends as soon as a `case` matched block is executed. However, if we want to force the control to fall through to other cases (equivalent to not using `break` in C/C++/Java), we can use the `fallthrough` statement. Unlike Java, a range/comma separated values can be used in `case` label. Note that the `switch` statement can be used only with constants declared using the `let` keyword.
+The `switch` statement allows us to execute a block of code among many alternatives. The code block of the `case` which is matched is executed. When there is no match for any `case`, the `default` case code block is executed. An explicit `break` statement is not required for each case (unlike C/C++/Java), as the execution of the `switch` statement ends as soon as a `case` matched block is executed. However, if we want to force the control to fall through to other cases (equivalent to not using `break` in C/C++/Java), we can use the `fallthrough` statement. Unlike Java, a range/comma separated values can be used in `case` label.
 
 **Syntax :**
 ```swift
@@ -255,6 +255,60 @@ print(description)
 **Output 2:**
 ```
 The number 5 is a prime number, and also an integer.
+```
+
+`switch` statement can also be used with `Tuple`s and `Optional`s.
+
+**Example 3:**
+```swift
+var intOpt: Int? = 5
+switch intOpt
+{
+case .some(let value):
+    print("The value of intOpt is \(value)")
+case .none:
+    print("intOpt is nil")
+}
+```
+
+**Output 3:**
+```
+The value of intOpt is 5
+```
+
+**Example 4:**
+```swift
+var tupOpt: (Int, String)? = nil
+print(type(of: tupOpt))
+var shouldContinue = true
+while shouldContinue
+{
+switch tupOpt
+{
+case .none:
+    print("Found nil ! Assigning value...")
+    tupOpt = (5, "Kris")
+    // fallthrough can't be used here as swift compiler doesn't allow to fallthrough nil case. hence shouldContinue boolean is used
+case .some(let value):
+    switch value
+    {
+    case (5, "Kris"):
+        print("Kris is a 5 year old boy")
+    case (6, "Hari"):
+        print("Hari is a 6 year old boy")
+    default:
+        print("Invalid data")
+    }
+    shouldContinue = false
+}
+}
+```
+
+**Output 4:**
+```
+Optional<(Int, String)>
+Found nil ! Assigning value...
+Kris is a 5 year old boy
 ```
 
 Now, as we have seen about Decision-making Constructs, let's move on to see about Loops in Swift.
