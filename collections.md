@@ -56,7 +56,23 @@ print(hellos)
 ["hello", "hello", "hello", "hello", "hello"]
 ```
 
-Heterogeneous
+Heterogeneous Arrays can be declared by using `Any` type, which can literally represent any type of value.
+
+**Example 3:**
+```swift
+var anyArray: [Any] = [1, "Hello", 4.5, true]
+print(anyArray)
+for x in anyArray
+{
+    print(type(of: x), separator: ", ", terminator: ", ")
+}
+```
+
+**Output 3:**
+```
+[1, "Hello", 4.5, true]
+Int, String, Double, Bool,
+```
 
 ### Sets
 
