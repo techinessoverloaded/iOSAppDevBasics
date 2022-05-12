@@ -8,23 +8,23 @@ An array is a collection of data. Unlike C/C++, Swift allows both homogeneous an
 
 **Syntax :**
 ```swift
-var/let arrayName: [DataType] = [Value1, Value2, Value3, ....]
+var arrayName: [DataType] = [Value1, Value2, Value3, ....]
 ```
 **or**
 ```swift
-var/let arrayName: Array<DataType> = [Value1, Value2, Value3, ....]
+var arrayName: Array<DataType> = [Value1, Value2, Value3, ....]
 ```
 **or**
 ```swift
-var/let arrayName = [Value1, Value2, Value3, ....]
+var arrayName = [Value1, Value2, Value3, ....]
 ```
 **or**
 ```swift
-var/let arrayName = [DataType]() // Empty array
+var arrayName = [DataType]() // Empty array
 ```
 **or**
 ```swift
-var/let arrayName = Array<DataTyoe>(repeating: Int, count: Int) // generates an array with repeating elements of given count
+var arrayName = Array<DataTyoe>(repeating: Int, count: Int) // generates an array with repeating elements of given count
 ```
 
 Note that `[DataType]()` and `Array<DataType>()` are equivalent.
