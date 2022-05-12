@@ -257,7 +257,7 @@ print(description)
 The number 5 is a prime number, and also an integer.
 ```
 
-Let's see a complex example showcasing optional tuple, array of tuples, random array value and nested `switch` case.
+Let's see a complex example showcasing optional tuple, array of tuples, random array value and pattern matching.
 
 **Example 3:**
 ```swift
@@ -271,18 +271,10 @@ switch tupOpt
 {
 case .none:
     print("Found nil ! Assigning value...")
-    tupOpt = valueRepo.randomElement() //Gets a random element from the array
+    tupOpt = valueRepo.randomElement()
     // fallthrough can't be used here as swift compiler doesn't allow to fallthrough nil case. hence shouldContinue boolean is used
-case .some(let value):
-    switch value
-    {
-    case (5, "Kris"):
-        print("Kris is a 5 year old boy")
-    case (6, "Shiv"):
-        print("Shiv is a 6 year old boy")
-    default:
-        print("Invalid data")
-    }
+case .some(let (age, name)):
+    print("\(name) is a \(age) year old boy")
     shouldContinue = false
 }
 }
