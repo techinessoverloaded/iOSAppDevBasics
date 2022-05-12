@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 02 May 2022** • *Last Updated on 04 May 2022*
+**Published by Arunprasadh C on 02 May 2022** • *Last Updated on 12 May 2022*
 
 ## Operators in Swift
 Operators are the special symbols that perform operations on variables and values. Swift Operators can be divided into various categories :
@@ -72,6 +72,7 @@ Comparison operators compare two operands and return either boolean `true` or `f
 | `<` | Less Than | `5 < 2 //false` |
 | `>=` | Greater Than or Equal To | `2 >= 2 //true` |
 | `<=` | Less Than or Equal To | `5 <= 2 //false` |
+| `===` | Identity Operator which checks if two objects point to the same memory reference (can be used only with `class`) | `Sample("A") === Sample("B") //true` |
 
 **Example :**
 ```swift
