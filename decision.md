@@ -276,6 +276,8 @@ case .none:
 The value of intOpt is 5
 ```
 
+Let's see a complex example showcasing optional tuple and nested `switch` case.
+
 **Example 4:**
 ```swift
 var tupOpt: (Int, String)? = nil
