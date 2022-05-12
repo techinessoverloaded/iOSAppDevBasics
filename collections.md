@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 06 May 2022** • *Last Updated on 09 May 2022*
+**Published by Arunprasadh C on 06 May 2022** • *Last Updated on 12 May 2022*
 
 ## Collections in Swift
 As in other languages, Collections in Swift are used to store collections of values. There are three primary kinds of Collections available in Swift :
