@@ -276,10 +276,11 @@ case .none:
 The value of intOpt is 5
 ```
 
-Let's see a complex example showcasing optional tuple and nested `switch` case.
+Let's see a complex example showcasing optional tuple, array of tuples, random integer index and nested `switch` case.
 
 **Example 4:**
 ```swift
+let valueRepo: [(Int, String)] = [(5, "Kris"), (6, "Shiv")]
 var tupOpt: (Int, String)? = nil
 print(type(of: tupOpt))
 var shouldContinue = true
@@ -289,15 +290,15 @@ switch tupOpt
 {
 case .none:
     print("Found nil ! Assigning value...")
-    tupOpt = (5, "Kris")
+    tupOpt = valueRepo[Int.random(in: 0...1)] //using Random Int as Index
     // fallthrough can't be used here as swift compiler doesn't allow to fallthrough nil case. hence shouldContinue boolean is used
 case .some(let value):
     switch value
     {
     case (5, "Kris"):
         print("Kris is a 5 year old boy")
-    case (6, "Hari"):
-        print("Hari is a 6 year old boy")
+    case (6, "Shiv"):
+        print("Shiv is a 6 year old boy")
     default:
         print("Invalid data")
     }
@@ -310,7 +311,7 @@ case .some(let value):
 ```
 Optional<(Int, String)>
 Found nil ! Assigning value...
-Kris is a 5 year old boy
+Shiv is a 6 year old boy
 ```
 
 Now, as we have seen about Decision-making Constructs, let's move on to see about Loops in Swift.
