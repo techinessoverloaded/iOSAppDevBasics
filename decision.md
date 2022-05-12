@@ -257,28 +257,9 @@ print(description)
 The number 5 is a prime number, and also an integer.
 ```
 
-`switch` statement can also be used with `Tuple`s and `Optional`s.
-
-**Example 3:**
-```swift
-var intOpt: Int? = 5
-switch intOpt
-{
-case .some(let value):
-    print("The value of intOpt is \(value)")
-case .none:
-    print("intOpt is nil")
-}
-```
-
-**Output 3:**
-```
-The value of intOpt is 5
-```
-
 Let's see a complex example showcasing optional tuple, array of tuples, random array value and nested `switch` case.
 
-**Example 4:**
+**Example 3:**
 ```swift
 let valueRepo: [(Int, String)] = [(5, "Kris"), (6, "Shiv")]
 var tupOpt: (Int, String)? = nil
@@ -307,7 +288,7 @@ case .some(let value):
 }
 ```
 
-**Output 4:**
+**Output 3:**
 ```
 Optional<(Int, String)>
 Found nil ! Assigning value...
