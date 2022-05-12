@@ -122,6 +122,8 @@ print("Filtered array with only even elements: \(evenArray)")
 evenArray.removeLast() // Remove the last element of array
 print("Even array after removing last element: \(evenArray)")
 print("Does even array contain element 4 ? \(evenArray.contains(4))")
+evenArray.removeAll() // Remove all elements from Even Array
+print("Is Even Array empty ? \(evenArray.isEmpty)") // Check if even array is empty
 ```
 
 **Output 5:**
@@ -138,6 +140,7 @@ Getting Original array by reversing the array: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 Filtered array with only even elements: [2, 4, 6, 8, 10]
 Even array after removing last element: [2, 4, 6, 8]
 Does even array contain element 4 ? true
+Is Even Array empty ? true
 ```
 
 ### Sets
