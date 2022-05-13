@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 18 Apr 2022** • *Last Updated on 12 May 2022*
+**Published by Arunprasadh C on 18 Apr 2022** • *Last Updated on 13 May 2022*
 
 You can visit each of the Topic Pages using the below Index
 
@@ -19,6 +19,7 @@ You can visit each of the Topic Pages using the below Index
 | [Decision-making Constructs in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/decision.html) |
 | [Loops in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/loops.html) |
 | [Collections in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/collections.html) |
+| [Functions and Closures in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/collections.html) |
 
 <span style="float: right">
   <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/iosintro.html">iOS Introduction &rarr;</a>
