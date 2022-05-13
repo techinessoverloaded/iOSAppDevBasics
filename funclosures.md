@@ -1,6 +1,6 @@
-**Published by Arunprasadh C on 12 May 2022** • *Last Updated on 12 May 2022*
+**Published by Arunprasadh C on 12 May 2022** • *Last Updated on 13 May 2022*
 
-## Functions in Swift
+## Functions and Closures in Swift
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
