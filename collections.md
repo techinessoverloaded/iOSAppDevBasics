@@ -156,5 +156,5 @@ A set
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/loops.html">&larr; Loops</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/functions.html">Functions &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/funclosures.html">Functions and Closures&rarr;</a>
 </span>
