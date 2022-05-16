@@ -187,14 +187,45 @@ print(uniqueSet)
 [14, 9, 3, 8, 10, 15, 5, 4, 13, 1, 2, 6, 11, 7, 12] // Since a Set allows only unique values, values from 5 to 10 are not inserted again.
 ```
 
-The elements of a `Set` can be iterated using `for`-`in` loop.
+The elements of a `Set` can be iterated using `for`-`in` loop. `Set` also provides `Set.Index` instead of `Int` index for accessing elements. But, in practical use, the `Set.Index` is not used as the elements are unordered and each time the Index may return a different element.
+
 **Example 3:**
 ```swift
-
+var charSet: Set<Character> = ["A", "B", "C", "D", "E", "F"]
+for c in charSet
+{
+    print(c, terminator: " -> ")
+}
+print()
+for c in charSet.sorted(by: >)
+{
+    print(c, terminator: " -> ")
+}
 ```
 **Output 3:**
 ```
+D -> A -> F -> B -> C -> E -> 
+F -> E -> D -> C -> B -> A ->
+```
 
+The `insert()` function is used to insert an element into the `Set`. The `insert()` function returns a `Tuple` containing two members: a `Bool` value named `inserted` representing whether the element was inserted (will be `true` if the element is not already there in the set and hence was inserted) and a `DataType` value named `memberAfterInsert` representing the inserted element.
+
+**Example 4:**
+```swift
+var intSet: Set = [1, 2, 3, 4, 5, 6]
+print("Original Set: \(intSet)")
+let result = intSet.insert(10)
+if(result.inserted == true)
+{
+    print("\(result.memberAfterInsert) was inserted successfully into the set !")
+    print("Modified Set: \(intSet)")
+}
+```
+**Output 4:**
+```
+Original Set: [6, 4, 2, 1, 5, 3]
+10 was inserted successfully into the set !
+Modified Set: [5, 1, 6, 10, 2, 4, 3]
 ```
 
 ### Dictionaries
