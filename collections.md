@@ -228,9 +228,29 @@ Original Set: [6, 4, 2, 1, 5, 3]
 Modified Set: [5, 1, 6, 10, 2, 4, 3]
 ```
 
-The following example showcases various methods available in `Set`:
+Heterogeneous `Set` can be declared using `AnyHashable` type since `Set` allows only elements conforming to `Hashable` Protocol.
 
 **Example 5:**
+```swift
+var anySet: Set<AnyHashable> = [1, "Hello", true, "World", 6.5]
+anySet.insert(8.9)
+anySet.forEach { element in
+    print(element)
+}
+```
+**Output 5:**
+```
+1
+Hello
+true
+6.5
+World
+8.9
+```
+
+The following example showcases various methods available in `Set`:
+
+**Example 6:**
 ```swift
 var evenSet: Set = [2, 4, 6, 8, 10, 12]
 print("Original Set: \(evenSet)")
@@ -248,7 +268,7 @@ print("Random element of Set: \(evenSet.randomElement()!)") //Random element fro
 evenSet.removeAll() // Remove all elements from Set
 print("Length of Set after removing elements: \(evenSet.count)")
 ```
-**Output 5:**
+**Output 6:**
 ```
 Original Set: [2, 12, 4, 6, 8, 10]
 Set after inserting elements: [4, 10, 6, 20, 8, 2, 12, 13, 21]
@@ -260,7 +280,88 @@ Length of Set after removing elements: 0
 ```
 
 #### Mathematical Set Operations
+Swift `Set` provides different built-in methods to perform Mathematical Set Operations like Union, Intersection, Subtraction, and Symmetric Difference.
 
+##### Union Operation
+The Union of two Sets A and B includes all the elements of set A and B (A ⋃ B). We use the `union()` method to perform the Set Union Operation.
+
+**Example 7:**
+```swift
+let even: Set = [0, 2, 4, 6, 8]
+let odd: Set = [1, 3, 5, 7, 9]
+print("Even set: \(even)")
+print("Odd set: \(odd)")
+let union = even.union(odd)
+print("Sorted view of Union of even and odd: \(union.sorted())")
+```
+**Output 7:**
+```
+Even set: [0, 4, 8, 6, 2]
+Odd set: [7, 3, 5, 9, 1]
+Sorted view of Union of even and odd: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+##### Intersection Operation
+The Intersection of two Sets A and B includes all the elements common to both set A and B (A ⋂ B). We use the `intersection()` method to perform the Set Intersection Operation.
+
+**Example 8:**
+```swift
+let set1: Set = [1, 2, 3, 4, 5]
+let set2: Set = [0, 2, 4, 6, 8]
+print("Set 1: \(set1)")
+print("Set 2: \(set2)")
+let intersection = set1.intersection(set2)
+print("Intersection of Set 1 and Set 2: \(intersection)")
+```
+**Output 8:**
+```
+Set 1: [1, 2, 4, 3, 5]
+Set 2: [6, 8, 4, 0, 2]
+Intersection of Set 1 and Set 2: [2, 4]
+```
+
+##### Set Difference/Subtraction Operation
+The Subtraction of two Sets A and B includes all the elements present in A but not in B (A - B). We use the `subtracting()` method to perform the Set Subtraction Operation.
+
+**Example 9:**
+```swift
+let set1: Set<AnyHashable> = [1, 2.5, "Hello", true]
+let set2: Set<AnyHashable> = [2.5, true, false, 6, 8]
+print("Set 1: \(set1)")
+print("Set 2: \(set2)")
+let subtraction = set1.subtracting(set2)
+print("Subtraction of Set 1 and Set 2: \(subtraction)")
+```
+**Output 9:**
+```
+Set 1: [AnyHashable(2.5), AnyHashable("Hello"), AnyHashable(true), AnyHashable(1)]
+Set 2: [AnyHashable(6), AnyHashable(2.5), AnyHashable(8), AnyHashable(true), AnyHashable(false)]
+Subtraction of Set 1 and Set 2: [AnyHashable("Hello"), AnyHashable(1)]
+```
+
+##### Symmetric Difference Operation
+The Symmetric Difference between two Sets A and B includes all elements of A and B without the common elements ((A - B) ⋃ (B - A)). We use the `symmetricDifference()` method to perform the Set Symmetric Difference Operation.
+
+**Example 10:**
+```swift
+let set1: Set = [1, 2, 3, 5]
+let set2: Set = [1, 8, 9, 5]
+print("Set 1: \(set1)")
+print("Set 2: \(set2)")
+let subtraction1 = set1.subtracting(set2)
+let subtraction2 = set2.subtracting(set1)
+let sub1Usub2 = subtraction1.union(subtraction2)
+let symmetricDifference = set1.symmetricDifference(set2)
+print("Symmetric Difference of two sets: \(symmetricDifference)")
+print("Are Symmetric Difference and Union of A - B and B - A the same ? \(sub1Usub2 == symmetricDifference)")
+```
+**Output 10:**
+```
+Set 1: [5, 2, 3, 1]
+Set 2: [9, 1, 5, 8]
+Symmetric Difference of two sets: [2, 3, 9, 8]
+Are Symmetric Difference and Union of A - B and B - A the same ? true
+```
 
 ### Dictionaries
 
