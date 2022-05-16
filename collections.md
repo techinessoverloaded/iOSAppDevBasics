@@ -155,6 +155,48 @@ var setName: Set = [value1, value2, value3....]
 var setName: Set<DataType> = [value1, value2, value3....]
 ```
 
+**Example 1:**
+```swift
+var intSet: Set = [1, 2, 3, 4]
+print(type(of: intSet))
+print(intSet)
+```
+**Output 1:**
+```
+Set<Int>
+[3, 4, 1, 2] //Since it is an unordered collection, insertion order is not maintained.
+```
+
+**Example 2:**
+```swift
+var uniqueSet: Set<Int> = Set<Int>()
+for i in 1...10
+{
+    uniqueSet.insert(i)
+}
+print(uniqueSet)
+for i in 5...15
+{
+    uniqueSet.insert(i)
+}
+print(uniqueSet)
+```
+**Output 2:**
+```
+[7, 6, 8, 9, 5, 1, 4, 2, 10, 3]
+[14, 9, 3, 8, 10, 15, 5, 4, 13, 1, 2, 6, 11, 7, 12] // Since a Set allows only unique values, values from 5 to 10 are not inserted again.
+```
+
+The elements of a `Set` can be iterated using `for`-`in` loop.
+**Example 3:**
+```swift
+
+```
+**Output 3:**
+```
+
+```
+
 ### Dictionaries
 
 
