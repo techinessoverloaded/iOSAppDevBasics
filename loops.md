@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 04 May 2022** • *Last Updated on 05 May 2022*
+**Published by Arunprasadh C on 04 May 2022** • *Last Updated on 16 May 2022*
 
 ## Loops in Swift
 As in any other language, Loops in Swift are used to execute a set of statements repeatedly until a given condition is true or until a termination condition or control statement is not reached. Swift supports three kind of loops :
@@ -57,10 +57,59 @@ for evenNum in stride(from: 2, to: 21, by: 2)
     print(evenNum, terminator: ", ")
 }
 ```
-
 **Output 3:**
 ```
 Even numbers from 2 to 20 : 2, 4, 6, 8, 10, 12, 14, 16, 18, 20,
+```
+
+The `for`-`in` loop uses `let` constants by default for iterating elements. So, if we want mutable elements, we have to mention `var` in `for`-`in` loop.
+
+**Example 4:**
+```swift
+var intArr = [1, 2, 3, 4, 5, 6]
+print("Original Array: \(intArr)")
+for var i in intArr
+{
+    print("Original i: \(i)")
+    i *= 20
+    print("Modified i: \(i)")
+}
+print("Modified Array: \(intArr)")
+```
+**Output 4:**
+```
+Original Array: [1, 2, 3, 4, 5, 6]
+Original i: 1
+Modified i: 20
+Original i: 2
+Modified i: 40
+Original i: 3
+Modified i: 60
+Original i: 4
+Modified i: 80
+Original i: 5
+Modified i: 100
+Original i: 6
+Modified i: 120
+Modified Array: [1, 2, 3, 4, 5, 6]
+```
+
+However, the original array will remain unaffected. If you want to modify the original array inside the loop, you have to use indices.
+
+**Example 5:**
+```swift
+var intArr = [1, 2, 3, 4, 5, 6]
+print("Original Array: \(intArr)")
+for i in intArr.indices
+{
+    intArr[i] = 20*intArr[i]
+}
+print("Modified Array: \(intArr)")
+```
+**Output 5:**
+```
+Original Array: [1, 2, 3, 4, 5, 6]
+Modified Array: [20, 40, 60, 80, 100, 120]
 ```
 
 ### `while` Loop
