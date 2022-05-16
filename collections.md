@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 06 May 2022** • *Last Updated on 13 May 2022*
+**Published by Arunprasadh C on 06 May 2022** • *Last Updated on 16 May 2022*
 
 ## Collections in Swift
 As in other languages, Collections in Swift are used to store collections of values. There are three primary kinds of Collections available in Swift :
@@ -144,8 +144,16 @@ Is Even Array empty ? true
 ```
 
 ### Sets
-A set
+A set is an unordered collection of unique values. The elements of a Set cannot be duplicate. A `var` or `let` specifying a `Set` value must always provide type annotation as either `Set` or `Set<DataType>` because for a `Set` too, array literals (comma separated values within `[]`) are used for sepcifying values.
 
+**Syntax :**
+```swift
+var setName: Set = [value1, value2, value3....]
+```
+**or**
+```swift
+var setName: Set<DataType> = [value1, value2, value3....]
+```
 
 ### Dictionaries
 
