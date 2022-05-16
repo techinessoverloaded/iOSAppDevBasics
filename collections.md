@@ -228,6 +228,40 @@ Original Set: [6, 4, 2, 1, 5, 3]
 Modified Set: [5, 1, 6, 10, 2, 4, 3]
 ```
 
+The following example showcases various methods available in `Set`:
+
+**Example 5:**
+```swift
+var evenSet: Set = [2, 4, 6, 8, 10, 12]
+print("Original Set: \(evenSet)")
+evenSet.insert(4)
+evenSet.insert(13) // Insert element into Set if it doesn't exist
+evenSet.insert(20)
+evenSet.insert(21)
+print("Set after inserting elements: \(evenSet)")
+evenSet.remove(21) // Remove given element from Set if it exists
+evenSet.remove(13)
+print("Set after removing elements: \(evenSet)")
+print("Does set have element 8 ? \(evenSet.contains(8))")// Returns true if given element is present
+print("Sorted View of Set: \(evenSet.sorted())") // Returns a sorted array using elements of set
+print("Random element of Set: \(evenSet.randomElement()!)") //Random element from Set
+evenSet.removeAll() // Remove all elements from Set
+print("Length of Set after removing elements: \(evenSet.count)")
+```
+**Output 5:**
+```
+Original Set: [2, 12, 4, 6, 8, 10]
+Set after inserting elements: [4, 10, 6, 20, 8, 2, 12, 13, 21]
+Set after removing elements: [4, 10, 6, 20, 8, 2, 12]
+Does set have element 8 ? true
+Sorted View of Set: [2, 4, 6, 8, 10, 12, 20]
+Random element of Set: 4
+Length of Set after removing elements: 0
+```
+
+#### Mathematical Set Operations
+
+
 ### Dictionaries
 
 
