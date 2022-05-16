@@ -144,7 +144,7 @@ Is Even Array empty ? true
 ```
 
 ### Sets
-A set is an unordered collection of unique values. The elements of a Set cannot be duplicate. A `var` or `let` specifying a `Set` value must always provide type annotation as either `Set` or `Set<DataType>` because for a `Set` too, array literals (comma separated values within `[]`) are used for specifying values.
+A set is an unordered collection of unique values. The elements of a Set cannot be duplicate. Swift `Set` is similar to `unordered_set` of C++ and `HashSet` of Java. A `var` or `let` specifying a `Set` value must always provide type annotation as either `Set` or `Set<DataType>` because for a `Set` too, array literals (comma separated values within `[]`) are used for specifying values.
 
 **Syntax :**
 ```swift
@@ -169,7 +169,7 @@ Set<Int>
 
 **Example 2:**
 ```swift
-var uniqueSet: Set<Int> = Set<Int>()
+var uniqueSet: Set<Int> = Set<Int>() // Empty Set
 for i in 1...10
 {
     uniqueSet.insert(i)
@@ -382,7 +382,20 @@ Is Set 2 a subset of Set 1 ? true
 ```
 
 ### Dictionaries
+Swift `Dictionary` is an Unordered Collection of Items. It stores elements in key/value pairs. Here, keys are unique identifiers that are associated with each value. The Key has to be unique and must conform to the `Hashable` Protocol. Swift `Dictionary` is similar to `unordered_map` of C++ and `HashMap` of Java. A Dictionary can be declared either by specifying Dictionary Literal (`[DataType : DataType]`), or by annotating the variable/constant as `Dictionary` along with specification of the Literal, or by annotating the variable/constant as `Dictionary<DataType, DataType>`.
 
+**Syntax :**
+```swift
+var dictName = [key1 : value1, key2 : value2, key3 : value3,....]
+```
+**or**
+```swift
+var dictName: Dictionary = [key1 : value1, key2 : value2, key3 : value3,....]
+```
+**or**
+```swift
+var dictName: Dictionary<DataType, DataType> = [key1 : value1, key2 : value2, key3 : value3,....]
+```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
