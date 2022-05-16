@@ -144,7 +144,7 @@ Is Even Array empty ? true
 ```
 
 ### Sets
-A set is an unordered collection of unique values. The elements of a Set cannot be duplicate. A `var` or `let` specifying a `Set` value must always provide type annotation as either `Set` or `Set<DataType>` because for a `Set` too, array literals (comma separated values within `[]`) are used for sepcifying values.
+A set is an unordered collection of unique values. The elements of a Set cannot be duplicate. A `var` or `let` specifying a `Set` value must always provide type annotation as either `Set` or `Set<DataType>` because for a `Set` too, array literals (comma separated values within `[]`) are used for specifying values.
 
 **Syntax :**
 ```swift
