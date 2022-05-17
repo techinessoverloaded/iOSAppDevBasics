@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 06 May 2022** • *Last Updated on 16 May 2022*
+**Published by Arunprasadh C on 06 May 2022** • *Last Updated on 17 May 2022*
 
 ## Collections in Swift
 As in other languages, Collections in Swift are used to store collections of values. There are three primary kinds of Collections available in Swift :
@@ -141,6 +141,44 @@ Filtered array with only even elements: [2, 4, 6, 8, 10]
 Even array after removing last element: [2, 4, 6, 8]
 Does even array contain element 4 ? true
 Is Even Array empty ? true
+```
+
+**2D Arrays** can be created by optionally type annotating as `[[DataType]]` or `Array<[DataType]>` or `Array<Array<DataType>>` or `[Array<DataType>]` or simply as `Array` and assigning them to literals nested array literals.
+
+**Example 6:**
+```swift
+var twoDAry : Array<[Int]> = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print(twoDAry)
+print(type(of: twoDAry))
+print("Iterating using for-in loop")
+for x in twoDAry
+{
+    for y in x
+    {
+        print(y, terminator: ", ")
+    }
+}
+print("\nIterating using while loop")
+var i: Int = twoDAry.startIndex
+while(i < twoDAry.endIndex)
+{
+    var j: Int = twoDAry[i].startIndex
+    while(j < twoDAry[i].endIndex)
+    {
+        print(twoDAry[i][j], terminator: ", ")
+        j += 1
+    }
+    i += 1
+}
+```
+**Output 6:**
+```
+[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+Array<Array<Int>>
+Iterating using for-in loop
+1, 2, 3, 4, 5, 6, 7, 8, 9, 
+Iterating using while loop
+1, 2, 3, 4, 5, 6, 7, 8, 9,
 ```
 
 ### Sets
@@ -382,7 +420,7 @@ Is Set 2 a subset of Set 1 ? true
 ```
 
 ### Dictionaries
-Swift `Dictionary` is an Unordered Collection of Items. It stores elements in key/value pairs. Here, keys are unique identifiers that are associated with each value. The Key has to be unique and must conform to the `Hashable` Protocol. Swift `Dictionary` is similar to `unordered_map` of C++ and `HashMap` of Java. A Dictionary can be declared either by specifying Dictionary Literal (`[DataType : DataType]`), or by annotating the variable/constant as `Dictionary` along with specification of the Literal, or by annotating the variable/constant as `Dictionary<DataType, DataType>`.
+Swift `Dictionary` is an Unordered Collection of Items. It stores elements in key/value pairs. Here, keys are unique identifiers that are associated with each value. The Key has to be unique and must conform to the `Hashable` Protocol. Swift `Dictionary` is similar to `unordered_map` of C++ and `HashMap` of Java. A Dictionary can be declared either by specifying Dictionary Literal (`[HashableType : Type]`), or by annotating the variable/constant as `Dictionary` along with specification of the Literal, or by annotating the variable/constant as `Dictionary<DataType, DataType>`, or by annotating as `[HashableType : Type]`.
 
 **Syntax :**
 ```swift
@@ -394,8 +432,39 @@ var dictName: Dictionary = [key1 : value1, key2 : value2, key3 : value3,....]
 ```
 **or**
 ```swift
-var dictName: Dictionary<DataType, DataType> = [key1 : value1, key2 : value2, key3 : value3,....]
+var dictName: Dictionary<HashableType, Type> = [key1 : value1, key2 : value2, key3 : value3,....]
 ```
+**or**
+```swift
+var dictName: [HashableType : Type] = [key1 : value1, key2 : value2, key3 : value3,....]
+```
+
+**Example 1:**
+```swift
+//Creating empty Dictionary
+var empty1: [Int : Float] = [Int : Float]()
+var empty2: [String : Int] = [:]
+var empty3 = Dictionary<Double, Int>()
+print(empty1, empty2, empty3, separator: ", ")
+print(type(of: empty1), type(of: empty2), type(of: empty3), separator: ", ")
+```
+**Output 1:**
+```
+[:], [:], [:]
+Dictionary<Int, Float>, Dictionary<String, Int>, Dictionary<Double, Int>
+```
+
+The values can be accessed in O(1) lookup time using keys, as the unique keys are hashed internally.
+
+**Example 2:**
+```swift
+
+```
+**Output 2:**
+```
+
+```
+
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
