@@ -3,7 +3,6 @@ remote_theme: "lewismiddleton/cayman-dark"
 # remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 plugins:
 - jekyll-remote-theme
-- jekyll-target-blank
 # - jekyll-include-cache
 title: iOS App Development Basics
 description: A simple Blog which helps to learn/recall the basics of iOS App Development using Swift Programming Language.
