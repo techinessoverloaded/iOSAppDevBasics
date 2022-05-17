@@ -514,6 +514,29 @@ Is 11 : "ODD" present in Dictionary ? false
 Number of elements in Dictionary: 4
 ```
 
+Heterogeneous Dictionaries can be declared using `AnyHashable` as Key since the Key of a `Dictionary` should conform to the `Hashable` Protocol and using `Any` as Value.
+
+**Example 3:**
+```swift
+var anyDict: [AnyHashable : Any] = ["Dummy" : 1, 1.5 : 4, 9.8 : true, false : "Hello"]
+print(anyDict)
+print(type(of: anyDict))
+for x in anyDict.keys
+{
+    print("\(x) : \(anyDict[x]!)")
+}
+```
+
+**Output 3:**
+```
+[AnyHashable("Dummy"): 1, AnyHashable(false): "Hello", AnyHashable(1.5): 4, AnyHashable(9.8): true]
+Dictionary<AnyHashable, Any>
+Dummy : 1
+false : Hello
+1.5 : 4
+9.8 : true
+```
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
