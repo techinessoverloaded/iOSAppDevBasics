@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 04 May 2022** • *Last Updated on 12 May 2022*
+**Published by Arunprasadh C on 04 May 2022** • *Last Updated on 17 May 2022*
 
 ## Decision-making Constructs in Swift
 Decision-making constructs are used to control the flow of execution in a program based on some condition. Swift provides the following Decision-making Constructs:
@@ -162,7 +162,7 @@ In Swift, we use the `guard` statement to transfer program control out of scope 
 guard expression else 
 {
   //block of code
-  //control statement: return, break, continue or throw.
+  //control statement: return, break, continue or throw. or exit() function.
 }
 ```
 
