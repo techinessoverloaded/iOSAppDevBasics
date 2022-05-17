@@ -454,17 +454,65 @@ print(type(of: empty1), type(of: empty2), type(of: empty3), separator: ", ")
 Dictionary<Int, Float>, Dictionary<String, Int>, Dictionary<Double, Int>
 ```
 
-The values can be accessed in O(1) lookup time using keys, as the unique keys are hashed internally.
+The values can be accessed in O(1) lookup time using keys, as the unique keys are hashed internally. The values of a `Dictionary` can be accessed via the subscript syntax `[]` which takes key as the argument. Note that a `Dictionary` always returns the value wrapped inside an `Optional` type as the any given may/may not exist in the `Dictionary`. Even if the value is annotated as an `Optional` type, assigning `nil` to a value pointed by a key will remove that key-value pair from the `Dictionary`. If you're doubtful about the existence of a key-value pair in a `Dictionary`, you can give a default value in the subscript syntax `[_ key, default: defaultValue]` which will be used when the given key is not present in the `Dictionary`.
 
 **Example 2:**
 ```swift
-
+var dict = [1 : "One", 2 : "Two", 3 : "Three", 4 : "Four"]
+print(dict)
+print(type(of: dict))
+dict[3] = nil //Remove 3 : "Three" from dict
+print(dict)
+print("4 in words is: \(dict[4]!)")
+print(dict[5,default:"Word Representation not present"])
 ```
 **Output 2:**
 ```
-
+[1: "One", 2: "Two", 3: "Three", 4: "Four"]
+Dictionary<Int, String>
+[1: "One", 2: "Two", 4: "Four"]
+4 in words is: Four
+Word Representation not present
 ```
 
+The following example showcases various operations on a `Dictionary`:
+
+**Example 3:**
+```swift
+let even = "EVEN", odd = "ODD"
+var evenOdd : [Int : String] = [2 : even, 3 : even, 9 : odd, 10 : even]
+print("Original Dictionary: \(evenOdd)")
+evenOdd[3] = odd // Modifying value of key
+print("Modified Dictionary: \(evenOdd)")
+evenOdd[19] = even // Adding new key-value pair
+evenOdd[22] = odd // Adding new key-value pair
+print("Modified Dictionary: \(evenOdd)")
+evenOdd[19] = nil // Removing key-value pair from Dictionary
+evenOdd.removeValue(forKey: 22) // Removing key-value pair from Dictionary
+print("Modified Dictionary: \(evenOdd)")
+print("Keys of Dictionary in sorted order: \(evenOdd.keys.sorted())") //Access all keys
+print("Values of Dictionary: \(evenOdd.values)") // Access all values
+print("Key-Value pairs sorted in descending order of Keys: \(evenOdd.sorted(by: >))") // Access all pairs in descending order of keys
+print("Shuffled Dictionary: \(evenOdd.shuffled())") // Shuffle key-value pairs of dictionary
+let is11Present = evenOdd.contains { k,v in //Checking presence of key:value pair using contains method
+    return k==11 && v==odd
+}
+print("Is 11 : \"ODD\" present in Dictionary ? \(is11Present)")
+print("Number of elements in Dictionary: \(evenOdd.count)")
+```
+**Output 3:**
+```
+Original Dictionary: [3: "EVEN", 9: "ODD", 2: "EVEN", 10: "EVEN"]
+Modified Dictionary: [3: "ODD", 9: "ODD", 2: "EVEN", 10: "EVEN"]
+Modified Dictionary: [3: "ODD", 9: "ODD", 19: "EVEN", 22: "ODD", 2: "EVEN", 10: "EVEN"]
+Modified Dictionary: [3: "ODD", 9: "ODD", 2: "EVEN", 10: "EVEN"]
+Keys of Dictionary in sorted order: [2, 3, 9, 10]
+Values of Dictionary: ["ODD", "ODD", "EVEN", "EVEN"]
+Key-Value pairs sorted in descending order of Keys: [(key: 10, value: "EVEN"), (key: 9, value: "ODD"), (key: 3, value: "ODD"), (key: 2, value: "EVEN")]
+Shuffled Dictionary: [(key: 3, value: "ODD"), (key: 9, value: "ODD"), (key: 10, value: "EVEN"), (key: 2, value: "EVEN")]
+Is 11 : "ODD" present in Dictionary ? false
+Number of elements in Dictionary: 4
+```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
