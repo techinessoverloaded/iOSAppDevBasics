@@ -537,6 +537,8 @@ false : Hello
 9.8 : true
 ```
 
+Now that we have learnt about Collections in Swift, we can move on to learn about Functions and Closures in Swift.
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
