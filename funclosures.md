@@ -219,6 +219,35 @@ No parameter was passed !
 ```
 
 
+
+**Example 9:**
+```swift
+func getMinMax(_ numbers: Int...) -> (min: Int?, max: Int?)?
+{
+    if numbers.isEmpty
+    {
+      return nil
+    }
+    return (numbers.min(), numbers.max())
+}
+if let result = getMinMax(34, 10, 99, 108)
+{
+  let min = result.min ?? Int.min
+  let max = result.max ?? Int.max
+  print("Min: \(min)")
+  print("Max: \(max)")
+}
+else
+{
+  print("No parameter was passed !")
+}
+```
+**Output 9:**
+```
+Min: 10
+Max: 108
+```
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
