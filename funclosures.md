@@ -110,6 +110,40 @@ Hey Anonymous ! Please go out !
 Hey Anush ! Please go out !
 ```
 
+#### Variadic Parameters
+Variadic Parameters allow zero or more comma-separated values of a Type to be passed as parameter values. They are declared by appending Parameter Type name with three period characters `...` (Example: `Int...`). The Variadic Parameter can be accessed as an `Array` inside the function. When calling a function having Variadic Parameters, zero or more comma-separated values can be passed. 
+
+Consider the program from Example 4. The same program can be implemented with Variadic Parameters.
+
+**Example 6:**
+```swift
+func sum(_ numbers: Int...)
+{
+    print(type(of: numbers))
+    if numbers.count == 0
+    {
+      print("No parameters passed !")
+      return
+    }
+    var s = 0
+    for x in numbers
+    {
+        s += x
+    }
+    print("Sum of passed Numbers is: \(s)")
+}
+sum()
+sum(1, 2, 4, 10, 11, 20, 39)
+```
+
+**Output 6:**
+```
+Array<Int>
+No parameters passed !
+Array<Int>
+Sum of passed Numbers is: 87
+```
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
