@@ -84,6 +84,32 @@ In the above example, the function `sum()` is called without specifying any argu
 #### Default Parameter values in Functions
 Swift allows us to provide default values to parameters (unlike **Java** which allows overloading and like **C/C++/Python/Kotlin** which allow default values to parameters). When default values are set for parameters, it is not compulsory for the caller to pass values to those parameters. If the values are passed, they are used. If not, the default values are used.
 
+**Example 5:**
+```swift
+func greet(name: String  = "Anonymous", postively: Bool = true)
+{
+  if postively
+  {
+    print("Hello \(name) ! Hope you are doing well !")
+  }
+  else
+  {
+    print("Hey \(name) ! Please go out !")
+  }
+}
+greet()
+greet(name: "Kris")
+greet(postively: false)
+greet(name: "Anush", postively: false)
+```
+**Output 5:**
+```
+Hello Anonymous ! Hope you are doing well !
+Hello Kris ! Hope you are doing well !
+Hey Anonymous ! Please go out !
+Hey Anush ! Please go out !
+```
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
