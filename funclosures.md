@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 12 May 2022** • *Last Updated on 17 May 2022*
+**Published by Arunprasadh C on 12 May 2022** • *Last Updated on 18 May 2022*
 
 ## Functions and Closures in Swift
 ### Functions
@@ -12,7 +12,77 @@ func functionName(paramterName1: ParameterType1, parameterName2: ParameterType2,
 }
 ```
 
-Parameters and Return Type are optional and can be given only when required.
+Parameters and Return Type are optional and can be given only when required. The function can be called by using the name of the function followed by `()` and any required parameters within parantheses.
+
+**Example 1:**
+```swift
+func greet()
+{
+    print("Hello World !")
+}
+greet()
+```
+**Output 1:**
+```
+Hello World !
+```
+
+When the function is called, the control of the program goes to the function definition. All codes inside the function are executed. The control of the program jumps to the next statement after the function call.
+
+When parameters are provided, the function call should mention each paramterName followed by a colon `:` and the actual value passed as parameter. Parameters are separated from one another by means of comma `,`.
+
+**Example 2:**
+```swift
+func greet(name: String)
+{
+    print("Hello \(name) !")
+}
+greet(name: "Kris")
+```
+**Output 2:**
+```
+Hello Kris !
+```
+
+The parameters can also have **Argument Labels** which are the names used when passing arguments to a function. The Argument Label can be specified before the parameter name and they are separated by space. The Argument Label is used only during function call and parameter name is used in function definition. Many parameters can have the same label, but it is recommended to give unique labels for semantic purposes. When an Argument Label is not given, the parameter name is used as the label too.
+
+**Example 3:**
+```swift
+func greet(name: String, from native: String)
+{
+    print("Hello \(name) ! Nice to know that you are from \(native) !")
+}
+greet(name: "Kris", from: "Chennai")
+```
+**Output 3:**
+```
+Hello Kris ! Nice to know that you are from Chennai !
+```
+
+When we don't want to force the function caller to specify argument labels while calling functions, we can use underscore `_` before parameter name.
+
+**Example 4:**
+```swift
+func sum(_ numbers: [Int])
+{
+    var s = 0
+    for x in numbers
+    {
+        s += x
+    }
+    print("Sum of passed Numbers is: \(s)")
+}
+sum([1, 2, 4, 10, 11, 20, 39])
+```
+**Output 4:**
+```
+Sum of passed Numbers is: 87
+```
+
+In the above example, the function `sum()` is called without specifying any argument label because we have used `_` before the parameter `numbers` in the function definition. The most common example of a function using a combination of argument labels and `_` is the `print(_ items: Any..., separator: String = " ", terminator: String = "\n")` where the items to be printed are given without labels and separator and terminator are given when required. Do note that while calling the function, the order of parameters should match the order given in function definition and should not be shuffled.
+
+#### Default Parameter values in Functions
+Swift allows us to provide default values to parameters (unlike **Java** which allows overloading and like **C/C++/Python/Kotlin** which allow default values to parameters).
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
