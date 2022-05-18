@@ -120,7 +120,7 @@ Consider the program from Example 4. The same program can be implemented with Va
 func sum(_ numbers: Int...)
 {
     print(type(of: numbers))
-    if numbers.count == 0
+    if numbers.isEmpty
     {
       print("No parameters passed !")
       return
@@ -143,6 +143,81 @@ No parameters passed !
 Array<Int>
 Sum of passed Numbers is: 87
 ```
+
+#### Return Types of Functions
+The Return Type of the function decides the Type of result returned by the function. The Return Type is specified by an arrow `->` after the parantheses of the function. When a function does not require a Return Type, it can be simply ignored and the Swift Compiler will infer the Return Type as `Void` meaning nothing (Represented by an Empty Tuple `()`).
+
+Consider the program given in Example 6. It is actually contradicting in meaning that the Arithmetic Sum function has no Return Type. It would be more meaningful if the Arithmetic Sum function would actually return the sum rather than printing it.
+
+**Example 7:**
+```swift
+func sum(_ numbers: Int...) -> Int
+{
+    print(type(of: numbers))
+    if numbers.isEmpty
+    {
+      return 0
+    }
+    var s = 0
+    for x in numbers
+    {
+        s += x
+    }
+    return s
+}
+print(sum(1, 2, 4, 10, 11, 20, 39))
+```
+
+**Output 7:**
+```
+Array<Int>
+87
+```
+
+##### Optional Types as Return Types
+We can also declare an Optional Types as Return Type for a Function that is expected to return `nil` in one or more cases.
+
+Consider Example 7's Program. When the Variadic Parameter `numbers` contains no value, `0` is returned. But it is also possible that sum of some numbers can lead to zero. So, we can change the return type to `Int?` and return `nil` when `numbers` is empty.
+
+**Example 8:**
+```swift
+func sum(_ numbers: Int...) -> Int?
+{
+    if numbers.isEmpty
+    {
+      return nil
+    }
+    var s = 0
+    for x in numbers
+    {
+        s += x
+    }
+    return s
+}
+if let result = sum(1, 2, 4, 10, 11, 20, 39)
+{
+  print("The sum is: \(result).")
+}
+else
+{
+  print("No parameter was passed !")
+}
+if let result = sum()
+{
+  print("The sum is: \(result).")
+}
+else
+{
+  print("No parameter was passed !")
+}
+```
+
+**Output 8:**
+```
+The sum is: 87.
+No parameter was passed !
+```
+
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
