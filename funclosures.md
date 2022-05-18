@@ -82,7 +82,7 @@ Sum of passed Numbers is: 87
 In the above example, the function `sum()` is called without specifying any argument label because we have used `_` before the parameter `numbers` in the function definition. The most common example of a function using a combination of argument labels and `_` is the `print(_ items: Any..., separator: String = " ", terminator: String = "\n")` where the items to be printed are given without labels and separator and terminator are given when required. Do note that while calling the function, the order of parameters should match the order given in function definition and should not be shuffled.
 
 #### Default Parameter values in Functions
-Swift allows us to provide default values to parameters (unlike **Java** which allows overloading and like **C/C++/Python/Kotlin** which allow default values to parameters).
+Swift allows us to provide default values to parameters (unlike **Java** which allows overloading and like **C/C++/Python/Kotlin** which allow default values to parameters). When default values are set for parameters, it is not compulsory for the caller to pass values to those parameters. If the values are passed, they are used. If not, the default values are used.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
