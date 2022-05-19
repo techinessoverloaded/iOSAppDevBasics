@@ -335,7 +335,7 @@ Max: 108
 ```
 
 #### Functions with Implicit Return
-If the entire body of the function is a **Single Expression**, the function implicitly returns that expression and there's no need to use the `return` Keyword. For example, both the functions below have the same behavior:
+If the entire body of the function is a **Single Expression**, the function implicitly returns that expression and there's no need to use the `return` Keyword (Like **Kotlin**). For example, both the functions below have the same behavior:
 
 **Example 11:**
 ```swift
