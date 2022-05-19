@@ -359,7 +359,7 @@ print(checkDivisibilityBy2Again(of: 46) ? "46 is Divisible by 2" : "46 is not Di
 ```
 
 ### Function Types
-Every Function in Swift has a specific Function Type, made up of the Parameter Types and the Return Type of the Function. With the support for Function Types comes the support for Function Objects (Just like **C/C++/Python** Function Objects or **Java** Functional Interfaces or **C#** Delegates). So, functions can also be assigned to `var` or `let` and used like Other Types. Even the Function Type returned by the `type(of: )` Function can be compared to check the type just like how it is done with `Int` or other types. A Function Type is represented by means of Tuples for Parameters and Return Type and an Arrow `->` for showing Return Type. As mentioned earlier, the `Void` type is represented as an empty Tuple `()`.
+Every Function in Swift has a specific Function Type, made up of the Parameter Types and the Return Type of the Function. With the support for Function Types comes the support for Function Objects (Just like **C/C++/Python** Function Objects or **Java** Functional Interfaces or **C#** Delegates). So, functions can also be assigned to `var` or `let` and used like Other Types. Even the Function Type returned by the `type(of: )` Function can be compared to check the type just like how it is done with `Int` or other types and even `typealias` can be used with Function Types. A Function Type is represented by means of Tuples for Parameters and Return Type and an Arrow `->` for showing Return Type. As mentioned earlier, the `Void` type is represented as an empty Tuple `()`.
 
 **Example 12.1:**
 ```swift
@@ -432,6 +432,49 @@ printAdditionResult(additionFn: addition)
 **Output 12.3:**
 ```
 The sum is: 279
+```
+
+Function Types can also be used as Return Type of other functions.
+
+**Example 12.4:**
+```swift
+typealias template = (Int) -> Int
+
+func incrementAndReturn(_ value: Int) -> Int
+{
+    value + 1
+}
+
+func decrementAndReturn(_ value: Int) -> Int
+{
+    value - 1
+}
+
+func chooseIncOrDec(shouldDecrement: Bool = false) -> template
+{
+    shouldDecrement ? decrementAndReturn : incrementAndReturn
+}
+
+print(type(of: incrementAndReturn)==template.self)
+var a = 5
+print("Moving 5 towards zero...")
+let chosenFunction = chooseIncOrDec(shouldDecrement: true)
+while a >= 0
+{
+    print(a)
+    a = chosenFunction(a)
+}
+```
+**Output 12.4:**
+```
+true
+Moving 5 towards zero...
+5
+4
+3
+2
+1
+0
 ```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
