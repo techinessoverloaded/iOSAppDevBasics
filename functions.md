@@ -109,7 +109,7 @@ Hey Anonymous ! Please go out !
 Hey Anush ! Please go out !
 ```
 
-#### Variadic Parameters
+### Variadic Parameters
 Variadic Parameters allow zero or more comma-separated values of a Type to be passed as parameter values. They are declared by appending Parameter Type name with three period characters `...` (Example: `Int...`). The Variadic Parameter can be accessed as an `Array` inside the function. When calling a function having Variadic Parameters, zero or more comma-separated values can be passed. 
 
 Consider the program from Example 4. The same program can be implemented with Variadic Parameters.
@@ -143,7 +143,7 @@ Array<Int>
 Sum of passed Numbers is: 87
 ```
 
-#### In-Out Parameters
+### In-Out Parameters
 In Swift, the parameters passed to functions are treated as `let` constants by default. So, they cannot be modified anywhere inside the function body. But, they can be assigned with some modification to any new `var`/`let` values (Example: `var newVar = nonInoutLet + 1`). Even a normal Call by Value `swap()` function can't be written (unlike **C/C++/Java**) since `let` constants are used.
 
 **Erroneous Code:**
@@ -229,7 +229,7 @@ Original a and b: (5,6)
 After swapping a and b: (6,5)
 ```
 
-#### Return Types of Functions
+### Return Types of Functions
 The Return Type of the function decides the Type of result returned by the function. The Return Type is specified by an arrow `->` after the parantheses of the function. When a function does not require a Return Type, it can be simply ignored and the Swift Compiler will infer the Return Type as `Void` meaning nothing (Represented by an Empty Tuple `()`).
 
 Consider the program given in Example 6. It is actually contradicting in meaning that the Arithmetic Sum function has no Return Type. It would be more meaningful if the Arithmetic Sum function would actually return the sum rather than printing it.
@@ -259,7 +259,7 @@ Array<Int>
 87
 ```
 
-##### Optional Types as Return Types
+#### Optional Types as Return Types
 We can also declare an Optional Types as Return Type for a Function that is expected to return `nil` in one or more cases.
 
 Consider Example 7's Program. When the Variadic Parameter `numbers` contains no value, `0` is returned. But it is also possible that sum of some numbers can lead to zero. So, we can change the return type to `Int?` and return `nil` when `numbers` is empty.
@@ -303,7 +303,7 @@ The sum is: 87.
 No parameter was passed !
 ```
 
-##### Functions with Multiple Return Values
+#### Functions with Multiple Return Values
 A Swift Function can return more than one value by means of a Tuple. The Return Type can be specified as a Tuple of values or even as an `Optional` Tuple of values.
 
 **Example 10:**
@@ -334,7 +334,7 @@ Min: 10
 Max: 108
 ```
 
-##### Functions with Implicit Return
+#### Functions with Implicit Return
 If the entire body of the function is a **Single Expression**, the function implicitly returns that expression and there's no need to use the `return` Keyword. For example, both the functions below have the same behavior:
 
 **Example 11:**
@@ -356,6 +356,24 @@ print(checkDivisibilityBy2Again(of: 46) ? "46 is Divisible by 2" : "46 is not Di
 ```
 46 is Divisible by 2
 46 is Divisible by 2
+```
+
+### Function Types
+Every Function in Swift has a specific Function Type, made up of the Parameter Types and the Return Type of the Function. With the support for Function Types comes the support for Function Objects (Just like **C/C++/Python** Function Objects or **Java** Functional Interfaces or **C#** Delegates). So, functions can also be assigned to `var` or `let` and used like Other Types. Even the Function Type returned by the `type(of: )` Function can be compared to check the type just like how it is done with `Int` or other types. A Function Type is represented by means of Tuples and Arrow `->`.
+
+**Example 12.1:**
+```swift
+func swap(_ x: inout Int, _ y: inout Int)
+{
+    (x, y) = (y, x)
+}
+print(type(of: swap))
+print(type(of:swap)==((inout Int, inout Int) -> ()).self)
+```
+**Output 12.1:**
+```
+(inout Int, inout Int) -> ()
+true
 ```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
