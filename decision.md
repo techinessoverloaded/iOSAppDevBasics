@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 04 May 2022** • *Last Updated on 17 May 2022*
+**Published by Arunprasadh C on 04 May 2022** • *Last Updated on 19 May 2022*
 
 ## Decision-making Constructs in Swift
 Decision-making constructs are used to control the flow of execution in a program based on some condition. Swift provides the following Decision-making Constructs:
@@ -285,6 +285,26 @@ case .some(let (age, name)):
 Optional<(Int, String)>
 Found nil ! Assigning value...
 Shiv is a 6 year old boy
+```
+### The Ternary Operator `? :`
+Swift also has a Ternary Operator `? :` like **C/C++/Java** which acts as a shorthand for `if`-`else` construct. First a `Bool` predicate (Any statement whose result is a boolean value) is given. The predicate gets evaluated. If it evaluates to `true`, the statement following `?` is executed. Else, the statement following `:` is executed. The ternary operator can also be used for conditionally assigning values to a variable or constant.
+
+**Syntax :**
+```swift
+var ifWanted = predicate ? statement : alternativeStatement 
+```
+**Example :**
+```swift
+var a = 48
+a%2 == 0 ? print("EVEN") : print("ODD") // executing statements using ? :
+
+a = a%2 == 0 ? 0 : 1 // assigning values using ? :
+print(a)
+```
+**Output :**
+```
+EVEN
+0
 ```
 
 Now, as we have seen about Decision-making Constructs, let's move on to see about Loops in Swift.
