@@ -438,7 +438,7 @@ Function Types can also be used as Return Type of other functions.
 
 **Example 12.4:**
 ```swift
-typealias template = (Int) -> Int
+typealias functionTemplate = (Int) -> Int
 
 func incrementAndReturn(_ value: Int) -> Int
 {
@@ -450,12 +450,12 @@ func decrementAndReturn(_ value: Int) -> Int
     value - 1
 }
 
-func chooseIncOrDec(shouldDecrement: Bool = false) -> template
+func chooseIncOrDec(shouldDecrement: Bool = false) -> functionTemplate
 {
     shouldDecrement ? decrementAndReturn : incrementAndReturn
 }
 
-print(type(of: incrementAndReturn)==template.self)
+print(type(of: incrementAndReturn)==functionTemplate.self)
 var a = 5
 print("Moving 5 towards zero...")
 let chosenFunction = chooseIncOrDec(shouldDecrement: true)
