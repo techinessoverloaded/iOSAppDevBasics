@@ -334,6 +334,29 @@ Min: 10
 Max: 108
 ```
 
+##### Functions with Implicit Return
+If the entire body of the function is a **Single Expression**, the function implicitly returns that expression and there's no need to use the `return` Keyword. For example, both the functions below have the same behavior:
+
+**Example 11:**
+```swift
+func checkDivisibilityBy2(of number: Int) -> Bool
+{
+    return number%2 == 0
+}
+
+func checkDivisibilityBy2Again(of number: Int) -> Bool
+{
+    number%2 == 0 // Implicitly returns a Bool. return keyword not used.
+}
+
+print(checkDivisibilityBy2(of: 46) ? "46 is Divisible by 2" : "46 is not Divisible by 2")
+print(checkDivisibilityBy2Again(of: 46) ? "46 is Divisible by 2" : "46 is not Divisible by 2")
+```
+**Output 11:**
+```
+46 is Divisible by 2
+46 is Divisible by 2
+```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
