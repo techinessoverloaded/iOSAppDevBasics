@@ -455,7 +455,7 @@ func chooseIncOrDec(shouldDecrement: Bool = false) -> functionTemplate
     shouldDecrement ? decrementAndReturn : incrementAndReturn
 }
 
-print(type(of: incrementAndReturn)==functionTemplate.self)
+print(type(of: incrementAndReturn) == functionTemplate.self)
 var a = 5
 print("Moving 5 towards zero...")
 let chosenFunction = chooseIncOrDec(shouldDecrement: true)
