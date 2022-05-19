@@ -218,7 +218,8 @@ The sum is: 87.
 No parameter was passed !
 ```
 
-
+##### Functions with Multiple Return Values
+A Swift Function can return more than one value by means of a Tuple. The Return Type can be specified as a Tuple of values or even as an `Optional` Tuple of values.
 
 **Example 9:**
 ```swift
