@@ -144,12 +144,98 @@ Array<Int>
 Sum of passed Numbers is: 87
 ```
 
+#### In-Out Parameters
+In Swift, the parameters passed to functions are treated as `let` constants by default. So, they cannot be modified anywhere inside the function body. Even a normal Call by Value `swap()` function can't be written (unlike **C/C++/Java**) since `let` constants are used.
+
+**Erroneous Code:**
+```swift
+func swap(_ x: Int, _ y: Int)
+{
+    (x, y) = (y, x) // Results in Compile-time error saying y is a let constant
+}
+```
+
+So, how to make the parameters as `var` variables ? We have to use the `inout` keyword before the annotated type to denote that the parameters are treated as `var` variables inside the function. The caller must insert the ampersand symbol `&` before the variable name while passing values to the In-Out parameter in a function to denote that it is an In-Out parameter. Now, see the following example:
+
+**Example 7.1:**
+```swift
+func swap(_ x: inout Int, _ y: inout Int)
+{
+    (x, y) = (y, x) // Using Tuple syntax to swap values (like Python)
+}
+var a = 5, b = 6
+print("Original a and b: (\(a),\(b))")
+swap(&a, &b)
+print("After swapping a and b: (\(a),\(b))")
+```
+**Output 7.1:**
+```
+Original a and b: (5,6)
+After swapping a and b: (6,5)
+```
+
+You can notice that the swapped values are retained as such even outside the scope of the function. You may wonder how a Value Type like `Int` behaves like a Reference Type. It behaves so because of the `inout` Keyword. The In-Out Parameters work in the following way:
+
+- When the function is called, the value of the argument is copied.
+- In the body of the function, the copy is modified.
+- When the function returns, the copy’s value is assigned to the original argument.
+
+This behavior is known as **copy-in copy-out** or **Call by Value** result. For example, when a computed property or a property with observers is passed as an In-Out parameter, its getter is called as part of the function call and its setter is called as part of the function return.
+
+As an optimization, when the argument is a value stored at a physical address in memory, the same memory location is used both inside and outside the function body. The optimized behavior is known as **Call by Reference**. It satisfies all of the requirements of the **copy-in copy-out** model while removing the Overhead of Copying.
+
+Do Note that In-Out Parameters cannot have default values and Variadic Parameters cannot be In-Out Parameters in Swift. And, only `var` variables can be passed as arguments to functions accepting In-Out Parameters and `let` constants are not allowed for obvious reasons. Also, the Original variable which was passed as In-Out parameter should NOT be accessed inside the function even if it is available in the scope. Attempting to do so will result in a Fatal error as it is a violation of Swift's Memory Exclusivity Guarantee. For the same reason, the same variable should not be passed to multiple In-Out parameters at once. Attempting to do so will result in a compile-time error.
+
+**Erroneous Code:**
+```swift
+func swap(_ x: inout Int, _ y: inout Int)
+{
+    (x, y) = (y, x)
+    print(a) // Cause of Error
+}
+var a = 5, b = 6
+print("Original a and b: (\(a),\(b))")
+swap(&a, &b)
+print("After swapping a and b: (\(a),\(b))")
+```
+**Output :**
+```
+Original a and b: (5,6)
+Simultaneous accesses to 0x100008070, but modification requires exclusive access.
+Previous access (a modification) started at helloworld`main + 708 (0x1000039d4).
+Current access (a read) started at:
+0    libswiftCore.dylib                 0x00007ff81cee0080 swift::runtime::AccessSet::insert(swift::runtime::Access*, void*, void*, swift::ExclusivityFlags) + 442
+1    libswiftCore.dylib                 0x00007ff81cee02e0 swift_beginAccess + 66
+2    helloworld                         0x0000000100003ce0 swap(_:_:) + 106
+3    helloworld                         0x0000000100003710 main + 755
+(lldb) 
+```
+
+The same **Call by Reference** Behaviour can be achieved by means of the `UnsafeMutablePointer` `struct`, although it is not recommended to do so as Pointers are involved (That's why it is termed as Unsafe in Swift). Note that when Pointer arguments are expected, the caller must specify `&` before the name of the variable which is passed as arguments.
+
+**Example 7.2**
+```swift
+func swapUsingPointer(_ a: UnsafeMutablePointer<Int>, _ b: UnsafeMutablePointer<Int>)
+{
+    (a.pointee, b.pointee) = (b.pointee, a.pointee) //pointee gives the value pointed by the pointer
+}
+var a = 5, b = 6
+print("Original a and b: (\(a),\(b))")
+swapUsingPointer(&a, &b)
+print("After swapping a and b: (\(a),\(b))")
+```
+**Output 7.2:**
+```
+Original a and b: (5,6)
+After swapping a and b: (6,5)
+```
+
 #### Return Types of Functions
 The Return Type of the function decides the Type of result returned by the function. The Return Type is specified by an arrow `->` after the parantheses of the function. When a function does not require a Return Type, it can be simply ignored and the Swift Compiler will infer the Return Type as `Void` meaning nothing (Represented by an Empty Tuple `()`).
 
 Consider the program given in Example 6. It is actually contradicting in meaning that the Arithmetic Sum function has no Return Type. It would be more meaningful if the Arithmetic Sum function would actually return the sum rather than printing it.
 
-**Example 7:**
+**Example 8:**
 ```swift
 func sum(_ numbers: Int...) -> Int
 {
@@ -168,7 +254,7 @@ func sum(_ numbers: Int...) -> Int
 print(sum(1, 2, 4, 10, 11, 20, 39))
 ```
 
-**Output 7:**
+**Output 8:**
 ```
 Array<Int>
 87
@@ -179,7 +265,7 @@ We can also declare an Optional Types as Return Type for a Function that is expe
 
 Consider Example 7's Program. When the Variadic Parameter `numbers` contains no value, `0` is returned. But it is also possible that sum of some numbers can lead to zero. So, we can change the return type to `Int?` and return `nil` when `numbers` is empty.
 
-**Example 8:**
+**Example 9:**
 ```swift
 func sum(_ numbers: Int...) -> Int?
 {
@@ -212,7 +298,7 @@ else
 }
 ```
 
-**Output 8:**
+**Output 9:**
 ```
 The sum is: 87.
 No parameter was passed !
@@ -221,7 +307,7 @@ No parameter was passed !
 ##### Functions with Multiple Return Values
 A Swift Function can return more than one value by means of a Tuple. The Return Type can be specified as a Tuple of values or even as an `Optional` Tuple of values.
 
-**Example 9:**
+**Example 10:**
 ```swift
 func getMinMax(_ numbers: Int...) -> (min: Int?, max: Int?)?
 {
@@ -243,7 +329,7 @@ else
   print("No parameter was passed !")
 }
 ```
-**Output 9:**
+**Output 10:**
 ```
 Min: 10
 Max: 108
