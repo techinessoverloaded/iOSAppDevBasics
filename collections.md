@@ -516,7 +516,7 @@ Number of elements in Dictionary: 4
 
 Heterogeneous Dictionaries can be declared using `AnyHashable` as Key since the Key of a `Dictionary` should conform to the `Hashable` Protocol and using `Any` as Value.
 
-**Example 3:**
+**Example 4:**
 ```swift
 var anyDict: [AnyHashable : Any] = ["Dummy" : 1, 1.5 : 4, 9.8 : true, false : "Hello"]
 print(anyDict)
@@ -526,8 +526,7 @@ for x in anyDict.keys
     print("\(x) : \(anyDict[x]!)")
 }
 ```
-
-**Output 3:**
+**Output 4:**
 ```
 [AnyHashable("Dummy"): 1, AnyHashable(false): "Hello", AnyHashable(1.5): 4, AnyHashable(9.8): true]
 Dictionary<AnyHashable, Any>
@@ -535,6 +534,23 @@ Dummy : 1
 false : Hello
 1.5 : 4
 9.8 : true
+```
+
+#### The `zip(_:,_:)` Function
+Swift provides the `zip(_:,_:)` Function to associate one sequence with another (Just like **Python** `zip()` Function and **Java** Stream's `mapToObj()` Method). The first sequence given in parameter is taken as the Key Sequence and the second one is taken as the Value Sequence. The `zip(_:,_:)` returns a `Zip2Sequence` object which can be passed to the `Dictionary` initializer to get a zipped `Dictionary` object.
+
+**Example 5:**
+```swift
+let nums = [1, 2, 3, 4, 5]
+let textualNums = ["One", "Two", "Three", "Four", "Five"]
+let dict = Dictionary(uniqueKeysWithValues: zip(nums, textualNums))
+print("Zipped Dictionary: \(dict)")
+print(type(of: dict))
+```
+**Output 5:**
+```
+Zipped Dictionary: [2: "Two", 5: "Five", 3: "Three", 1: "One", 4: "Four"]
+Dictionary<Int, String>
 ```
 
 Now that we have learnt about Collections in Swift, we can move on to learn about Functions and Closures in Swift.
