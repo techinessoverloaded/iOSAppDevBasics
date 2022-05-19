@@ -144,7 +144,7 @@ Sum of passed Numbers is: 87
 ```
 
 #### In-Out Parameters
-In Swift, the parameters passed to functions are treated as `let` constants by default. So, they cannot be modified anywhere inside the function body. Even a normal Call by Value `swap()` function can't be written (unlike **C/C++/Java**) since `let` constants are used.
+In Swift, the parameters passed to functions are treated as `let` constants by default. So, they cannot be modified anywhere inside the function body. But, they can be assigned with some modification to any new `var`/`let` values (Example: `var newVar = nonInoutLet + 1`). Even a normal Call by Value `swap()` function can't be written (unlike **C/C++/Java**) since `let` constants are used.
 
 **Erroneous Code:**
 ```swift
