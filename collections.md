@@ -4,7 +4,7 @@
 As in other languages, Collections in Swift are used to store collections of values. There are three primary kinds of Collections available in Swift :
 
 ### Arrays
-An array is a collection of data. Unlike C/C++, Swift allows both homogeneous and heterogeneous arrays. Arrays in Swift are handled by the `Array<DataType>` `struct`. Arrays can be declared either by type annotating as `Array<DataType>` or simply as `Array` or `[DataType]` or by specifying the array values as comma separated literals within `[ ]` or using Array constructor. Immutable arrays can be declared using `let` keyword while mutable ones can be declared using `var` keyword.
+An array is an ordered collection of data. Unlike C/C++, Swift allows both homogeneous and heterogeneous arrays. Arrays in Swift are handled by the `Array<DataType>` `struct`. Arrays can be declared either by type annotating as `Array<DataType>` or simply as `Array` or `[DataType]` or by specifying the array values as comma separated literals within `[ ]` or using Array constructor. Immutable arrays can be declared using `let` keyword while mutable ones can be declared using `var` keyword.
 
 **Syntax :**
 ```swift
