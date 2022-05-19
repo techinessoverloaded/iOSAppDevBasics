@@ -359,7 +359,7 @@ print(checkDivisibilityBy2Again(of: 46) ? "46 is Divisible by 2" : "46 is not Di
 ```
 
 ### Function Types
-Every Function in Swift has a specific Function Type, made up of the Parameter Types and the Return Type of the Function. With the support for Function Types comes the support for Function Objects (Just like **C/C++/Python** Function Objects or **Java** Functional Interfaces or **C#** Delegates). So, functions can also be assigned to `var` or `let` and used like Other Types. Even the Function Type returned by the `type(of: )` Function can be compared to check the type just like how it is done with `Int` or other types. A Function Type is represented by means of Tuples and Arrow `->`.
+Every Function in Swift has a specific Function Type, made up of the Parameter Types and the Return Type of the Function. With the support for Function Types comes the support for Function Objects (Just like **C/C++/Python** Function Objects or **Java** Functional Interfaces or **C#** Delegates). So, functions can also be assigned to `var` or `let` and used like Other Types. Even the Function Type returned by the `type(of: )` Function can be compared to check the type just like how it is done with `Int` or other types. A Function Type is represented by means of Tuples for Parameters and Return Type and an Arrow `->` for showing Return Type. As mentioned earlier, the `Void` type is represented as an empty Tuple `()`.
 
 **Example 12.1:**
 ```swift
@@ -374,6 +374,39 @@ print(type(of: swap) == ((inout Int, inout Int) -> ()).self)
 ```
 (inout Int, inout Int) -> ()
 true
+```
+
+Function Types can be assigned/reassigned and used like other types.
+
+**Example 12.2:**
+```swift
+func addition(_ numbers: Int...) -> Int
+{
+    var s = 0
+    numbers.forEach{
+        s += $0
+    }
+    return s
+}
+
+func multiplication(_ numbers: Int...) -> Int
+{
+    var p = 1
+    numbers.forEach{
+        p *= $0
+    }
+    return p
+}
+
+var performOperation: (Int...) -> Int = addition // Assigning performOperation to Addition Function
+print("Sum: \(performOperation(99, 88, 77, 55, 33))")
+performOperation = multiplication // Assigning performOperation to Multiplication Function
+print("Product: \(performOperation(99, 88, 77, 55, 33))")
+```
+**Output 12.2:**
+```
+Sum: 352
+Product: 1217545560
 ```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
