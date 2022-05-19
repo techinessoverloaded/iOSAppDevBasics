@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 06 May 2022** • *Last Updated on 17 May 2022*
+**Published by Arunprasadh C on 06 May 2022** • *Last Updated on 19 May 2022*
 
 ## Collections in Swift
 As in other languages, Collections in Swift are used to store collections of values. There are three primary kinds of Collections available in Swift :
@@ -545,5 +545,5 @@ Now that we have learnt about Collections in Swift, we can move on to learn abou
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/loops.html">&larr; Loops</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/funclosures.html">Functions and Closures&rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/functions.html">Functions &rarr;</a>
 </span>
