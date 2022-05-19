@@ -333,6 +333,7 @@ else
 Min: 10
 Max: 108
 ```
+{% gist 71016395f21702daf1345b5472134650 %}
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
