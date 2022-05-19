@@ -368,7 +368,7 @@ func swap(_ x: inout Int, _ y: inout Int)
     (x, y) = (y, x)
 }
 print(type(of: swap))
-print(type(of:swap)==((inout Int, inout Int) -> ()).self)
+print(type(of: swap)==((inout Int, inout Int) -> ()).self)
 ```
 **Output 12.1:**
 ```
