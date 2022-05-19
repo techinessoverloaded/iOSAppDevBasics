@@ -409,6 +409,31 @@ Sum: 352
 Product: 1217545560
 ```
 
+Function Types can also be used as Parameters in other functions. This facilitates developers to write higher order functions.
+
+**Example 12.3:**
+```swift
+func addition(_ numbers: Int...) -> Int
+{
+    var s = 0
+    numbers.forEach{
+        s += $0
+    }
+    return s
+}
+
+func printAdditionResult(additionFn: (Int...) -> Int)
+{
+    print("The sum is: \(additionFn(78, 99, 12, 34, 56))")
+}
+
+printAdditionResult(additionFn: addition)
+```
+**Output 12.3:**
+```
+The sum is: 279
+```
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
