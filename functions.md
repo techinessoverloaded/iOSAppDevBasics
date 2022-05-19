@@ -1,7 +1,6 @@
 **Published by Arunprasadh C on 12 May 2022** • *Last Updated on 19 May 2022*
 
-## Functions and Closures in Swift
-### Functions
+## Functions in Swift
 A Function is a block of code that performs a specific task. In other words, it is a set of statements which can be repeatedly called and executed as and when required. Functions increase the modularity, reusability and flexibility of the overall code. Swift allows both User-defined Functions and Standard Library Functions. We would have seen about two Standard Library Functions `print()` and `readLine()` in [Basic I/O](https://techinessoverloaded.github.io/iOSAppDevBasics/basicio.html). Now, let's see about User-defined Functions in Swift. User-defined Functions in Swift are declared using `func` keyword (As opposed to `fun` in **Kotlin**, `def` in **Python** and conventional functional declaration of C/C++/Java).
 
 **Syntax :**
@@ -341,5 +340,5 @@ Max: 108
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/collections.html">&larr; Collections</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html"> &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/closures.html">Closures &rarr;</a>
 </span>
