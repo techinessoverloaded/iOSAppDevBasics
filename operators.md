@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 02 May 2022** • *Last Updated on 12 May 2022*
+**Published by Arunprasadh C on 02 May 2022** • *Last Updated on 19 May 2022*
 
 ## Operators in Swift
 Operators are the special symbols that perform operations on variables and values. Swift Operators can be divided into various categories :
@@ -158,25 +158,6 @@ A combo of assignment and bitwise operators can also be used (like `<<=`).
 ### Miscellaneous Operators
 These are the other operators available in Swift:
 
-#### Ternary Operator
-The ternary operator represented by `? :` is used to evaluate a condition and execute some code based on the condition. It is like a shorthand for `if`-`else` block.
-
-**Syntax :**
-```swift
-condition ? expression1 : expression2
-```
-
-**Example :**
-```swift
-var marks = 90
-let result = (marks > 45) ? "Pass" : "Fail"
-print("Result : \(result)")
-```
-
-**Output :**
-```
-Result : Pass
-```
 #### Nil Coalescing Operator `??` and Forced Unwrapping Operator `!`
 We have seen about these operators in [Optionals and Tuples](https://techinessoverloaded.github.io/iOSAppDevBasics/optuples.html).
 
