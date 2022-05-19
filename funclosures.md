@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 12 May 2022** • *Last Updated on 18 May 2022*
+**Published by Arunprasadh C on 12 May 2022** • *Last Updated on 19 May 2022*
 
 ## Functions and Closures in Swift
 ### Functions
