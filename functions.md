@@ -517,6 +517,62 @@ Moving 5 towards zero...
 0
 ```
 
+### Function Overloading
+Swift allows Compile-time Polymorphism a.k.a Function Overloading where a function with the same name can be called with varying arguments.
+The overloaded function can deiffer by:
+- The number of arguments
+- The type of arguments
+- The ordering of arguments
+- The Argument Labels
+
+Note that the Return types don't matter for overloading a function.
+
+**Example 14:**
+```swift
+func println2(_ items: Any...)
+{
+    for x in items
+    {
+        print(x, terminator: " ")
+    }
+    print("\n")
+}
+
+func println2(_ items: Any..., separator: String)
+{
+    for x in items
+    {
+        print(x, terminator: separator)
+    }
+    print("\n")
+}
+
+func println2(separator: String, _ items: Any...)
+{
+    for x in items
+    {
+        print(x, terminator: separator)
+    }
+    print("\n")
+}
+
+println2("Hello","World")
+println2("Hope you are doing well !")
+println2("This is from an overloaded function !",45,60,39,57.5,separator: ", ")
+println2(separator: " -> ","This is from another overloaded function !",99,66,"Hello",154.9)
+```
+**Output 13:**
+```
+Hello World 
+
+Hope you are doing well ! 
+
+This is from an overloaded function !, 45, 60, 39, 57.5, 
+
+This is from another overloaded function ! -> 99 -> 66 -> Hello -> 154.9 ->
+```
+
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
