@@ -553,6 +553,8 @@ Zipped Dictionary: [2: "Two", 5: "Five", 3: "Three", 1: "One", 4: "Four"]
 Dictionary<Int, String>
 ```
 
+When the two sequences are of unequal lengths, the tailing elements are ignored by the `zip(:_,:_)` function.
+
 Now that we have learnt about Collections in Swift, we can move on to learn about Functions and Closures in Swift.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
