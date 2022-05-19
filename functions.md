@@ -78,7 +78,7 @@ sum([1, 2, 4, 10, 11, 20, 39])
 Sum of passed Numbers is: 87
 ```
 
-In the above example, the function `sum()` is called without specifying any argument label because we have used `_` before the parameter `numbers` in the function definition. The most common example of a function using a combination of argument labels and `_` is the `print(_ items: Any..., separator: String = " ", terminator: String = "\n")` where the items to be printed are given without labels and separator and terminator are given when required. Do note that while calling the function, the order of parameters should match the order given in function definition and should not be shuffled.
+In the above example, the function `sum()` is called without specifying any argument label because we have used `_` before the parameter `numbers` in the function definition. The most common example of a function using a combination of argument labels and `_` is the `print(_ items: Any..., separator: String = " ", terminator: String = "\n")` where the items to be printed are given without labels and separator and terminator are given when required. Do note that while calling the function, the order of parameters should match the order given in function definition and should not be shuffled. Also, recursive functions are also supported Swift like other languages.
 
 #### Default Parameter values in Functions
 Swift allows us to provide default values to parameters (unlike **Java** which allows overloading and like **C/C++/Python/Kotlin** which allow default values to parameters). When default values are set for parameters, it is not compulsory for the caller to pass values to those parameters. If the values are passed, they are used. If not, the default values are used.
@@ -468,6 +468,46 @@ while a >= 0
 **Output 12.4:**
 ```
 true
+Moving 5 towards zero...
+5
+4
+3
+2
+1
+0
+```
+
+### Nested Functions
+Till now, we have seen about functions declared at the **Global Scope**. We can also declare functions inside the scope of other functions. These are known as **Nested Functions**. We can rewrite the program from Example 12.4 using Nested Functions as shown below.
+
+**Example 13:**
+```swift
+typealias functionTemplate = (Int) -> Int
+
+func chooseIncOrDec(shouldDecrement: Bool = false) -> functionTemplate
+{
+    func incrementAndReturn(_ value: Int) -> Int
+    {
+        value + 1
+    }
+    func decrementAndReturn(_ value: Int) -> Int
+    {
+        value - 1
+    }
+    return shouldDecrement ? decrementAndReturn : incrementAndReturn
+}
+
+var a = 5
+print("Moving 5 towards zero...")
+let chosenFunction = chooseIncOrDec(shouldDecrement: true)
+while a >= 0
+{
+    print(a)
+    a = chosenFunction(a)
+}
+```
+**Output 13:**
+```
 Moving 5 towards zero...
 5
 4
