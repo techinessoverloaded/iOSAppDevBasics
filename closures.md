@@ -26,7 +26,43 @@ Closure expression syntax has the following general form:
 }
 ```
 
-In-Out Parameters are allowed in Closures but Default Parameter values are not allowed in Closures.
+The `in` keyword is used to separate parameter declaration from the body of the function. In-Out Parameters are allowed in Closures but Default Parameter values are not allowed in Closures. Named Variadic Parameters and Tuples can also be used with Closures. Closures make it easier to write **Higher Order Functions** (Functions which take Other Functions as Parameters). For example, consider the `sorted(by:)` Function from the Swift Standard Library for Arrays, which sorts the `Array` according to the comparison function given as parameter and returns the sorted array.
+If we are to give this comparison function as a Function Object, it would look like:
+
+**Example 1:**
+```swift
+func decreasingOrder(lhs: Int, rhs: Int) -> Bool
+{
+    lhs > rhs
+}
+
+let arr = [34, 99, 56, 12, 10, 108, 543, 7]
+print("Original Array: \(arr)")
+let sortedArr = arr.sorted(by: decreasingOrder)
+print("Array sorted in Descending Order: \(sortedArr)")
+```
+**Output 1:**
+```
+Original Array: [34, 99, 56, 12, 10, 108, 543, 7]
+Array sorted in Descending Order: [543, 108, 99, 56, 34, 12, 10, 7]
+```
+
+This looks too Verbose right ? We can simplify the above code using Closures:
+
+**Modified Example 1:**
+```swift
+let arr = [34, 99, 56, 12, 10, 108, 543, 7]
+print("Original Array: \(arr)")
+let sortedArr = arr.sorted { lhs, rhs in
+    lhs > rhs
+}
+print("Array sorted in Descending Order: \(sortedArr)")
+```
+**Output 1:**
+```
+Original Array: [34, 99, 56, 12, 10, 108, 543, 7]
+Array sorted in Descending Order: [543, 108, 99, 56, 34, 12, 10, 7]
+```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
