@@ -572,6 +572,69 @@ This is from an overloaded function !, 45, 60, 39, 57.5,
 This is from another overloaded function ! -> 99 -> 66 -> Hello -> 154.9 ->
 ```
 
+### Operator Overloading
+Operator overloading allows you to change the way existing operators work with specific structures or classes or even define functions for new operators. There are two kinds of Operators supported by Swift for Overloading:
+
+- **Unary Operator**: These operators take a single operand and perform an operation on it. These can either be `prefix` or `postfix` Operators(For example: The `++` Operator).
+- **Binary Operators:** These operators take two operands and perform an operation on them. These can be as `infix` Operators only (For example: The `+` Operator).
+
+To name a Custom Operator, we have to choose from the available ASCII Characters `/`, `=`, `-`, `+`, `!`, `*`, `%`, `<`, `>`, `&`, `|`, `^`, or `~`, or from Unicode Characters. But, it is recommended to use one of the characters available on the Standard Keyboard. We can even set associativity and precedence for operators. The following example of Operator Overloading shows the implementation of pre-increment and post-increment operators which are unavailable in Swift:
+
+**Example 14:**
+```swift
+// Post-Increment Operator - Returns existing value and Increments
+postfix func ++(value: inout Int) -> Int
+{
+    let temp = value
+    value += 1
+    return temp
+}
+
+// Pre-Increment Operator - Increments first and returns new value
+prefix func ++(value: inout Int) -> Int
+{
+    value += 1
+    return value
+}
+
+var a = 5
+var b = a++ + a + ++a + a++ + a
+a = b++ + ++b
+print("a = \(a)")
+print("a++ = \(a++)")
+print("++a = \(++a)")
+print("b = \(b)")
+print("b++ = \(b++)")
+print("++b = \(++b)")
+
+// Sample while loop using ++ operator
+var i = 0
+// Prints from 0 to 9 since Post-Increment operator is used
+while i < 10
+{
+    print(i++,terminator: ", ")
+}
+print()
+i = 0
+// Prints from 1 to 10 since Pre-Increment operator is used
+while i < 10
+{
+    print(++i,terminator: ", ")
+}
+```
+**Output 14:**
+```
+a = 68
+a++ = 68
+++a = 70
+b = 35
+b++ = 35
+++b = 37
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+```
+
+Now that we have seen about Functions in Swift, let's move on to see about Closures in Swift.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
