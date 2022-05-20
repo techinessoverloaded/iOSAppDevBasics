@@ -16,6 +16,17 @@ Swift’s closure expressions have a clean and clear style, with optimizations t
 - Shorthand argument names.
 - Trailing closure syntax.
 
+### Closure Expressions
+Closure expression syntax has the following general form:
+
+**Syntax :**
+```swift
+{ (parameters) -> returnType in
+   // Set of statements
+}
+```
+
+In-Out Parameters are allowed in Closures but Default Parameter values are not allowed in Closures.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
