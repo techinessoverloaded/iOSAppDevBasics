@@ -578,9 +578,9 @@ Operator overloading allows you to change the way existing operators work with s
 - **Unary Operator**: These operators take a single operand and perform an operation on it. These can either be `prefix` or `postfix` Operators(For example: The `++` Operator).
 - **Binary Operators:** These operators take two operands and perform an operation on them. These can be as `infix` Operators only (For example: The `+` Operator).
 
-To name a Custom Operator, we have to choose from the available ASCII Characters `/`, `=`, `-`, `+`, `!`, `*`, `%`, `<`, `>`, `&`, `|`, `^`, or `~`, or from Unicode Characters. But, it is recommended to use one of the characters available on the Standard Keyboard. We can even set associativity and precedence for operators. The following example of Operator Overloading shows the implementation of pre-increment and post-increment operators which are unavailable in Swift:
+To name a Custom Operator, we have to choose from the available ASCII Characters `/`, `=`, `-`, `+`, `!`, `*`, `%`, `<`, `>`, `&`, `|`, `^`, or `~`, or from Unicode Characters. But, it is recommended to use one of the characters available on the Standard Keyboard. We can even set precedence for operators by means of PrecedenceGroup. The following example of Operator Overloading shows the implementation of pre-increment and post-increment operators which are unavailable in Swift:
 
-**Example 14:**
+**Example 14.1:**
 ```swift
 // Post-Increment Operator - Returns existing value and Increments
 postfix func ++(value: inout Int) -> Int
@@ -622,7 +622,7 @@ while i < 10
     print(++i,terminator: ", ")
 }
 ```
-**Output 14:**
+**Output 14.1:**
 ```
 a = 68
 a++ = 68
@@ -632,6 +632,30 @@ b++ = 35
 ++b = 37
 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 
 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+```
+
+The following example shows declaration of `**` Operator as an Exponentiation Operator:
+
+**Example 14.2:**
+```swift
+// Defining infix operator for exponentiation
+infix operator ** : MultiplicationPrecedence
+func **(lhs: Double, rhs: Double) -> Double
+{
+    pow(lhs, rhs)
+}
+var a = 2.5, b: Double = 6
+print("a ** b = \(a ** b)")
+print("b ** a = \(b ** a)")
+print("a * b ** a * b = \(a * b ** a * b)")
+print("b ** a * a * b = \(b ** a * a * b)")
+```
+**Output 14.2:**
+```
+a ** b = 244.140625
+b ** a = 88.18163074019441
+a * b ** a * b = 5228.527517380013
+b ** a * a * b = 1322.7244611029162
 ```
 
 Now that we have seen about Functions in Swift, let's move on to see about Closures in Swift.
