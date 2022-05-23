@@ -53,9 +53,9 @@ This looks too Verbose right ? We can simplify the above code using Closures:
 ```swift
 let arr = [34, 99, 56, 12, 10, 108, 543, 7]
 print("Original Array: \(arr)")
-let sortedArr = arr.sorted { lhs, rhs in
+let sortedArr = arr.sorted(by: { (lhs: Int, rhs: Int) -> Bool in
     lhs > rhs
-}
+})
 print("Array sorted in Descending Order: \(sortedArr)")
 ```
 **Output 1:**
@@ -63,6 +63,8 @@ print("Array sorted in Descending Order: \(sortedArr)")
 Original Array: [34, 99, 56, 12, 10, 108, 543, 7]
 Array sorted in Descending Order: [543, 108, 99, 56, 34, 12, 10, 7]
 ```
+
+A more simpler way is to pass the operator function `>` to the `sorted(by: )` function, but it is not preferred here as we are discussing about Closures.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
