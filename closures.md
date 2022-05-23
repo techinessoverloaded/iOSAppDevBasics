@@ -64,7 +64,29 @@ Original Array: [34, 99, 56, 12, 10, 108, 543, 7]
 Array sorted in Descending Order: [543, 108, 99, 56, 34, 12, 10, 7]
 ```
 
-A more simpler way is to pass the operator function `>` to the `sorted(by: )` function, but it is not preferred here as we are discussing about Closures.
+Notice that just like Functions, Closures can also use implicit return (No need to specify `return` keyword when there is only a single expression in the body of closure).
+
+A more simpler way is to pass the operator function `>` to the `sorted(by:)` function. But, it is not preferred here as we are discussing about Closures.
+
+#### Inferring Type from Context
+Since the `sorted(by:)` function takes a closure as an argument, the type of parameter and return type of the Closure can be inferred by Swift.
+Now, Example 1 can be modified as shown below:
+
+**Modified Example 1:**
+```swift
+let arr = [34, 99, 56, 12, 10, 108, 543, 7]
+print("Original Array: \(arr)")
+let sortedArr = arr.sorted(by: { lhs, rhs in lhs > rhs })
+print("Array sorted in Descending Order: \(sortedArr)")
+```
+**Output 1:**
+```
+Original Array: [34, 99, 56, 12, 10, 108, 543, 7]
+Array sorted in Descending Order: [543, 108, 99, 56, 34, 12, 10, 7]
+```
+
+Notice how Closure simplified the large expression to a single line Expression.
+
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
