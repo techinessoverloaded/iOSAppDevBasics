@@ -26,7 +26,7 @@ Closure expression syntax has the following general form:
 }
 ```
 
-The `in` keyword is used to separate parameter declaration from the body of the function. In-Out Parameters are allowed in Closures but Default Parameter values are not allowed in Closures. Named Variadic Parameters and Tuples can also be used with Closures. Closures make it easier to write **Higher Order Functions** (Functions which take Other Functions as Parameters). For example, consider the `sorted(by:)` Function from the Swift Standard Library for Arrays, which sorts the `Array` according to the comparison function given as parameter and returns the sorted array.
+The `in` keyword is used to separate parameter declaration from the body of the closure. In-Out Parameters are allowed in Closures but Default Parameter values are not allowed in Closures. Named Variadic Parameters and Tuples can also be used with Closures. Closures make it easier to write **Higher Order Functions** (Functions which take Other Functions as Parameters). For example, consider the `sorted(by:)` Function from the Swift Standard Library for Arrays, which sorts the `Array` according to the comparison function given as parameter and returns the sorted array.
 If we are to give this comparison function as a Function Object, it would look like:
 
 **Example 1:**
