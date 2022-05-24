@@ -210,10 +210,51 @@ The `incrementer()` function doesn’t have any parameters, and yet it refers to
 
 **NOTE:** If you assign a closure to a property of a class instance, and the closure captures that instance by referring to the instance or its members, you will create a strong reference cycle between the closure and the instance. Swift uses **Capture Lists** to break these strong reference cycles. By means of Capture Lists, we can specify whether the captured references should be `weak` or `unowned` references, thereby preventing Strong Reference Cycles. Capture Lists can be defined before closure parameters within square brackets `[]` separated by commas `,`.
 
-#### Closures are Reference Types
+#### Closures are Reference Types 
 In the example above, `incrementBy10` and `incrementBy20` are constants, but the closures these constants refer to are still able to increment the `runningTotal` variables that they have captured. This is because functions and closures are reference types.
 
 Whenever you assign a function or a closure to a constant or a variable, you are actually setting that constant or variable to be a reference to the function or closure. In the example above, it’s the choice of closure that `incrementBy10` refers to that’s constant, and not the contents of the closure itself. This also means that if you assign a closure to two different constants or variables, both of those constants or variables refer to the same closure.
+
+#### Escaping Closures
+A Closure is called as an Escaping Closure when it is passed as an argument to a function but is called only after the function execution completes. Escaping Closures are denoted by placing `@escaping` attribute (Attributes in Swift are like Annotations in Java) before the closure type. Escaping Closures can be used to handle events like completion of a function.
+
+**Example 4:**
+```swift
+var completionHandlers: [Int : (Int) -> Void] = [:]
+func functionWithCompletionTracker(seed: Int, completionHandler: @escaping (Int) -> Void)
+{
+    if seed.isMultiple(of: 2)
+    {
+        completionHandlers[seed] = completionHandler
+    }
+}
+let sampleCompletionHandler: (Int) -> Void  = {
+    print("functionWithCompletionTracker() completed successfully for seed \($0) !")
+}
+for x in 0..<4
+{
+    let random = Int.random(in: x...40)
+    functionWithCompletionTracker(seed: random, completionHandler: sampleCompletionHandler)
+    if let handler = completionHandlers[random]
+    {
+        handler(random)
+    }
+    else
+    {
+        print("No Completion Handler for \(random) !")
+    }
+}
+```
+**Output 4:**
+```
+No Completion Handler for 15 !
+No Completion Handler for 27 !
+functionWithCompletionTracker() completed successfully for seed 10 !
+functionWithCompletionTracker() completed successfully for seed 10 !
+```
+
+Normally, a closure captures variables implicitly by using them in the body of the closure, but in this case you need to be explicit. If you want to capture `self`, write `self` explicitly when you use it, or include `self` in the closure’s capture list. Writing `self` explicitly lets you express your intent, and reminds you to confirm that there isn’t a reference cycle. If `self` is an instance of a structure or an enumeration, you can always refer to `self` implicitly. However, an escaping closure can’t capture a mutable reference to `self` when `self` is an instance of a structure or an enumeration. 
+
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
