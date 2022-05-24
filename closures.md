@@ -221,5 +221,5 @@ Whenever you assign a function or a closure to a constant or a variable, you are
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/functions.html">&larr; Functions</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html"> &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/structs.html">Structures &rarr;</a>
 </span>
