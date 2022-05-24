@@ -210,7 +210,7 @@ The `incrementer()` function doesn’t have any parameters, and yet it refers to
 
 **NOTE:** If you assign a closure to a property of a class instance, and the closure captures that instance by referring to the instance or its members, you will create a strong reference cycle between the closure and the instance. Swift uses **Capture Lists** to break these strong reference cycles. By means of Capture Lists, we can specify whether the captured references should be `weak` or `unowned` references, thereby preventing Strong Reference Cycles. Capture Lists can be defined before closure parameters within square brackets `[]` separated by commas `,`.
 
-**Closures are Reference Types**
+#### Closures are Reference Types
 In the example above, `incrementBy10` and `incrementBy20` are constants, but the closures these constants refer to are still able to increment the `runningTotal` variables that they have captured. This is because functions and closures are reference types.
 
 Whenever you assign a function or a closure to a constant or a variable, you are actually setting that constant or variable to be a reference to the function or closure. In the example above, it’s the choice of closure that `incrementBy10` refers to that’s constant, and not the contents of the closure itself. This also means that if you assign a closure to two different constants or variables, both of those constants or variables refer to the same closure.
