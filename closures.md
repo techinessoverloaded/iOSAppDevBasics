@@ -162,6 +162,58 @@ loadPicture(from: someServer) { picture in
 
 In this example, the `loadPicture(from:completion:onFailure:)` function dispatches its network task into the background, and calls one of the two completion handlers when the network task finishes. Writing the function this way lets you cleanly separate the code that’s responsible for handling a network failure from the code that updates the user interface after a successful download, instead of using just one closure that handles both circumstances.
 
+#### Capturing Values
+A closure can capture constants and variables from the surrounding context in which it’s defined. The closure can then refer to and modify the values of those constants and variables from within its body, even if the original scope that defined the constants and variables no longer exists.
+
+In Swift, the simplest form of a closure that can capture values is a nested function, written within the body of another function. A nested function can capture any of its outer function’s arguments and can also capture any constants and variables defined within the outer function.
+
+**Example 3:**
+```swift
+func makeIncrementer(forIncrement amount: Int) -> () -> Int
+{
+    var runningTotal = 0
+    func incrementer() -> Int
+    {
+        runningTotal += amount // runningTotal and amount captured by closure
+        return runningTotal
+    }
+    return incrementer
+}
+let incrementBy10 = makeIncrementer(forIncrement: 10)
+for _ in 0...3
+{
+    print("Incremented by 10: \(incrementBy10())")
+}
+let incrementBy20 = makeIncrementer(forIncrement: 20)
+for _ in 0...3
+{
+    print("Incremented by 20: \(incrementBy20())")
+}
+print("Sum of both incrementers: \(incrementBy10() + incrementBy20())")
+```
+**Output 3:**
+```
+Incremented by 10: 10
+Incremented by 10: 20
+Incremented by 10: 30
+Incremented by 10: 40
+Incremented by 20: 20
+Incremented by 20: 40
+Incremented by 20: 60
+Incremented by 20: 80
+Sum of both incrementers: 150
+```
+
+The return type of `makeIncrementer(forIncrement:)` is `() -> Int`. This means that it returns a function, rather than a simple value. The function it returns has no parameters, and returns an `Int` value each time it’s called. The `makeIncrementer(forIncrement:)` function defines an integer variable called `runningTotal`, to store the current running total of the incrementer that will be returned. This variable is initialized with a value of 0. The `makeIncrementer(forIncrement:)` function has a single `Int` parameter with an argument label of `forIncrement`, and a parameter name of `amount`. The argument value passed to this parameter specifies how much `runningTotal` should be incremented by each time the returned incrementer function is called. The `makeIncrementer(forIncrement:)` function defines a nested function called incrementer, which performs the actual incrementing. This function simply adds `amount` to `runningTotal`, and returns the result.
+
+The `incrementer()` function doesn’t have any parameters, and yet it refers to `runningTotal` and `amount` from within its function body. It does this by capturing a reference to `runningTotal` and `amount` from the surrounding function and using them within its own function body. Capturing by reference ensures that `runningTotal` and `amount` don’t disappear when the call to `makeIncrementer(forIncrement:)` ends, and also ensures that `runningTotal` is available the next time the `incrementer()` function is called.
+
+**NOTE:** If you assign a closure to a property of a class instance, and the closure captures that instance by referring to the instance or its members, you will create a strong reference cycle between the closure and the instance. Swift uses **Capture Lists** to break these strong reference cycles. By means of Capture Lists, we can specify whether the captured references should be `weak` or `unowned` references, thereby preventing Strong Reference Cycles. Capture Lists can be defined before closure parameters within square brackets `[]` separated by commas `,`.
+
+**Closures are Reference Types**
+In the example above, `incrementBy10` and `incrementBy20` are constants, but the closures these constants refer to are still able to increment the `runningTotal` variables that they have captured. This is because functions and closures are reference types.
+
+Whenever you assign a function or a closure to a constant or a variable, you are actually setting that constant or variable to be a reference to the function or closure. In the example above, it’s the choice of closure that `incrementBy10` refers to that’s constant, and not the contents of the closure itself. This also means that if you assign a closure to two different constants or variables, both of those constants or variables refer to the same closure.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
