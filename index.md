@@ -21,6 +21,7 @@ You can visit each of the Topic Pages using the below Index
 | [Collections in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/collections.html) |
 | [Functions in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/functions.html) |
 | [Closures in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/closures.html) |
+| [Structures in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/structs.html) |
 
 <span style="float: right">
   <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/iosintro.html">iOS Introduction &rarr;</a>
