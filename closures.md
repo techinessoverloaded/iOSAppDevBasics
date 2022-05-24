@@ -255,6 +255,28 @@ functionWithCompletionTracker() completed successfully for seed 10 !
 
 Normally, a closure captures variables implicitly by using them in the body of the closure, but in this case you need to be explicit. If you want to capture `self`, write `self` explicitly when you use it, or include `self` in the closure’s capture list. Writing `self` explicitly lets you express your intent, and reminds you to confirm that there isn’t a reference cycle. If `self` is an instance of a structure or an enumeration, you can always refer to `self` implicitly. However, an escaping closure can’t capture a mutable reference to `self` when `self` is an instance of a structure or an enumeration. 
 
+#### Autoclosures
+An autoclosure is a closure that’s automatically created to wrap an expression that’s being passed as an argument to a function. It doesn’t take any arguments, and when it’s called, it returns the value of the expression that’s wrapped inside of it. This syntactic convenience lets you omit braces around a function’s parameter by writing a normal expression instead of an explicit closure.
+
+An autoclosure lets you delay evaluation, because the code inside isn’t run until you call the closure. Delaying evaluation is useful for code that has side effects or is computationally expensive, because it lets you control when that code is evaluated. The code below shows how a closure delays evaluation.
+
+**Example 5:**
+```swift
+var customersInLine = ["Kris", "Hari", "Shiv", "Sunder", "Sathya"]
+print(customersInLine.count)
+let customerProvider = { customersInLine.remove(at: 0) }
+print(customersInLine.count)
+print("Now serving \(customerProvider())!")
+print(customersInLine.count)
+```
+**Output 5:**
+```
+5
+5
+Now serving Kris!
+4
+```
+
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
