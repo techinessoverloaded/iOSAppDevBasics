@@ -7,4 +7,4 @@ plugins:
 title: iOS App Development Basics
 description: A simple Blog which helps to learn/recall the basics of iOS App Development using Swift Programming Language.
 author: Arunprasadh C
-exclude: template.txt
+exclude: /
