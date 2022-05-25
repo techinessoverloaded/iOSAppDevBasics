@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 19 May 2022** • *Last Updated on 24 May 2022*
+**Published by Arunprasadh C on 19 May 2022** • *Last Updated on 25 May 2022*
 
 ## Closures in Swift
 Closures are self-contained blocks of functionality that can be passed around and used in our code (Similar to **Lambda Expressions** of **Java/C/C++/Python/Kotlin**). Closures can capture and store references to any Constants and Variables from the context in which they’re defined. This is known as closing over those Constants and Variables. Swift handles all of the memory management of capturing values. 
