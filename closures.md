@@ -279,7 +279,27 @@ Now serving Kris!
 
 Even though the first element of the `customersInLine` array is removed by the code inside the closure, the array element isn’t removed until the closure is actually called. If the closure is never called, the expression inside the closure is never evaluated, which means the array element is never removed. Note that the type of `customerProvider` isn’t String but `() -> String` —a function with no parameters that returns a `String`.
 
+Now, when I use an AutoClosure (denoted by `@autoclosure` attribute) as a function parameter, I can directly pass an expression for the closure instead of a closure.
 
+**Modified Example 5:**
+```swift
+var customersInLine = ["Kris", "Hari", "Shiv", "Sunder", "Sathya"]
+print(customersInLine.count)
+func serveCustomer(customerProvider: @autoclosure () -> String)
+{
+    print("Now serving \(customerProvider())!")
+}
+serveCustomer(customerProvider: customersInLine.remove(at: 0)) // Using autoclosure
+print(customersInLine.count)
+```
+**Output 5:**
+```
+5
+Now serving Kris!
+4
+```
+
+Now that we have seen about closures, let's move on to see about Structures in Swift.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
