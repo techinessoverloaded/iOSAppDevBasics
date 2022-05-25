@@ -158,12 +158,169 @@ print(student.getDepartment())
 CSE
 ```
 
+
 In the above example, since the property `department` is having `private` access level, trying to access it from the instance will generate a compile-time error. Hence, a function named `getDepartment()` is used to access the value of `department`.
 
 ### Computed Properties
-But, this is not the right practice in Swift. You can notice that for `description` property, I have used curly braces to indicate the value to be returned. This is because of two reasons: One is that I have used values of other properties inside the string and other is that I am trying to leverage the benefits of Swift Structure Properties. Properties are not like normal variables/constants in Swift. They can have computed Getter and Setter functions (Like **C#** and **Kotlin**). Such properties are known as Computed Properties. Getter is denoted by `get` keyword and Setter is denoted by `set` keyword. The setter provides the updated value through an immutable value called `newValue` (It is the value assigned to the property via dot `.` syntax) and even a custom name can be used for the same. By means of `set` and `get` Access and Mutation of values can be easily done via the dot `.` Syntax. And some computation can also be done before accessing or mutating the property.
+But, this is not the right practice in Swift. You can notice that for `description` property, I have used curly braces to indicate the value to be returned. This is because of two reasons: One is that I have used values of other properties inside the string and other is that I am trying to leverage the benefits of Swift Structure Properties. Properties are not like normal variables/constants in Swift. They can have computed Getter and Setter functions (Like **C#** and **Kotlin**). Such properties are known as Computed Properties. Getter is denoted by `get` keyword and Setter is denoted by `set` keyword. The setter provides the updated value through an immutable value called `newValue` (It is the value assigned to the property via dot `.` syntax) and even a custom name can be used for the same. By means of `get` and `set` Access and Mutation of values can be easily done via the dot `.` Syntax. And some computation can also be done before accessing or mutating the property. And even the rules of encapsulation can be preserved by generating `private` backing properties and exposing them via a less restrictive access level. This is the right practice.
 
+**Example 1.4:**
+```swift
+struct Student: CustomStringConvertible
+{
+    private let _rollNo: Int // No need of mutation, hence let is used
+    private var _name: String
+    private var _department: String
+    
+    var rollNo: Int // Get-Only Property
+    {
+        get
+        {
+            _rollNo // Return Type is inferred. So, no need of return keyword
+        }
+    }
+    
+    var name: String
+    {
+        get
+        {
+            _name
+        }
+        set
+        {
+            _name = newValue
+        }
+    }
+    
+    var department: String
+    {
+        get
+        {
+            _department
+        }
+        set
+        {
+            _department = newValue
+        }
+    }
+    
+    
+    var description: String
+    {
+        "Student \(_name) of \(_department) Department has roll number: \(_rollNo)."
+    }
+    
+    init(rollNo: Int, name: String, department: String)
+    {
+        self._rollNo = rollNo
+        self._name = name
+        self._department = department
+    }
+    
+}
 
+var student = Student(rollNo: 1, name: "Kris", department: "CSE")
+print(student.rollNo)
+student.name = "Sri"
+print(student.name)
+print(student.department)
+```
+**Output 1.4:**
+```
+1
+Sri
+CSE
+```
+
+You can immediately notice that I have used underscore `_` while naming backing fields as it is the common convention. Also, I have used `let` constant for backing the `rollNo` Property as no mutation is needed. However, while declaring the computed property, I have used `var`. It is so because, Swift doesn't allow `let` constants to have computed getters. And, you should also note that get-only Properties are allowed in Swift. Get-only properties can also be declared without using the `get` keyword. But, it is not possible to define setter only. Swift forces us to define a computed getter when a computed setter is defined. 
+
+#### Property Observers
+Swift allows two Property Observers to track the process of Mutation:
+- `willSet` is called just before the value is stored and has the `newValue` as a parameter.
+- `didSet` is called immediately after the new value is stored and has the `oldValue` as a parameter.
+
+Property Observers can be used only in the following places:
+- Stored properties that you define
+- Stored properties that you inherit (In Classes)
+- Computed properties that you inherit (In Classes)
+
+**Example 1.5:**
+```swift
+struct Student: CustomStringConvertible
+{
+    private let _rollNo: Int // No need of mutation, hence let is used
+    private var _name: String
+    {
+        willSet
+        {
+            print("Going to set the New Name: \(newValue)...")
+        }
+        didSet
+        {
+            print("Have set the New Name: \(_name) and disposed off the Old Name: \(oldValue) !")
+        }
+    }
+    private var _department: String
+    
+    var rollNo: Int // Get-Only Property
+    {
+        _rollNo
+    }
+    
+    var name: String
+    {
+        get
+        {
+            _name
+        }
+        set
+        {
+            
+            _name = newValue
+        }
+    }
+    
+    var department: String
+    {
+        get
+        {
+            _department
+        }
+        set
+        {
+            _department = newValue
+        }
+    }
+    
+    
+    var description: String
+    {
+        "Student \(_name) of \(_department) Department has roll number: \(_rollNo)."
+    }
+    
+    init(rollNo: Int, name: String, department: String)
+    {
+        self._rollNo = rollNo
+        self._name = name
+        self._department = department
+    }
+    
+}
+
+var student = Student(rollNo: 1, name: "Kris", department: "CSE")
+print(student.rollNo)
+student.name = "Sri"
+print(student.name)
+print(student.department)
+```
+**Output 1.5:**
+```
+1
+Going to set the New Name: Sri...
+Have set the New Name: Sri and disposed off the Old Name: Kris !
+Sri
+CSE
+```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
