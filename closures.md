@@ -277,6 +277,9 @@ Now serving Kris!
 4
 ```
 
+Even though the first element of the `customersInLine` array is removed by the code inside the closure, the array element isn’t removed until the closure is actually called. If the closure is never called, the expression inside the closure is never evaluated, which means the array element is never removed. Note that the type of `customerProvider` isn’t String but `() -> String` —a function with no parameters that returns a `String`.
+
+
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
