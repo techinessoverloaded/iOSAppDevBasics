@@ -322,11 +322,106 @@ Sri
 CSE
 ```
 
+### Structure Behaviour with `let`
+When the `let` keyword is used to declare an instance of a `struct` as a Constant, reassigning to another value is prevented (regular behaviour of `let` constants). Additionally, the properties of the `struct` also become immutable and can't be altered thereafter. This is because Structures are Value Types in Swift and each time a mutation is done, a new value is reassigned (If not the full Structure, at least for the mutated property, a new value is created) and reassigning is not possible with `let` Constants. However, when Classes are used as `let` Constants, their properties can be mutated as Classes are Reference Types.
+
+### Mutating Methods
+Due to the reasons mentioned above, any Method that attempts to mutate a property inside the Structure must be denoted by the `mutating` keyword and such methods are called Mutating Methods. When such Methods are not denoted by the `mutating` Keyword, the Compiler generates an error saying that `self` is immutable. It can be inferred that the Setters of Structure Properties are internally Mutating Methods.
+
+**Example 1.5:**
+```swift
+struct Student: CustomStringConvertible
+{
+    private let _rollNo: Int // No need of mutation, hence let is used
+    private var _name: String
+    {
+        willSet
+        {
+            print("Going to set the New Name: \(newValue)...")
+        }
+        didSet
+        {
+            print("Have set the New Name: \(_name) and disposed off the Old Name: \(oldValue) !")
+        }
+    }
+    private var _department: String
+    
+    var rollNo: Int // Get-Only Property
+    {
+        _rollNo
+    }
+    
+    var name: String
+    {
+        get
+        {
+            _name
+        }
+        set
+        {
+            _name = newValue
+        }
+    }
+    
+    var department: String
+    {
+        get
+        {
+            _department
+        }
+        set
+        {
+            _department = newValue
+        }
+    }
+    
+    
+    var description: String
+    {
+        "Student \(_name) of \(_department) Department has roll number: \(_rollNo)."
+    }
+    
+    init(rollNo: Int, name: String, department: String)
+    {
+        self._rollNo = rollNo
+        self._name = name
+        self._department = department
+    }
+    
+    mutating func changeNameAndDepartment(newName: String, newDepartment: String)
+    {
+        _name = newName
+        _department = newDepartment
+    }
+    
+}
+
+var student = Student(rollNo: 1, name: "Kris", department: "CSE")
+print(student)
+student.changeNameAndDepartment(newName: "Shiv", newDepartment: "IT")
+print(student)
+```
+**Output 1.6:**
+```
+Student Kris of CSE Department has roll number: 1.
+Going to set the New Name: Shiv...
+Have set the New Name: Shiv and disposed off the Old Name: Kris !
+Student Shiv of IT Department has roll number: 1.
+```
+
+### Protocol Conformance
+Structures can conform to Protocols although they can't take part in Inheritance like Classes can. An example for Protocol Conformance is conforming to the `CustomStringConvertible` Protocol as shown above.
+
+### Equality Logic
+Structures can be compared via the Comaprison Operators and Equality can be checked via the Is Equal to Operator `==`. The `==` checks if two values are the same and doesn't care about the memory location of the values.
+
+Now that we have seen about Structures in Swift, let's move on to see about Classes in Swift
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/closures.html">&larr; Closures</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html"> &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/classes.html">Classes &rarr;</a>
 </span>
