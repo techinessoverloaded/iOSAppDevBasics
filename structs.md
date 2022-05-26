@@ -415,6 +415,51 @@ Structures can conform to Protocols although they can't take part in Inheritance
 ### Equality Logic
 Structures can be compared via the Comaprison Operators and Equality can be checked via the Is Equal to Operator `==`. The `==` checks if two values are the same and doesn't care about the memory location of the values.
 
+### Static Properties and Methods
+Like Static Variables and Methods in other Languages, Swift too supports Static Properties and Methods for Structures, Classes and Enumeration Types. They are indicated by using `static` keyword before Property or Function declaration. Static Propeerties and Methods are available at the Type level and don't map to any particular instance of the Type. Static Properties and Methods of a Structure can be accessed using dot operator `.` like `StructureName.Property`/`StructureName.Method()`. Static Methods of a Type cannot access non-static Properties/Methods inside them. Static Properties can't be Computed Properties since they don't belong to an Instance. The following example the use of Static Properties and also Static Methods for Operator Overloading:
+
+**Example 2:**
+```swift
+struct Point
+{
+    var x: Int
+    var y: Int
+    static let origin: Self = Self(x: 0, y:0)
+    
+    static func +(lhs: Self, rhs: Self) -> Self
+    {
+        Point(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
+    }
+    
+    static func -=(lhs: inout Self, rhs: Self)
+    {
+        lhs.x -= rhs.x
+        lhs.y -= rhs.y
+    }
+}
+let point1 = Point(x: 5, y: 6)
+print("Point 1: \(point1)")
+let point2 = Point(x: 2, y: 10)
+print("Point 2: \(point2)")
+var point3 = point1 + point2
+print("Sum of Point 1 and Point 2: \(point3)")
+let point4 = Point(x: 3, y: 9)
+print("Point 4: \(point4)")
+point3 -= point4
+print("Point 3 after subtracting Point 4 from it: \(point3)")
+print("The origin is always located at: \(Point.origin)") // Accessing Static Property
+```
+**Output 2:**
+```
+Point 1: Point(x: 5, y: 6)
+Point 2: Point(x: 2, y: 10)
+Sum of Point 1 and Point 2: Point(x: 7, y: 16)
+Point 4: Point(x: 3, y: 9)
+Point 3 after subtracting Point 4 from it: Point(x: 4, y: 7)
+The origin is always located at: Point(x: 0, y: 0)
+```
+
+
 Now that we have seen about Structures in Swift, let's move on to see about Classes in Swift
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
