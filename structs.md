@@ -459,6 +459,14 @@ Point 3 after subtracting Point 4 from it: Point(x: 4, y: 7)
 The origin is always located at: Point(x: 0, y: 0)
 ```
 
+### Lazy Stored Properties
+A Lazy stored property is a property whose initial value isn’t calculated until the first time it’s used. You indicate a Lazy stored property by writing the `lazy` modifier before its declaration. 
+
+**NOTE :** You must always declare a `lazy` property as a variable (with the `var` keyword), because its initial value might not be retrieved until after instance initialization completes. Constant properties must always have a value before initialization completes, and therefore can’t be declared as `lazy`.
+
+Lazy properties are useful when the initial value for a property is dependent on outside factors whose values aren’t known until after an instance’s initialization is complete. Lazy properties are also useful when the initial value for a property requires complex or computationally expensive setup that shouldn’t be performed unless or until it’s needed.
+
+**NOTE :** If a property marked with the `lazy` modifier is accessed by multiple threads simultaneously and the property hasn’t yet been initialized, there’s no guarantee that the property will be initialized only once.
 
 Now that we have seen about Structures in Swift, let's move on to see about Classes in Swift
 
