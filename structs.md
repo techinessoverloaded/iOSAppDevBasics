@@ -514,6 +514,11 @@ Person(name: "Skand", age: 22)
 
 Do note that Lazy Properties are not computed everytime you access them like Computed Properties. Lazy Properties get computed on first access and store the computed value and do not update their values on subsequent access.
 
+### Property Wrappers 
+A property wrapper adds a layer of separation between code that manages how a property is stored and the code that defines a property. For example, if you have properties that provide thread-safety checks or store their underlying data in a database, you have to write that code on every property. When you use a property wrapper, you write the management code once when you define the wrapper, and then reuse that management code by applying it to multiple properties.
+
+To define a property wrapper, you make a structure, enumeration, or class that defines a `wrappedValue` property. 
+
 Now that we have seen about Structures in Swift, let's move on to see about Classes in Swift
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
