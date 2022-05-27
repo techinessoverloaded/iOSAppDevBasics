@@ -517,7 +517,7 @@ Do note that Lazy Properties are not computed everytime you access them like Com
 ### Property Wrappers 
 A property wrapper adds a layer of separation between code that manages how a property is stored and the code that defines a property. For example, if you have properties that provide thread-safety checks or store their underlying data in a database, you have to write that code on every property. When you use a property wrapper, you write the management code once when you define the wrapper, and then reuse that management code by applying it to multiple properties.
 
-To define a property wrapper, you make a structure, enumeration, or class that defines a `wrappedValue` property and add `@propertyWrapper` attribute to the entity. 
+To define a property wrapper, you make a structure, enumeration, or class that defines a `wrappedValue` property and add `@propertyWrapper` attribute to the entity. The property wrapper is then applied to a property using the attribute `@propertyName` before the property declaration.
 
 **Example 4:**
 ```swift
