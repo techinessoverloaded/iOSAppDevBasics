@@ -468,6 +468,52 @@ Lazy properties are useful when the initial value for a property is dependent on
 
 **NOTE :** If a property marked with the `lazy` modifier is accessed by multiple threads simultaneously and the property hasn’t yet been initialized, there’s no guarantee that the property will be initialized only once.
 
+**Example 3:**
+```swift
+struct Person
+{
+    var name: String
+    var age: Int
+}
+
+struct Game
+{
+    var players: [Person]
+    var value: Int
+    {
+        didSet
+        {
+            print("old value \(value)")
+        }
+    }
+    lazy var mostRecentlyAddedPlayer = players.last!
+}
+
+let player1 = Person(name: "Kris", age: 21)
+let player2 = Person(name: "Sundar", age: 21)
+let player3 = Person(name: "Ram", age: 22)
+let player4 = Person(name: "Shiv", age: 25)
+
+let allPlayers = [player1, player2, player3, player4]
+
+var game =  Game(players: allPlayers, value: 5)
+print(game)
+print(game.mostRecentlyAddedPlayer)
+game.players.append(Person(name: "Skand", age: 22))
+print(game.mostRecentlyAddedPlayer) // Lazy variable does not get computed after the first time
+game.mostRecentlyAddedPlayer = game.players.last! //Manually Reassigning to get updated value
+print(game.mostRecentlyAddedPlayer)
+```
+**Output 3:**
+```
+Game(players: [helloworld.Person(name: "Kris", age: 21), helloworld.Person(name: "Sundar", age: 21), helloworld.Person(name: "Ram", age: 22), helloworld.Person(name: "Shiv", age: 25)], value: 5, $__lazy_storage_$_mostRecentlyAddedPlayer: nil)
+Person(name: "Shiv", age: 25)
+Person(name: "Shiv", age: 25)
+Person(name: "Skand", age: 22)
+```
+
+Do note that Lazy Properties are not computed everytime you access them like Computed Properties. Lazy Properties get comoputed on first access and store the computed value and do not update their values on subsequent access.
+
 Now that we have seen about Structures in Swift, let's move on to see about Classes in Swift
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
