@@ -512,7 +512,7 @@ Person(name: "Shiv", age: 25)
 Person(name: "Skand", age: 22)
 ```
 
-Do note that Lazy Properties are not computed everytime you access them like Computed Properties. Lazy Properties get comoputed on first access and store the computed value and do not update their values on subsequent access.
+Do note that Lazy Properties are not computed everytime you access them like Computed Properties. Lazy Properties get computed on first access and store the computed value and do not update their values on subsequent access.
 
 Now that we have seen about Structures in Swift, let's move on to see about Classes in Swift
 
