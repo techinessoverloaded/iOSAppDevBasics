@@ -187,7 +187,76 @@ Student: Siva is being deinitialized...
 When `nil` is assigned to the Optional `student` object, it means that it can be deallocated and hence the deinitializer is called. Underscore `_` is used for Wildcard Pattern Matching in Swift. It is used whenever a variable or constant is ignored or unwanted. It is also used when the return type of a function is ignored. It is used in for loops too when the iterating variable can be ignored. In the Above example, the `_` indicates that the object can be ignored or is not going to be used. Hence, the scope of the object gets over as soon as it is created and hence, the deinitializer is called.
 
 ### Equality and Identity Logic
-Unlike Structures, the Identity Operators (`===` and `!==`) can be used with Classes. Identity Operators compare the memory uniqueness of two class instances. They don't check if the values are equal. They instead check if the two instances point to the same reference in the memory. In order 
+Unlike Structures, the Identity Operators (`===` and `!==`) can be used with Classes. Identity Operators compare the memory uniqueness of two class instances. They don't check if the values are equal. They instead check if the two instances point to the same reference in the memory. In order for Equality Operators (`==` and `!=`) to work, the Class has to conform to the `Equatable` Protocol. However, unlike Structures, it is not optional to override the `==` function. It must be redefined inside the class for the equality operators to work. The equality operators don't care about the memory address. They rather care about the properties of the instances.
+
+**Example 5:**
+```swift
+class Student: CustomStringConvertible, Equatable
+{
+    var rollNo: Int
+    var name: String
+    var description: String
+    {
+        "Student(rollNo = \(rollNo), name = \(name))"
+    }
+
+    init(rollNo: Int, name: String)
+    {
+        self.rollNo = rollNo
+        self.name = name
+    }
+
+    func changeRollNoAndName(newRollNo:Int, newName: String)
+    {
+        rollNo = newRollNo
+        name = newName
+    }
+    
+    static func == (lhs: Student, rhs: Student) -> Bool
+    {
+        lhs.name == rhs.name && lhs.rollNo == lhs.rollNo
+    }
+    
+    deinit
+    {
+        print("Student: \(name) is being deinitialized...")
+    }
+}
+
+let student1 = Student(rollNo: 1, name: "Kris")
+let student2 = student1
+let student3 = Student(rollNo: 2, name: "Kris")
+print("Student 1: \(student1)")
+print("Student 2: \(student2)")
+print("Student 3: \(student3)")
+print("student1 === student2: \(student1 === student2)")
+student2.rollNo = 2 // Changing rollNo of student 2
+print("Student 1: \(student1)") // Student 1 rollNo also changed. Call by reference behaviour
+print("Student 2: \(student2)")
+print("student2 === student3: \(student2 === student3)") // Even though Same value but different reference, so false
+print("student2 == student3: \(student2 == student3)") // Even though different reference, same value is present. so == returns true
+print("student1 == student2: \(student1 == student2)")
+print("student1 == student3: \(student1 == student3)")
+let student4 = Student(rollNo: 3, name: "Ram")
+print("Student 4: \(student4)")
+print("student4 != student1: \(student4 != student1)")// true as rollNo not and Name equal
+```
+**Output 5:**
+```
+Student 1: Student(rollNo = 1, name = Kris)
+Student 2: Student(rollNo = 1, name = Kris)
+Student 3: Student(rollNo = 2, name = Kris)
+student1 === student2: true
+Student 1: Student(rollNo = 2, name = Kris)
+Student 2: Student(rollNo = 2, name = Kris)
+student2 === student3: false
+student2 == student3: true
+student1 == student2: true
+student1 == student3: true
+Student 4: Student(rollNo = 3, name = Ram)
+student4 != student1: true
+```
+
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
