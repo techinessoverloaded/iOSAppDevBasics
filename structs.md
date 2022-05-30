@@ -69,7 +69,7 @@ Student (rollNo = 2 ; name = Kris)
 Student (rollNo = 2 ; name = Kris)
 ```
 
-We can also provide custom Initializers to our `struct` using `init` keyword. We can even create overloaded Initializers and have default values. Initializers can be declared like regular functions except that the `func` keyword, function name and return type are not required and simply `init` keyword is used. The `self` keyword is used to refer to the current instance of the Type (Similar to `self` keyword of **Python** Classes and `this` keyword of **Java/C++** Classes).
+We can also provide custom Initializers to our `struct` using `init` keyword. We can even create overloaded Initializers and have default values. Initializers can be declared like regular functions except that the `func` keyword, function name and return type are not required and simply `init` keyword is used. The `self` keyword is used to refer to the current instance of the Type (Similar to `self` keyword of **Python** Classes and `this` keyword of **Java/C++** Classes). A more detailed look into Initializers will be available in the [Classes](https://techinessoverloaded.github.io/iOSAppDevBasics/classes.html) Topic Page.
 
 **Example 1.2:**
 ```swift
@@ -508,7 +508,7 @@ point3 -= point4
 print("Point 3 after subtracting Point 4 from it: \(point3)")
 print("The origin is always located at: \(Point.origin)") // Accessing Static Property
 ```
-**Output 2:**
+**Output 3:**
 ```
 Point 1: Point(x: 5, y: 6)
 Point 2: Point(x: 2, y: 10)
@@ -527,7 +527,7 @@ Lazy properties are useful when the initial value for a property is dependent on
 
 **NOTE :** If a property marked with the `lazy` modifier is accessed by multiple threads simultaneously and the property hasn’t yet been initialized, there’s no guarantee that the property will be initialized only once.
 
-**Example 3:**
+**Example 4:**
 ```swift
 struct Person
 {
@@ -563,7 +563,7 @@ print(game.mostRecentlyAddedPlayer) // Lazy variable does not get computed after
 game.mostRecentlyAddedPlayer = game.players.last! //Manually Reassigning to get updated value
 print(game.mostRecentlyAddedPlayer)
 ```
-**Output 3:**
+**Output 4:**
 ```
 Game(players: [helloworld.Person(name: "Kris", age: 21), helloworld.Person(name: "Sundar", age: 21), helloworld.Person(name: "Ram", age: 22), helloworld.Person(name: "Shiv", age: 25)], value: 5, $__lazy_storage_$_mostRecentlyAddedPlayer: nil)
 Person(name: "Shiv", age: 25)
@@ -578,7 +578,7 @@ A property wrapper adds a layer of separation between code that manages how a pr
 
 To define a property wrapper, you make a structure, enumeration, or class that defines a `wrappedValue` property and add `@propertyWrapper` attribute to the entity. The property wrapper is then applied to a property using the attribute `@propertyName` before the property declaration.
 
-**Example 4:**
+**Example 5:**
 ```swift
 @propertyWrapper struct Capitalized
 {
@@ -630,7 +630,7 @@ print(person1) // Capitalized Version got updated
 person1.firstName = "tharun"
 print(person1.firstName) // Capitalized Version got updated
 ```
-**Output 4:**
+**Output 5:**
 ```
 Person(firstName: Ashwin, lastName: Kumar, fullName: Ashwin Kumar)
 Tharun
