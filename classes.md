@@ -313,7 +313,87 @@ student4 != student1: true
 ```
 
 ### Inheritance using Classes
-Unlike Structures, Classes can inherit properties and methods from one another.
+Unlike Structures, Classes can inherit properties and methods from one another. The Class which inherits from another class is called as **Subclass/Child Class** and the Class whose members are inherited is called the **Super Class/Parent Class**(It is also known as **Base Class**, if it doesn't inherit from other classes). Classes in Swift can call and access methods, properties, and subscripts belonging to their superclass and can provide their own overriding versions of those methods, properties, and subscripts to refine or modify their behavior. Swift helps to ensure your overrides are correct by checking that the override definition has a matching superclass definition. Classes can also add property observers to inherited properties in order to be notified when the value of a property changes. Property observers can be added to any property, regardless of whether it was originally defined as a stored or computed property.
+
+#### Is-A Relationship
+Inheritance should be used only when there exists an **Is-A** Relationship between Two Classes. For example:
+1. **Car** is a **Vehicle**.
+2. **Student** is a **Person**.
+3. **Dog** is an **Animal**.
+Here, **Car** can inherit members from **Vehicle**, **Student** from **Person** and so on.
+
+The Syntax of Inheritance is as follows:
+**Syntax :**
+```swift
+class Subclass : Superclass
+{
+   //Class Members
+}
+```
+
+The Colon (`:`) Operator is used to indicate Inheritance (In terms of Swift, we can even compare it with Type Annotations. We can infer that the SubClass is of Superclass `Type`). The `override` keyword is used for overriding the Non-`private` Computed Properties, Methods and even Initializers of the superclass. The `super` keyword is used for accessing the Non-`private` members of the super class from the subclass. Always, the overridden members are given priority when called from the child classes. A simple example is given below:
+
+**Example 7:**
+```swift
+class Animal: CustomStringConvertible
+{
+    var description: String
+    {
+        "Animal(isMammal: \(isMammal))"
+    }
+    
+    var isMammal: Bool
+    
+    func makeSound()
+    {
+        preconditionFailure("This method must be overridden by subclasses for it to work!!!") // Abstract Methods can be implemented like this
+    }
+    
+    init(isMammal: Bool)
+    {
+        self.isMammal = isMammal
+    }
+}
+
+class Dog: Animal
+{
+    override var description: String
+    {
+        "Dog(isMammal: true, isStrayDog: \(isStrayDog))"
+    }
+    
+    var isStrayDog: Bool
+    
+    override func makeSound()
+    {
+        print("Woof!!!")
+    }
+    
+    init(isStrayDog: Bool)
+    {
+        self.isStrayDog = isStrayDog
+        super.init(isMammal: true)
+    }
+}
+
+var animal: Animal = Animal(isMammal: false)
+print(animal)
+print(type(of: animal))
+animal = Dog(isStrayDog: false) // Works since Dog is a subclass of Animal.
+animal.makeSound()
+print(animal)
+print(type(of: animal))
+```
+**Output 7:**
+```
+Animal(isMammal: false)
+Animal
+Woof!!!
+Dog(isMammal: true, isStrayDog: false)
+Dog
+```
+
+
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
