@@ -418,6 +418,8 @@ struct StructureName : ProtocolName
 }
 ```
 
+Protocols will be discussed in detail in a separate Topic.
+
 ### Equality Logic
 Structures can be compared via the Comaprison Operators and Equality can be checked via the Is Equal to Operator `==`. The `==` checks if two values are the same and doesn't care about the memory location of the values.
 
