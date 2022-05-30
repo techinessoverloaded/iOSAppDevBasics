@@ -186,6 +186,9 @@ Student: Siva is being deinitialized...
 
 When `nil` is assigned to the Optional `student` object, it means that it can be deallocated and hence the deinitializer is called. Underscore `_` is used for Wildcard Pattern Matching in Swift. It is used whenever a variable or constant is ignored or unwanted. It is also used when the return type of a function is ignored. It is used in for loops too when the iterating variable can be ignored. In the Above example, the `_` indicates that the object can be ignored or is not going to be used. Hence, the scope of the object gets over as soon as it is created and hence, the deinitializer is called.
 
+### Equality and Identity Logic
+Unlike Structures, the Identity Operators (`===` and `!==`) can be used with Classes. Identity Operators compare the memory uniqueness of two class instances. They don't check if the values are equal. They instead check if the two instances point to the same reference in the memory. In order 
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
