@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 24 May 2022** • *Last Updated on 27 May 2022*
+**Published by Arunprasadh C on 24 May 2022** • *Last Updated on 30 May 2022*
 
 ## Structures in Swift
 In Swift, a `struct` (Keyword for Structure) is used to store variables of different data types. It is used to create a new type out of existing types and also define functionalities (through methods) for the new type. Structures are value types in Swift, meaning they are always passed by value in functions and new copies of them are created whenever they are assigned or reassigned. This means that at any point of time, each instance of a `struct` will be stored at an unique location in the memory even when the contained value is same.
@@ -410,7 +410,13 @@ Student Shiv of IT Department has roll number: 1.
 ```
 
 ### Protocol Conformance
-Structures can conform to Protocols although they can't take part in Inheritance like Classes can. An example for Protocol Conformance is conforming to the `CustomStringConvertible` Protocol as shown above.
+Structures can conform to Protocols although they can't take part in Inheritance like Classes can. An example for Protocol Conformance is conforming to the `CustomStringConvertible` Protocol as shown above. The general Syntax is as follows:
+```swift
+struct StructureName : ProtocolName
+{
+  //Structure definition
+}
+```
 
 ### Equality Logic
 Structures can be compared via the Comaprison Operators and Equality can be checked via the Is Equal to Operator `==`. The `==` checks if two values are the same and doesn't care about the memory location of the values.
