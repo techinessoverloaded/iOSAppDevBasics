@@ -17,7 +17,7 @@ class ClassName
 }
 ```
 
-It is similar to `struct` declaration right ? So, when to choose Class over Structure ?
+It is similar to `struct` declaration, right ? So, when to choose Class over Structure ?
 
 ### Choosing between Classes and Structures
 The [Apple Developer Documentation](https://developer.apple.com/documentation/swift/choosing_between_structures_and_classes) suggests the following Recommendations (Quoted from the Documentation):
@@ -29,7 +29,78 @@ The [Apple Developer Documentation](https://developer.apple.com/documentation/sw
 
 - **Use Structures and Protocols to Model Inheritance and Share Behavior:** Structures and classes both support a form of inheritance. Structures and protocols can only adopt protocols; they can't inherit from classes. However, the kinds of inheritance hierarchies you can build with class inheritance can be also modeled using protocol inheritance and structures. If you're building an inheritance relationship from scratch, prefer protocol inheritance. Protocols permit classes, structures, and enumerations to participate in inheritance, while class inheritance is only compatible with other classes. When you're choosing how to model your data, try building the hierarchy of data types using protocol inheritance first, then adopt those protocols in your structures.
 
+### Object Creation and Accessing Members
+Object creation, accessing properties and methods of a `class` and  are all similar to `struct`.
 
+**Example 1:**
+```swift
+class Student
+{
+    var rollNo: Int
+    var name: String
+    
+    init(rollNo: Int, name: String)
+    {
+        self.rollNo = rollNo
+        self.name = name
+    }
+}
+
+let student = Student(rollNo: 1, name: "Kris")
+print(student.rollNo)
+print(student.name)
+print(student)
+```
+**Output 1:**
+```
+1
+Kris
+helloworld.Student
+```
+
+You can immediately notice that I have defined a member-wise Initializer. I have done so because, classes don't generate Member-wise initializer on their own, unlike Structures which do so as Classes allow Inheritance and it is difficult for the compiler to decide how the Initializer should be generated. If Initializer is not defined manually for the Class, the code won't compile and the compiler will throw an error `Class 'ClassName' has no initializers`.
+
+You can also notice that when I printed the `student` object, I didn't get a standard `String` representation of the object like Structures. This is because `class` in Swift doesn't conform to `CustomStringConvertible` Protocol by default unlike Structures and even this can be attributed to Inheritance because only at runtime, the type of object is decided.
+
+### Behaviour with `let` Constants
+As mentioned earlier in [Structures](https://techinessoverloaded.github.io/iOSAppDevBasics/structs.html), `let` Constants behave differently with Classes. The regular behaviour of preventing reassigning of objects is maintained. However, the properties of Class object can be mutated even when using `let`, as Classes are Reference Types.
+
+**Example 2:**
+```swift
+class Student: CustomStringConvertible
+{
+    var rollNo: Int
+    var name: String
+    var description: String
+    {
+        "Student(rollNo = \(rollNo), name = \(name))"
+    }
+    
+    init(rollNo: Int, name: String)
+    {
+        self.rollNo = rollNo
+        self.name = name
+    }
+    
+    deinit
+    {
+        print("Student: \(name) is being deinitialized...")
+    }
+}
+let student = Student(rollNo: 1, name: "Kris")
+print(student.description)
+print(student.rollNo)
+student.name = "Shiv" // Modifying the property of a let constant object
+print(student.name)
+print(student)
+```
+**Output 2:**
+```
+Student(rollNo = 1, name = Kris)
+1
+Shiv
+Student(rollNo = 1, name = Shiv)
+```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
