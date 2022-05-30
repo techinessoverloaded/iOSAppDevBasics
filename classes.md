@@ -81,11 +81,6 @@ class Student: CustomStringConvertible
         self.rollNo = rollNo
         self.name = name
     }
-    
-    deinit
-    {
-        print("Student: \(name) is being deinitialized...")
-    }
 }
 let student = Student(rollNo: 1, name: "Kris")
 print(student.description)
@@ -101,6 +96,49 @@ Student(rollNo = 1, name = Kris)
 Shiv
 Student(rollNo = 1, name = Shiv)
 ```
+
+You can see that the name was changed even though `student` is a `let` constant.
+
+### No need of `mutating` Keyword for Mutating Methods
+Unlike `struct`, the Mutating Methods of `class` don't need the `mutating` keyword, as Classes are Reference Types.
+
+**Example 3:**
+```swift
+class Student: CustomStringConvertible
+{
+    var rollNo: Int
+    var name: String
+    var description: String
+    {
+        "Student(rollNo = \(rollNo), name = \(name))"
+    }
+    
+    init(rollNo: Int, name: String)
+    {
+        self.rollNo = rollNo
+        self.name = name
+    }
+    
+    func changeRollNoAndName(newRollNo:Int, newName: String)
+    {
+        rollNo = newRollNo
+        name = newName
+    }
+}
+
+let student = Student(rollNo: 1, name: "Kris")
+print("Original Value: \(student)")
+student.changeRollNoAndName(newRollNo: 2, newName: "Shiv")
+print("After calling changeRollNoAndName() Method: \(student)")
+```
+**Output 3:**
+```
+Original Value: Student(rollNo = 1, name = Kris)
+After calling changeRollNoAndName() Method: Student(rollNo = 2, name = Shiv)
+```
+
+### Deinitializers
+
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
