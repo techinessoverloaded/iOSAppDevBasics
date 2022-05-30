@@ -312,6 +312,8 @@ Student 4: Student(rollNo = 3, name = Ram)
 student4 != student1: true
 ```
 
+### Inheritance using Classes
+Unlike Structures, Classes can inherit properties and methods from one another.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
