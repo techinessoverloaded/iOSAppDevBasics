@@ -62,6 +62,9 @@ You can immediately notice that I have defined a member-wise Initializer. I have
 
 You can also notice that when I printed the `student` object, I didn't get a standard `String` representation of the object like Structures. This is because `class` in Swift doesn't conform to `CustomStringConvertible` Protocol by default unlike Structures and even this can be attributed to Inheritance because only at runtime, the type of object is decided.
 
+### Protocol Conformance
+Classes can also conform to Protocols like Structures and use the same syntax as Structures for conforming. We will see more about Protocols in a separate Topic Page.
+
 ### Behaviour with `let` Constants
 As mentioned earlier in [Structures](https://techinessoverloaded.github.io/iOSAppDevBasics/structs.html), `let` Constants behave differently with Classes. The regular behaviour of preventing reassigning of objects is maintained. However, the properties of Class object can be mutated even when using `let`, as Classes are Reference Types.
 
@@ -137,8 +140,51 @@ Original Value: Student(rollNo = 1, name = Kris)
 After calling changeRollNoAndName() Method: Student(rollNo = 2, name = Shiv)
 ```
 
-### Deinitializers
+### Deinitializer
+In addition to Initializers, Swift Classes can also have a single Deinitializer, which is called just before the Object of the Class is deallocated (Similar to **C++** Destructors). These can be used for performing additional tasks like closing a file or any held resource, thereby freeing up the memory before the class object itself is deallocated. Messages printed inside Deinitializer block can generally be realized when the object is being deallocated.
 
+**Example 4:**
+```swift
+class Student: CustomStringConvertible
+{
+    var rollNo: Int
+    var name: String
+    var description: String
+    {
+        "Student(rollNo = \(rollNo), name = \(name))"
+    }
+    
+    init(rollNo: Int, name: String)
+    {
+        self.rollNo = rollNo
+        self.name = name
+    }
+    
+    func changeRollNoAndName(newRollNo:Int, newName: String)
+    {
+        rollNo = newRollNo
+        name = newName
+    }
+    
+    deinit
+    {
+        print("Student: \(name) is being deinitialized...")
+    }
+}
+
+var student: Student? = Student(rollNo: 1, name: "Kris")
+print(student!)
+student = nil // Deinitializing the object
+let _ = Student(rollNo: 2, name: "Siva") // Using '_' to indicate ignored or unused object. Hence it is deallocated immediately.
+```
+**Output 4:**
+```
+Student(rollNo = 1, name = Kris)
+Student: Kris is being deinitialized...
+Student: Siva is being deinitialized...
+```
+
+When `nil` is assigned to the Optional `student` object, it means that it can be deallocated and hence the deinitializer is called. Underscore `_` is used for Wildcard Pattern Matching in Swift. It is used whenever a variable or constant is ignored or unwanted. It is also used when the return type of a function is ignored. It is used in for loops too when the iterating variable can be ignored. In the Above example, the `_` indicates that the object can be ignored or is not going to be used. Hence, the scope of the object gets over as soon as it is created and hence, the deinitializer is called.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
