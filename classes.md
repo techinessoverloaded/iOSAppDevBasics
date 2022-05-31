@@ -331,7 +331,7 @@ class Subclass : Superclass
 }
 ```
 
-The Colon (`:`) Operator is used to indicate Inheritance (In terms of Swift, we can even compare it with Type Annotations. We can infer that the SubClass is of Superclass `Type`). The `override` keyword is used for overriding the Non-`private` Computed Properties, Methods and even Initializers of the superclass. The `super` keyword is used for accessing the Non-`private` members of the super class from the subclass. Always, the overridden members are given priority when called from the child classes. A simple example is given below:
+The Colon (`:`) Symbol is used to indicate Inheritance (In terms of Swift, we can even compare it with Type Annotations. We can infer that the SubClass is of Superclass `Type`). The `override` keyword is used for overriding the Non-`private` instance methods, type methods, instance properties, type properties, initializers and subscript of the super class. The `super` keyword is used for accessing the Non-`private` members of the super class from the subclass. Always, the overridden members are given priority when called from the child classes. A simple example is given below:
 
 **Example 7:**
 ```swift
