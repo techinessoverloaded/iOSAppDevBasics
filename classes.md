@@ -393,6 +393,7 @@ Dog(isMammal: true, isStrayDog: false)
 Dog
 ```
 
+In the above example, `Animal` is the base class from which subclass `Dog` is derived. `Animal` has a method `makeSound()` which becomes valid only when it is overridden by subclasses. Conceptually, `makeSound()` is meant to be abstract. However, Swift doesn't support abstract methods inside classes. So, that behaviour can be somewhat mimicked by throwing an error when the method is called from an `Animal` instance. But, this is not the right way to achieve abstract methods. Swift provides Protocols for the purpose. We will see about Protocols later. Note that, the `super.init` call of `Dog` class is done after initializing `Dog`'s properties only (Unlike **Java**, where `super()` is called first most of the times). This is done so to ensure that the `Dog`'s properties are initialized first, so that any overridden method can access them without any issues. 
 
 
 
