@@ -359,7 +359,7 @@ class Dog: Animal
 {
     override var description: String
     {
-        "Dog(isMammal: true, isStrayDog: \(isStrayDog))"
+        "Dog(isMammal: \(isMammal), isStrayDog: \(isStrayDog))"
     }
     
     var isStrayDog: Bool
@@ -395,7 +395,27 @@ Dog
 
 In the above example, `Animal` is the base class from which subclass `Dog` is derived. `Animal` has a method `makeSound()` which becomes valid only when it is overridden by subclasses. Conceptually, `makeSound()` is meant to be abstract. However, Swift doesn't support abstract methods inside classes. So, that behaviour can be somewhat mimicked by throwing an error when the method is called from an `Animal` instance. But, this is not the right way to achieve abstract methods. Swift provides Protocols for the purpose. We will see about Protocols later. Note that, the `super.init` call of `Dog` class is done after initializing `Dog`'s properties only (Unlike **Java**, where `super()` is called first most of the times). This is done so to ensure that the `Dog`'s properties are initialized first, so that any overridden method can access them without any issues. As you can see in the example, a variable of type `Animal` (Base class) is allowed to hold either instance of itself or an instance of its subclass. Even reassigning to subclass reference is accepted. However, the vice versa is not true because a subclass may define additional properties and methods. Moreover, when a base class variable is assigned with subclass reference, only methods and properties available commonly in both subclass and superclass can be accessed. To access other members, downcasting must be done (It will be discussed in detail in Type Casting Subtopic). 
 
-#### 
+#### Types of Inheritance supported by Swift
+Swift supports the following Inheritance Types:
+- Single Inheritance
+- Multilevel Inheritance
+- Hierarchical Inheritance
+- Hybrid Inheritance
+
+Like **Java**, Swift too doesn't support **Multiple Inheritance** due to the **Diamond Problem**, which causes ambiguity in which overridden method should be called from grandchild class instances. Instead, it can be mimicked by use of Protocol Conformance.
+
+#### Overriding Methods
+Methods of super class can be overridden by subclass to provide new implementations to the methods. The only restriction is that the overriding methods must have an equal or lower restrictive access level than the super class method. Else, the compiler will throw an error. For example, an `internal` method can be overridden as `public` or `open` but not as `private` or `fileprivate` method. An instance of Method overriding is shown above in Example 7, where the `makeSound()` Method is overridden in the subclass.
+
+#### Overriding Property Getters and Setters and Property Observers
+You can provide a custom getter (and setter, if appropriate) to override any inherited property, regardless of whether the inherited property is implemented as a stored or computed property at source. The stored or computed nature of an inherited property isn’t known by a subclass—it only knows that the inherited property has a certain name and type. You must always state both the name and the type of the property you are overriding, to enable the compiler to check that your override matches a superclass property with the same name and type. You can present an inherited read-only property as a read-write property by providing both a getter and a setter in your subclass property override. You can’t, however, present an inherited read-write property as a read-only property.
+
+**NOTE :** If you provide a setter as part of a property override, you must also provide a getter for that override. If you don’t want to modify the inherited property’s value within the overriding getter, you can simply pass through the inherited value by returning super.someProperty from the getter, where someProperty is the name of the property you are overriding.
+
+In the Example 7 above, the `description` Property is overridden in the `Dog` class. Even Property Observers like `didSet` or `willSet` can be overridden in the subclass. But, both custom setters and property observers can't be overridden simultaneously.
+
+#### Preventing Overriding and Inheritance
+
 
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
