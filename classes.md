@@ -344,14 +344,14 @@ class Animal: CustomStringConvertible
     
     var isMammal: Bool
     
-    func makeSound()
-    {
-        preconditionFailure("This method must be overridden by subclasses for it to work!!!") // Abstract Methods can be implemented like this
-    }
-    
     init(isMammal: Bool)
     {
         self.isMammal = isMammal
+    }
+    
+    func makeSound()
+    {
+        fatalError("This method must be overridden by subclasses for it to work!!!") // Abstract Methods can be implemented like this
     }
 }
 
