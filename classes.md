@@ -1,4 +1,4 @@
-**Published by Arunprasadh C on 26 May 2022** • *Last Updated on 30 May 2022*
+**Published by Arunprasadh C on 26 May 2022** • *Last Updated on 31 May 2022*
 
 ## Classes in Swift
 A Class is considered as a blueprint of objects. In Swift, a Class is similar to a Structure in most of the aspects. However, Swift Classes have the following unique properties and additional capabilities as compared to Structures:
