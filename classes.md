@@ -631,6 +631,59 @@ The specifying class' access level also affects the object creation of the class
 - Inheritance within same module can be prevented by using `final` keyword on class declaration.
 - Inheritence can be prevented in other modules by using `final` keyword on class declaration or by using any Non-`open` Access Level on Class declaration.
 
+#### Subscripts
+Classes, structures, and enumerations can define subscripts, which are shortcuts for accessing the member elements of a collection, list, or sequence. You use subscripts to set and retrieve values by index without needing separate methods for setting and retrieval. For example, you access elements in an `Array` instance as `someArray[index]` and elements in a `Dictionary` instance as `someDictionary[key]`.
+You can define multiple subscripts for a single type, and the appropriate subscript overload to use is selected based on the type of index value you pass to the subscript. Subscripts aren’t limited to a single dimension, and you can define subscripts with multiple input parameters to suit your custom type’s needs.
+
+**Syntax :**
+```swift
+subscript(index: Int) -> Int {
+    get {
+        // Return an appropriate subscript value here.
+    }
+    set(newValue) {
+        // Perform a suitable setting action here.
+    }
+}
+```
+
+**Example 11:**
+```swift
+class MultiplicationTables
+{
+    var multiplier: Int
+    
+    init(of multiplier: Int)
+    {
+        self.multiplier = multiplier
+    }
+    
+    subscript(index: Int) -> Int //Read-only subscript
+    {
+        index * multiplier
+    }
+}
+let elevenTables = MultiplicationTables(of: 11)
+for x in 10...20
+{
+    print("\(x) * 11 = \(elevenTables[x])") // Using Subscript syntax [] to get value
+}
+```
+**Output 11:**
+```
+10 * 11 = 110
+11 * 11 = 121
+12 * 11 = 132
+13 * 11 = 143
+14 * 11 = 154
+15 * 11 = 165
+16 * 11 = 176
+17 * 11 = 187
+18 * 11 = 198
+19 * 11 = 209
+20 * 11 = 220
+```
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
