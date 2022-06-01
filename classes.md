@@ -469,7 +469,43 @@ Every class must have at least one designated initializer. In some cases, this r
 
 You don’t have to provide convenience initializers if your class doesn’t require them. Create convenience initializers whenever a shortcut to a common initialization pattern will save time or make initialization of the class clearer in intent.
 
+**Example 9:**
+```swift
+class Message
+{
+    var content: String
+    var sender: String
+    var receiver: String
+    
+    init(content: String, sender: String, receiver: String)
+    {
+        self.content = content
+        self.sender = sender
+        self.receiver = receiver
+    }
+    
+    convenience init(content: String)
+    {
+        self.init(content: content, sender: "Anonymous", receiver: "Anonymous")
+    }
+    
+    func sendMessage()
+    {
+        print("\(content) sent by \(sender)")
+        print("\(content) received by \(receiver)")
+    }
+}
 
+Message(content: "Hello !", sender: "Kris", receiver: "Shiv").sendMessage()
+Message(content: "Stay safe !").sendMessage()
+```
+**Output 9:**
+```
+Hello ! sent by Kris
+Hello ! received by Shiv
+Stay safe ! sent by Anonymous
+Stay safe ! received by Anonymous
+```
 
 #### Access Levels' impact on Inheritance
 The following Table shows the impact of Access Levels on Inherited and Overridden Members:
