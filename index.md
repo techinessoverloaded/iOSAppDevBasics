@@ -23,6 +23,7 @@ You can visit each of the Topic Pages using the below Index
 | [Closures in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/closures.html) |
 | [Structures in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/structs.html) |
 | [Classes in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/classes.html) |
+| [Enumerations in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/enums.html) |
 
 <span style="float: right">
   <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/iosintro.html">iOS Introduction &rarr;</a>
