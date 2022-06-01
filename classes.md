@@ -684,6 +684,69 @@ for x in 10...20
 20 * 11 = 220
 ```
 
+Subscripts can take any number of input parameters, and these input parameters can be of any type. Subscripts can also return a value of any type.
+
+Like functions, subscripts can take a varying number of parameters and provide default values for their parameters, as discussed in Variadic Parameters and Default Parameter Values. However, unlike functions, subscripts can’t use `inout` parameters.
+
+A class or structure can provide as many subscript implementations as it needs, and the appropriate subscript to be used will be inferred based on the types of the value or values that are contained within the subscript brackets at the point that the subscript is used. This definition of multiple subscripts is known as **Subscript Overloading**.
+
+While it’s most common for a subscript to take a single parameter, you can also define a subscript with multiple parameters if it’s appropriate for your type. 
+
+**Example 12:**
+```swift
+class RandomMatrix
+{
+    var rows: Int, columns: Int, values: [Int]
+    
+    init(rows: Int, columns: Int)
+    {
+        self.rows = rows
+        self.columns = columns
+        values = Array(repeating: 0, count: rows * columns)
+        for i in 0..<(rows * columns)
+        {
+            values[i] = Int.random(in: 1...100)
+        }
+    }
+    
+    func indexIsValid(row: Int, column: Int) -> Bool
+    {
+        row >= 0 && row < rows && column >= 0 && column < columns
+    }
+    
+    subscript(row: Int, column: Int) -> Int
+    {
+        get
+        {
+            assert(indexIsValid(row: row, column: column), "Index out of range")
+            return values[(row * columns) + column]
+        }
+        set
+        {
+            assert(indexIsValid(row: row, column: column), "Index out of range")
+            values[(row * columns) + column] = newValue
+        }
+    }
+}
+
+let squareMatrix = RandomMatrix(rows: 4, columns: 4)
+for i in 0..<4
+{
+    for j in 0..<4
+    {
+        print(squareMatrix[i, j],terminator: " ") // Using multiple parameter subscript
+    }
+    print()
+}
+```
+**Output 12:**
+```
+37 71 99 67 
+25 44 24 53 
+36 53 25 35 
+91 59 61 75 
+```
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
