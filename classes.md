@@ -423,7 +423,7 @@ The following Table shows the impact of Access Levels on Inherited and Overridde
 | `fileprivate` | **YES** within same source file. **NO** in other source files. | `fileprivate`, `internal`, `public`, `open` |
 | `internal` | **YES** within any source file in the same module. **NO** in other modules. | `internal`, `public`, `open` |
 | `public` | **YES** within same module or any module that imports the defining module. | `internal`, `public`, `open` within same module. Cannot be overridden in other modules.|
-| `open` | **YES** within same module or any module that imports the defining module. | `internal`, `public`, `open` within same module. |
+| `open` | **YES** within same module or any module that imports the defining module. | `internal`, `public`, `open` |
 
 #### Preventing Overriding and Inheritance
 
