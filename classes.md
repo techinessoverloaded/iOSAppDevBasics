@@ -417,7 +417,7 @@ In the Example 7 above, the `description` Property is overridden in the `Dog` cl
 #### Access Levels' impact on Inheritance
 The following Table shows the impact of Access Levels on Inherited and Overridden Properties:
 
-| Access Level of Property in Super Class | Can be Inherited | Allowed Access Level(s) of Overridden Non-Stored Property in Subclass |
+| Access Level of Property in Super Class | Can Properties be Inherited | Allowed Access Level(s) of Overridden Non-Stored Property in Subclass |
 | :--: | :--: | :--: |
 | `private` | **NO** | Not Applicable |
 | `fileprivate` | **YES** within same source file. **NO** in other source files. | `fileprivate`, `internal`, `public`, `open` within same module. Cannot be overridden in other modules.|
