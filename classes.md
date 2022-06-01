@@ -435,9 +435,22 @@ The following table shows the impact of Access Levels on Inheritance of classes:
 | `public` | `private`, `fileprivate`, `internal`, `public` within same module. Cannot be Inherited in other modules. |
 | `open` | `private`, `fileprivate`, `internal`, `public`, `open` in any module. |
 
+### Impact of Access Levels on Object creation using `var` or `let`
+The specifying class' access level also affects the object creation of the class using `var` or `let`. The following table shows the access levels which objects must have:
+
+| Access Level of Class | Allowed Access Level(s) of Object |
+| :--: | :--: |
+| `private` | `private`, `fileprivate` |
+| `fileprivate` | `private`, `fileprivate` |
+| `internal` | `private`, `fileprivate`, `internal` |
+| `public` | `private`, `fileprivate`, `internal`, `public` |
+| `open` | `private`, `fileprivate`, `internal`, `public` |
+
 #### Preventing Overriding and Inheritance
-
-
+- Overriding of Members within same module can be prevented by using `private` access level or by using the `final` keyword on Property and Method declaration. 
+- Overriding can be prevented in other modules by using any Non-`open` Access Level or by using `final` keyword on Property and Method declaration. 
+- Inheritance within same module can be prevented by using `final` keyword on class declaration.
+- Inheritence can be prevented in other modules by using `final` keyword on class declaration or by using any Non-`open` Access Level on Class declaration.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
