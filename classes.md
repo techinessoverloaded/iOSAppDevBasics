@@ -415,9 +415,19 @@ You can provide a custom getter (and setter, if appropriate) to override any inh
 In the Example 7 above, the `description` Property is overridden in the `Dog` class. Even Property Observers like `didSet` or `willSet` can be overridden in the subclass. But, both custom setters and property observers can't be overridden simultaneously.
 
 #### Access Levels' impact on Inheritance
-The following Table shows the impact of Access Levels on Inherited and Overridden Properties:
+The following Table shows the impact of Access Levels on Inherited and Overridden Members:
 
-| Access Level of Property in Super Class | Can Properties be Inherited | Allowed Access Level(s) of Overridden Non-Stored Property in Subclass |
+| Access Level of Property in Super Class | Can Members be Inherited | Allowed Access Level(s) of Overridden Non-Stored Properties and Methods in Subclass |
+| :--: | :--: | :--: |
+| `private` | **NO** | Not Applicable |
+| `fileprivate` | **YES** within same source file. **NO** in other source files. | `fileprivate`, `internal`, `public`, `open` within same module. Cannot be overridden in other modules.|
+| `internal` | **YES** within any source file in the same module. **NO** in other modules. | `internal`, `public`, `open` within same module. Cannot be overridden in other modules.|
+| `public` | **YES** within same module or any module that imports the defining module. | `internal`, `public`, `open` within same module. Cannot be overridden in other modules. |
+| `open` | **YES** within same module or any module that imports the defining module. | `internal`, `public`, `open` |
+
+The following table shows the impact of Access Levels on Inheritance of classes:
+
+| Access Level of Super Class | Can Members be Inherited | Allowed Access Level(s) of Subclass |
 | :--: | :--: | :--: |
 | `private` | **NO** | Not Applicable |
 | `fileprivate` | **YES** within same source file. **NO** in other source files. | `fileprivate`, `internal`, `public`, `open` within same module. Cannot be overridden in other modules.|
