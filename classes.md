@@ -414,6 +414,17 @@ You can provide a custom getter (and setter, if appropriate) to override any inh
 
 In the Example 7 above, the `description` Property is overridden in the `Dog` class. Even Property Observers like `didSet` or `willSet` can be overridden in the subclass. But, both custom setters and property observers can't be overridden simultaneously.
 
+#### Access Levels' impact on Inheritance
+The following Table shows the impact of Access Levels on Inherited and Overridden Properties:
+
+| Access Level of Property in Super Class | Can be Inherited | Allowed Access Level(s) of Overridden Non-Stored Property in Subclass |
+| :--: | :--: | :--: |
+| `private` | **NO** | Not Applicable |
+| `fileprivate` | **YES** within same source file. **NO** in other source files. | `fileprivate`, `internal`, `public`, `open` |
+| `internal` | **YES** within any source file in the same module. **NO** in other modules. | `internal`, `public`, `open` |
+| `public` | **YES** within same module or any module that imports the defining module. | `internal`, `public`, `open` within same module. Cannot be overridden in other modules.|
+| `open` | **YES** within same module or any module that imports the defining module. | `internal`, `public`, `open` within same module. |
+
 #### Preventing Overriding and Inheritance
 
 
