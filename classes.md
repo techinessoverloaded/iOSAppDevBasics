@@ -637,5 +637,5 @@ The specifying class' access level also affects the object creation of the class
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/structs.html">&larr; Structures</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html"> &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/enums.html">Enumerations &rarr;</a>
 </span>
