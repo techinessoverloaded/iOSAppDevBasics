@@ -126,7 +126,42 @@ earth
 ```
 
 ### Associated Values
+In Swift, we can also attach additional information to an `enum` case. It is known as an Associated Value. It can be of different type for different cases. It is denoted inside parantheses `()` after `case` name. This definition doesn’t provide any actual values. It just defines the type of associated values. The actual values are given during instantiation. While matching cases in `switch` statement, each associated value of a `case` can be marked with `let` or `var` as needed to be used in the code. If all of the associated values for an enumeration case are extracted as constants, or if all are extracted as variables, you can place a single `var` or `let` annotation before the case name, for brevity. Associated values can also be given labels if needed.
 
+**Example 5:**
+```swift
+enum Transaction
+{
+    case card(cardNo: String, pin: UInt, amount: Double)
+    case upi(upiId: String, upiPin: UInt, amount: Double)
+    case cash(amount: Double)
+}
+
+func makeTransaction(txn: Transaction)
+{
+    switch(txn)
+    {
+    case let .card(cardNo, pin, amount):
+        print("\(amount) transacted from Card: \(cardNo) having PIN: \(pin)")
+    case let .upi(upiId, upiPin, amount):
+        print("\(amount) transacted from account using UPI ID: \(upiId) having PIN: \(upiPin)")
+    case let .cash(amount):
+        print("\(amount) was transacted as liquid cash")
+    }
+}
+
+let upiPayment: Transaction = .upi(upiId: "abc@upi", upiPin: 1234, amount: 1000)
+makeTransaction(txn: upiPayment)
+```
+**Output 5:**
+```
+1000.0 transacted from account using UPI ID: abc@upi having PIN: 1234
+```
+
+### Raw Values vs Associated Values
+- Raw values are predefined constant values provided to each `enum` value whereas Associated Values are more like variables associated with the `enum` values.
+- An `enum` cannot have both raw values and associated values at the same time.
+- The raw values of an enum must be of the same data type. But associated values can be of any type.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
