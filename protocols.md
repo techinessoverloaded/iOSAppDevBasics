@@ -183,6 +183,139 @@ print(unnamedPerson)
 Person(name: "Anonymous", age: 21)
 ```
 
+### Protocols as Types
+Protocols don’t actually implement any functionality themselves. Nonetheless, you can use protocols as a fully fledged types in your code. Using a protocol as a type is sometimes called an existential type, which comes from the phrase “there exists a type T such that T conforms to the protocol”.
+
+You can use a protocol in many places where other types are allowed, including:
+
+- As a parameter type or return type in a function, method, or initializer.
+- As the type of a constant, variable, or property.
+- As the type of items in an array, dictionary, or other container.
+
+When Protocol is used as a Type, only the members of Protocol can be accessed from the instance. To access all the members, downcasting to the actual Type must be done.
+
+**Example 5:**
+```swift
+protocol Identifiable
+{
+    var id: UInt { get }
+    mutating func regenerateId()
+}
+
+struct User: Identifiable, CustomStringConvertible
+{
+    private var _id: UInt
+    var name: String
+    var age: Int
+    var description: String
+    {
+        "User(id: \(_id), name: \(name), age: \(age))"
+    }
+    
+    var id: UInt
+    {
+        _id
+    }
+    
+    mutating func regenerateId()
+    {
+        _id = UInt.random(in: 1...100)
+    }
+    
+    init(name: String, age: Int)
+    {
+        _id = UInt.random(in: 1...100)
+        self.name = name
+        self.age = age
+    }
+}
+
+struct Subject: Identifiable, CustomStringConvertible
+{
+    private var _id: UInt
+    var name: String
+    var department: String
+    var description: String
+    {
+        "Subject(id: \(_id), name: \(name), department: \(department))"
+    }
+    
+    var id: UInt
+    {
+        _id
+    }
+    
+    mutating func regenerateId()
+    {
+        _id = UInt.random(in: 1...100)
+    }
+    
+    init(name: String, department: String)
+    {
+        _id = UInt.random(in: 1...100)
+        self.name = name
+        self.department = department
+    }
+}
+
+var dsa: Identifiable = Subject(name: "Data Structures and Algorithms", department: "CSE")
+var student: Identifiable = User(name: "Kris", age: 21)
+print("ID of DSA Subject: \(dsa.id)")
+print("Regenerating ID of DSA...")
+dsa.regenerateId()
+print("ID of DSA Subject: \(dsa.id)")
+print("Department of DSA is: \((dsa as! Subject).department)") // Downcasting to access department
+print(dsa)
+print(student)
+```
+**Output 5:**
+```
+ID of DSA Subject: 62
+Regenerating ID of DSA...
+ID of DSA Subject: 29
+Department of DSA is: CSE
+Subject(id: 29, name: Data Structures and Algorithms, department: CSE)
+User(id: 55, name: Kris, age: 21)
+```
+
+### Adding Protocol Conformance with an Extension
+You can extend an existing type to adopt and conform to a new protocol, even if you don’t have access to the source code for the existing type. Extensions can add new properties, methods, and subscripts to an existing type, and are therefore able to add any requirements that a protocol may demand.
+
+**NOTE:** Existing instances of a type automatically adopt and conform to a protocol when that conformance is added to the instance’s type in an extension.
+
+**Example 6:**
+```swift
+protocol StringRepresentation
+{
+    var asString: String { get }
+}
+
+class Point
+{
+    var x: Int, y: Int
+    
+    init(_ x: Int, _ y: Int)
+    {
+        self.x = x
+        self.y = y
+    }
+}
+
+extension Point: StringRepresentation
+{
+    var asString: String
+    {
+        "Point(x = \(x), y = \(y))"
+    }
+}
+
+let point = Point(8, 11)
+print(point.asString)
+```
+**Output 6:**
+```
+Point(x = 8, y = 11)
+```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
