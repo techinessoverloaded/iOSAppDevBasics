@@ -257,12 +257,61 @@ Extensions can add new nested types to existing classes, structures, and enumera
 
 **Example 6:**
 ```
+extension Int
+{
+    enum Kind
+    {
+        case negative, zero, positive
+    }
+    
+    var kind: Kind
+    {
+        switch self
+        {
+        case 0:
+            return .zero
+        case let x where x > 0:
+            return .positive
+        default:
+            return .negative
+        }
+    }
+}
 
+func getKind(_ value: Int) -> String
+{
+    switch(value.kind)
+    {
+    case .zero:
+        return "Zero"
+    case .positive:
+        return "Positive Integer"
+    case .negative:
+        return "Negative Integer"
+    }
+}
+
+for x in -5...5
+{
+    print("\(x) is \(getKind(x))")
+}
 ```
 **Output 6:**
 ```
-
+-5 is Negative Integer
+-4 is Negative Integer
+-3 is Negative Integer
+-2 is Negative Integer
+-1 is Negative Integer
+0 is Zero
+1 is Positive Integer
+2 is Positive Integer
+3 is Positive Integer
+4 is Positive Integer
+5 is Positive Integer
 ```
+
+Now that we have seen about Extensions in Swift, let's learn about Protocols in Swift.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
