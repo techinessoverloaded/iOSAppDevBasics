@@ -9,14 +9,87 @@ Alternatively, enumeration cases can specify associated values of any type to be
 
 Enumerations are **Value Types** like Structures. Enumerations are declared by using the `enum` keyword in Swift. The `case` keyword is used to declare values inside an Enumeration. Cases can appear on multiple lines or can be defined in a single line, separated by comma `,`.
 
+**NOTE :** Swift enumeration cases don’t have an integer value set by default, unlike languages like C and Objective-C. In the CompassPoint example above, north, south, east and west don’t implicitly equal 0, 1, 2 and 3. Instead, the different enumeration cases are values in their own right, with an explicitly defined type of Enumeration.
+
+Variables/Constants can hold any one case of the Enumeration. The cases can be changed when `var` is used. When the `var`/`let` is type annotated with the Enumeration, the right hand of assignment statement can directly access cases using Dot syntax `.` without the need of specifying the name of Enumeration.
+
 **Example 1:**
 ```swift
 enum Direction
 {
     case north, south, east, west
 }
+
+var directionToMove = Direction.east
+print("Direction to Move: \(directionToMove)")
+print(type(of: directionToMove) == Direction.self)
+let preferredDirection: Direction = .north
+print("Preferred Direction: \(preferredDirection)")
+directionToMove = preferredDirection
+print("Direction to Move changed to Preferred Direction: \(directionToMove)")
+```
+**Output 1:**
+```
+Direction to Move: east
+true
+Preferred Direction: north
+Direction to Move changed to Preferred Direction: north
 ```
 
+### Matching Enumeration Values with a `switch` statement
+Swift allows us to match individual `enum` cases using `switch` statement.
+
+**Example 2:**
+```swift
+enum Gender
+{
+    case male, female, other
+}
+
+var gender: Gender = .male
+
+switch(gender)
+{
+case .male:
+    print("MALE")
+case .female:
+    print("FEMALE")
+case .other:
+    print("OTHER")
+}
+```
+**Output 1:**
+```
+MALE
+```
+
+Note that, there's no default case in the above `switch` statement. However, when you want to skip some `enum` cases from `switch` statement, you can use `default` for the purpose.
+
+### Iterationg over Enumeration Cases
+In Swift, an `enum` can conform to the `CaseIterable` Protocol to which adds a property called `allCases`, which is a collection of all the `enum` cases. By means of `allCases`, the cases of `enum` can be iterated.
+
+**Example 3:**
+```swift
+enum Beverage: CaseIterable
+{
+    case coffee, tea, juice, milkshake
+}
+
+print("\(Beverage.allCases.count) Beverages are available. They are:")
+
+for x in Beverage.allCases
+{
+    print(x)
+}
+```
+**Output 3:**
+```
+4 Beverages are available. They are:
+coffee
+tea
+juice
+milkshake
+```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
