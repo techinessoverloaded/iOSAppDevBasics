@@ -13,6 +13,8 @@ Enumerations are **Value Types** like Structures. Enumerations are declared by u
 
 Variables/Constants can hold any one case of the Enumeration. The cases can be changed when `var` is used. When the `var`/`let` is type annotated with the Enumeration, the right hand of assignment statement can directly access cases using Dot syntax `.` without the need of specifying the name of Enumeration.
 
+Enumerations can also have Instance methods, Instance `mutating` methods and Type Methods like Structures.
+
 **Example 1:**
 ```swift
 enum Direction
