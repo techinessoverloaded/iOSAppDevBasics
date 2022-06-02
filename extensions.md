@@ -69,8 +69,133 @@ Three feet is 0.914399970739201 meters
 
 The above example adds computed properties to the existing `Double` Type for representing various units of length.
 
-###
+### Initializers
+Extensions can add new initializers to existing types. This enables you to extend other types to accept your own custom types as initializer parameters, or to provide additional initialization options that were not included as part of the type’s original implementation.
 
+Extensions can add new convenience initializers to a class, but they can’t add new designated initializers or deinitializers to a class. Designated initializers and deinitializers must always be provided by the original class implementation.
+
+If you use an extension to add an initializer to a value type that provides default values for all of its stored properties and doesn’t define any custom initializers, you can call the default initializer and memberwise initializer for that value type from within your extension’s initializer. This wouldn’t be the case if you had written the initializer as part of the value type’s original implementation.
+
+If you use an extension to add an initializer to a structure that was declared in another module, the new initializer can’t access `self` until it calls an initializer from the defining module.
+
+**NOTE:** If you provide a new initializer with an extension, you are still responsible for making sure that each instance is fully initialized once the initializer completes.
+
+**Example 2:**
+```swift
+struct Size
+{
+    var width = 0.0, height = 0.0
+}
+
+struct Point
+{
+    var x = 0.0, y = 0.0
+}
+
+struct Rect
+{
+    var origin = Point()
+    var size = Size()
+}
+
+extension Rect
+{
+    init(center: Point, size: Size)
+    {
+        let originX = center.x - (size.width / 2)
+        let originY = center.y - (size.height / 2)
+        self.init(origin: Point(x: originX, y: originY), size: size)
+    }
+}
+
+let centerRect = Rect(center: Point(x: 4.0, y: 4.0), size: Size(width: 3.0, height: 3.0))
+
+print(centerRect)
+```
+**Output 2:**
+```
+Rect(origin: helloworld.Point(x: 2.5, y: 2.5), size: helloworld.Size(width: 3.0, height: 3.0))
+```
+
+### Methods
+Extensions can add new instance methods and type methods to existing types.
+
+**Example 3:**
+```swift
+extension Int
+{
+    func loop(_ action: () -> Void) // Extension Instance Method
+    {
+        for _ in 0..<self
+        {
+            action()
+        }
+    }
+    
+    static func checkPrimality(of number: Int) -> Bool //Extension Type Method
+    {
+        if number <= 1
+        {
+            return false
+        }
+        
+        if number == 2
+        {
+            return true
+        }
+        
+        if number > 2 && number.isMultiple(of: 2)
+        {
+            return false
+        }
+        
+        for x in 3...Int(floor(sqrt(Double(number/2))))
+        {
+            if number.isMultiple(of: x)
+            {
+                return false
+            }
+        }
+        return true
+    }
+}
+
+5.loop  // Execute Loop Closure for 5 times
+{
+    let r = Int.random(in: 1...100)
+    print("Is \(r) a Prime Number ? \(Int.checkPrimality(of: r))")
+}
+```
+**Output 3:**
+```
+Is 96 a Prime Number ? false
+Is 10 a Prime Number ? false
+Is 44 a Prime Number ? false
+Is 34 a Prime Number ? false
+Is 71 a Prime Number ? true
+```
+
+#### Mutating Instance Methods
+Instance methods added with an extension can also modify (or mutate) the instance itself. Structure and enumeration methods that modify `self` or its properties must mark the instance method as `mutating`, just like mutating methods from an original implementation.
+
+**Example 4:**
+```swift
+extension Int
+{
+    mutating func square()
+    {
+        self *= self
+    }
+}
+
+var num = 81
+num.square()
+print(num)
+```
+**Output 4:**
+```
+6561
+```
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
