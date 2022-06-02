@@ -67,7 +67,7 @@ MALE
 
 Note that, there's no default case in the above `switch` statement. However, when you want to skip some `enum` cases from `switch` statement, you can use `default` for the purpose.
 
-### Iterationg over Enumeration Cases
+### Iterating over Enumeration Cases
 In Swift, an `enum` can conform to the `CaseIterable` Protocol to which adds a property called `allCases`, which is a collection of all the `enum` cases. By means of `allCases`, the cases of `enum` can be iterated.
 
 **Example 3:**
