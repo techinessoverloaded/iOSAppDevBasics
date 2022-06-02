@@ -747,6 +747,72 @@ for i in 0..<4
 91 59 61 75 
 ```
 
+##### Type Subscripts
+The subscripts which we have seen so far are Instance subscripts. We can also define Type Subscripts of Classes, Structures and Enumerations using the `static` keyword or `class` keyword (For classes only).
+
+**Example 13:**
+```swift
+class MultiplicationTables
+{
+    var multiplier: Int
+    
+    private init(of multiplier: Int)
+    {
+        self.multiplier = multiplier
+    }
+    
+    subscript(index: Int) -> Int //Read-only subscript
+    {
+        index * multiplier
+    }
+    
+    static subscript(multiplier: Int) -> MultiplicationTables //Read-only static subscript
+    {
+        MultiplicationTables(of: multiplier)
+    }
+}
+
+print("Tables of 9 and 10: ")
+for x in 9...10
+{
+    print("\(x) Tables")
+    for y in 1...10
+    {
+        print("\(x) * \(y) = \(MultiplicationTables[x][y])")
+    }
+    print()
+}
+```
+**Output 13:**
+```
+Tables of 9 and 10: 
+9 Tables
+9 * 1 = 9
+9 * 2 = 18
+9 * 3 = 27
+9 * 4 = 36
+9 * 5 = 45
+9 * 6 = 54
+9 * 7 = 63
+9 * 8 = 72
+9 * 9 = 81
+9 * 10 = 90
+
+10 Tables
+10 * 1 = 10
+10 * 2 = 20
+10 * 3 = 30
+10 * 4 = 40
+10 * 5 = 50
+10 * 6 = 60
+10 * 7 = 70
+10 * 8 = 80
+10 * 9 = 90
+10 * 10 = 100
+```
+
+Now that we have seen about Classes in Swift, let's move on to see about Enumerations in Swift.
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
