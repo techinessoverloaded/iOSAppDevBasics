@@ -15,6 +15,23 @@ protocol ProtocolName
 
 Custom types state that they adopt a particular protocol by placing the protocol’s name after the type’s name, separated by a colon, as part of their definition. Multiple protocols can be listed, and are separated by commas `,`. We have seen some examples of Protocol Conformance already in [Structures](https://techinessoverloaded.github.io/iOSAppDevBasics/structs.html), [Classes](https://techinessoverloaded.github.io/iOSAppDevBasics/classes.html) and [Enumerations](https://techinessoverloaded.github.io/iOSAppDevBasics/enums.html), where we had conformed to Protocols like `CustomStringConvertible`, `Equatable` and `CaseIterable` which are available in the Swift Standard Library. In the case of classes, if a class has a super class as its parent, the name of the super class is mentioned before the protocols to which the class conforms to.
 
+### Impact of Access Levels on Protocols
+If you want to assign an explicit access level to a protocol type, do so at the point that you define the protocol. This enables you to create protocols that can only be adopted within a certain access context.
+
+The access level of each requirement within a protocol definition is automatically set to the same access level as the protocol. You can’t set a protocol requirement to a different access level than the protocol it supports. This ensures that all of the protocol’s requirements will be visible on any type that adopts the protocol.
+
+**NOTE:** If you define a public protocol, the protocol’s requirements require a public access level for those requirements when they’re implemented. This behavior is different from other types, where a public type definition implies an access level of internal for the type’s members.
+
+If you define a new protocol that inherits from an existing protocol, the new protocol can have at most the same access level as the protocol it inherits from. For example, you can’t write a public protocol that inherits from an internal protocol.
+
+A type can conform to a protocol with a lower access level than the type itself. For example, you can define a public type that can be used in other modules, but whose conformance to an internal protocol can only be used within the internal protocol’s defining module.
+
+The context in which a type conforms to a particular protocol is the minimum of the type’s access level and the protocol’s access level. For example, if a type is public, but a protocol it conforms to is internal, the type’s conformance to that protocol is also internal.
+
+When you write or extend a type to conform to a protocol, you must ensure that the type’s implementation of each protocol requirement has at least the same access level as the type’s conformance to that protocol. For example, if a public type conforms to an internal protocol, the type’s implementation of each protocol requirement must be at least internal.
+
+**NOTE:** In Swift, as in Objective-C, protocol conformance is global—it isn’t possible for a type to conform to a protocol in two different ways within the same program.
+
 ### Property Requirements
 A protocol can require any conforming type to provide an instance property or type property with a particular name and type. The protocol doesn’t specify whether the property should be a stored property or a computed property—it only specifies the required property name and type. The protocol also specifies whether each property must be gettable or gettable and settable.
 
@@ -82,6 +99,90 @@ print("Got even number \(result.number) after \(result.tries) tries.")
 ```
 Got even number 20 after 3 tries.
 ```
+
+### Mutating Method Requirements
+If you define a protocol instance method requirement that’s intended to mutate instances of any type that adopts the protocol, mark the method with the `mutating` keyword as part of the protocol’s definition. This enables structures and enumerations to adopt the protocol and satisfy that method requirement. It is important to note that, if you mark a protocol instance method requirement as `mutating`, you don’t need to write the `mutating` keyword when writing an implementation of that method for a class. The `mutating` keyword is only used by structures and enumerations.
+
+**Example 3:**
+```swift
+protocol Togglable
+{
+    mutating func toggle()
+}
+
+enum Switch: Togglable
+{
+    case on, off
+    
+    mutating func toggle()
+    {
+        switch self
+        {
+        case .on:
+            self = .off
+        case .off:
+            self = .on
+        }
+    }
+}
+
+var fanSwitch = Switch.off
+print("State of Fan: \(fanSwitch)")
+print("Turning on Fan...")
+fanSwitch.toggle()
+print("State of Fan: \(fanSwitch)")
+```
+**Output 3:**
+```
+State of Fan: off
+Turning on Fan...
+State of Fan: on
+```
+
+### Initializer Requirements
+Protocols can require specific initializers to be implemented by conforming types. You write these initializers as part of the protocol’s definition in exactly the same way as for normal initializers, but without curly braces or an initializer body.
+
+#### Class Implementations of Protocol Initializer Requirements
+You can implement a protocol initializer requirement on a conforming class as either a designated initializer or a convenience initializer. In both cases, you must mark the initializer implementation with the `required` modifier. The use of the `required` modifier ensures that you provide an explicit or inherited implementation of the initializer requirement on all subclasses of the conforming class, such that they also conform to the protocol. If a subclass overrides a designated initializer from a superclass, and also implements a matching initializer requirement from a protocol, mark the initializer implementation with both the `required` and `override` modifiers.
+
+#### Failable Initializer Requirements
+Protocols can define failable initializer requirements for conforming types. A failable initializer requirement can be satisfied by a failable or nonfailable initializer on a conforming type. A nonfailable initializer requirement can be satisfied by a nonfailable initializer or an implicitly unwrapped failable initializer.
+
+**Example 4:**
+```swift
+protocol AnonymousPerson
+{
+    var name: String { get set }
+    var age: UInt { get set }
+    init(age: UInt)
+}
+
+struct Person: AnonymousPerson
+{
+    var name: String
+    var age: UInt
+    
+    init(age: UInt)
+    {
+        name = "Anonymous"
+        self.age = age
+    }
+    
+    init(name: String, age: UInt)
+    {
+        self.name = name
+        self.age = age
+    }
+}
+
+let unnamedPerson = Person(age: 21)
+print(unnamedPerson)
+```
+**Output 4:**
+```
+Person(name: "Anonymous", age: 21)
+```
+
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
