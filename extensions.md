@@ -201,7 +201,7 @@ print(num)
 Extensions can add new subscripts to an existing type.
 
 **Example 5:**
-```
+```swift
 struct Point
 {
     var x: Int, y: Int
@@ -256,7 +256,7 @@ print("3rd Point of Square is: \(square[2])")
 Extensions can add new nested types to existing classes, structures, and enumerations.
 
 **Example 6:**
-```
+```swift
 extension Int
 {
     enum Kind
