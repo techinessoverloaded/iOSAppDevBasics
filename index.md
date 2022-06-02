@@ -24,6 +24,8 @@ You can visit each of the Topic Pages using the below Index
 | [Structures in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/structs.html) |
 | [Classes in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/classes.html) |
 | [Enumerations in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/enums.html) |
+| [Type Casting in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/typecasting.html) |
+| [Extensions in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/extensions.html) |
 | [Protocols in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/protocols.html) |
 
 <span style="float: right">
