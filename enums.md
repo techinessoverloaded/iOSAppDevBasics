@@ -163,11 +163,50 @@ makeTransaction(txn: upiPayment)
 - An `enum` cannot have both raw values and associated values at the same time.
 - The raw values of an enum must be of the same data type. But associated values can be of any type.
 
+### Recursive Enumerations
+A recursive enumeration is an enumeration that has another instance of the enumeration as the associated value for one or more of the enumeration cases. You indicate that an enumeration case is recursive by writing `indirect` before it, which tells the compiler to insert the necessary layer of indirection.
+You can also write `indirect` before the beginning of the enumeration to enable indirection for all of the enumeration’s cases that have an associated value. A recursive function is a straightforward way to work with a recursive `enum`. The following example shows a recursive function which is used to evaluate an Arithmetic Expression:
+
+**Example 6:**
+```swift
+indirect enum ArithmeticExpression
+{
+    case number(Int)
+    case addition(ArithmeticExpression, ArithmeticExpression)
+    case multiplication(ArithmeticExpression, ArithmeticExpression)
+}
+
+func evaluate(_ expression: ArithmeticExpression) -> Int
+{
+    switch expression
+    {
+    case let .number(value):
+        return value
+    case let .addition(left, right):
+        return evaluate(left) + evaluate(right)
+    case let .multiplication(left, right):
+        return evaluate(left) * evaluate(right)
+    }
+}
+
+let nine = ArithmeticExpression.number(9)
+let five = ArithmeticExpression.number(5)
+let sum = ArithmeticExpression.addition(five, nine)
+let product = ArithmeticExpression.multiplication(sum, ArithmeticExpression.number(81))
+print(evaluate(product))
+```
+**Output 6:**
+```
+1134
+```
+
+Now that we have seen about Enumerations in Swift, let's move on to see about Protocols in Swift.
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/classes.html">&larr; Classes</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html"> &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/protocols.html">Protocols &rarr;</a>
 </span>
