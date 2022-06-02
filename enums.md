@@ -202,7 +202,7 @@ print(evaluate(product))
 1134
 ```
 
-Now that we have seen about Enumerations in Swift, let's move on to see about Protocols in Swift.
+Now that we have seen about Enumerations in Swift, let's move on to see about Type Casting in Swift.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
@@ -210,5 +210,5 @@ Now that we have seen about Enumerations in Swift, let's move on to see about Pr
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/classes.html">&larr; Classes</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/protocols.html">Protocols &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/typecasting.html">Type Casting &rarr;</a>
 </span>
