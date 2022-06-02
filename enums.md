@@ -91,6 +91,43 @@ juice
 milkshake
 ```
 
+### Raw Values
+In Swift, we can also assign values to each enum case. These are known as **Raw Values** and are accessed from a case via the `rawValue` property. All the cases must have raw values of the same Type. Raw values are set in the `enum` declaration and remain the same and don't change. When `Int` or `String` is used as Raw Value type, Swift can implicitly assign values for each case. When `Int` raw value is used, each case takes the number next to the previous case's `rawValue`. When `String` is used as raw value type, the case names are used as raw value. Raw value types can be denoted by colon `:` operator just like conforming to protocols. An `enum` instance can be initialized using `rawValue`. Raw values can be strings, characters, or any of the integer or floating-point number types. Each raw value must be unique within its enumeration declaration.
+
+**Example 4:**
+```swift
+enum Planet: Int, CaseIterable
+{
+    case mercury = 1, venus, earth, mars, jupiter, saturn, uranus, neptune
+}
+
+print("Planets of Milky Way are:")
+
+for x in Planet.allCases
+{
+    print("\(x.rawValue) : \(x)")
+}
+
+let earth = Planet(rawValue: 3)
+print(earth!)
+```
+**Output 4:**
+```
+Planets of Milky Way are:
+1 : mercury
+2 : venus
+3 : earth
+4 : mars
+5 : jupiter
+6 : saturn
+7 : uranus
+8 : neptune
+earth
+```
+
+### Associated Values
+
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
