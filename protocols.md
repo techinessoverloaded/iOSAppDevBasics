@@ -317,11 +317,86 @@ print(point.asString)
 Point(x = 8, y = 11)
 ```
 
+### Conditionally Conforming to a Protocol
+A generic type may be able to satisfy the requirements of a protocol only under certain conditions, such as when the type’s generic parameter conforms to the protocol. You can make a generic type conditionally conform to a protocol by listing constraints when extending the type. Write these constraints after the name of the protocol you’re adopting by writing a generic `where` clause (It will be discussed in detail in [Generics](https://techinessoverloaded.github.io/iOSAppDevBasics/generics.html)).
+
+**Example 7:**
+```swift
+protocol StringRepresentation
+{
+    var asString: String { get }
+}
+
+class Point
+{
+    var x: Int, y: Int
+
+    init(_ x: Int, _ y: Int)
+    {
+        self.x = x
+        self.y = y
+    }
+}
+
+extension Point: StringRepresentation
+{
+    var asString: String
+    {
+        "Point(x = \(x), y = \(y))"
+    }
+}
+
+extension Array: StringRepresentation where Element: StringRepresentation
+{
+    var asString: String
+    {
+        let itemsAsString = self.map { $0.asString }
+        return "[" + itemsAsString.joined(separator: ", ") + "]"
+    }
+}
+
+let points = [Point(2, 4), Point(6, 7)]
+print(points.asString)
+```
+**Output 7:**
+```
+[Point(x = 2, y = 4), Point(x = 6, y = 7)]
+```
+
+### Declaring Protocol Adoption with an Extension
+If a type already conforms to all of the requirements of a protocol, but hasn’t yet stated that it adopts that protocol, you can make it adopt the protocol with an empty extension.
+
+**Example 8:**
+```swift
+protocol StringRepresentation
+{
+    var asString: String { get }
+}
+
+struct Person
+{
+    var name: String
+    var age: UInt
+    var asString: String
+    {
+        "Person(name = \(name), age = \(age))"
+    }
+}
+
+extension Person: StringRepresentation{}
+
+print(Person(name: "Kris", age: 21) is StringRepresentation)
+```
+**Output 8:**
+```
+true
+```
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/enums.html">&larr; Enumerations</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html"> &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/generics.html">Generics &rarr;</a>
 </span>
