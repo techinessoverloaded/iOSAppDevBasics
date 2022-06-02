@@ -392,10 +392,153 @@ print(Person(name: "Kris", age: 21) is StringRepresentation)
 true
 ```
 
+### Adopting a Protocol Using a Synthesized Implementation
+Swift can automatically provide the protocol conformance for `Equatable`, `Hashable`, and `Comparable` in many simple cases. Using this synthesized implementation means you don’t have to write repetitive boilerplate code to implement the protocol requirements yourself.
+
+Swift provides a synthesized implementation of `Equatable` for the following kinds of custom types:
+- Structures that have only stored properties that conform to the `Equatable` protocol.
+- Enumerations that have only associated types that conform to the `Equatable` protocol.
+- Enumerations that have no associated types.
+
+To receive a synthesized implementation of `==`, declare conformance to `Equatable` in the file that contains the original declaration, without implementing an `==` operator yourself. The `Equatable` protocol provides a default implementation of `!=`.
+
+Swift provides a synthesized implementation of `Hashable` for the following kinds of custom types:
+- Structures that have only stored properties that conform to the `Hashable` protocol.
+- Enumerations that have only associated types that conform to the `Hashable` protocol.
+- Enumerations that have no associated types.
+
+To receive a synthesized implementation of `hash(into:)`, declare conformance to `Hashable` in the file that contains the original declaration, without implementing a `hash(into:)` method yourself.
+
+Swift provides a synthesized implementation of `Comparable` for enumerations that don’t have a raw value. If the enumeration has associated types, they must all conform to the `Comparable` protocol. To receive a synthesized implementation of `<`, declare conformance to `Comparable` in the file that contains the original enumeration declaration, without implementing a `<` operator yourself. The `Comparable` protocol’s default implementation of `<=`, `>`, and `>=` provides the remaining comparison operators.
+
+### Protocol Inheritance
+A protocol can inherit one or more other protocols and can add further requirements on top of the requirements it inherits. The syntax for protocol inheritance is similar to the syntax for class inheritance, but with the option to list multiple inherited protocols, separated by commas.
+
+An example can be found in the Swift Standard Library, where the `Hashable` Protocol inherits from the `Equatable` Protocol. Only by means of Protocols, Multiple Inheritance can be implemented.
+
+### Class-Only Protocols
+You can limit protocol adoption to class types (and not structures or enumerations) by adding the `AnyObject` protocol to a protocol’s inheritance list.
+Use a class-only protocol when the behavior defined by that protocol’s requirements assumes or requires that a conforming type has reference semantics rather than value semantics.
+
+**Example 9:**
+```swift
+protocol AbstractList: AnyObject
+{
+    func addNewNode(_ newData: Int)
+    func addMultipleNodes(_ newData: Int...)
+}
+
+class Node: CustomStringConvertible
+{
+    var next: Node?
+    var data: Int
+    var description: String
+    {
+        var text = ""
+        if let n = next
+        {
+            text = n.description
+        }
+        else
+        {
+            text = "nil"
+        }
+        return "\(data) -> \(text)"
+    }
+
+    init(data: Int, next: Node? = nil)
+    {
+        self.data = data
+        self.next = next
+    }
+}
+
+class LinkedList: AbstractList
+{
+    var root: Node
+
+    init(root: Node)
+    {
+        self.root = root
+    }
+
+    func addNewNode(_ newData: Int)
+    {
+        var head = root
+        let newNode = Node(data: newData)
+        while head.next != nil
+        {
+            head = head.next!
+        }
+        head.next = newNode
+    }
+
+    func addMultipleNodes(_ newData: Int...)
+    {
+        for x in newData
+        {
+            addNewNode(x)
+        }
+    }
+
+    func printList()
+    {
+        print(root)
+    }
+}
+
+var list = LinkedList(root: Node(data: 9))
+list.addMultipleNodes(8, 7, 6, 5, 4, 3, 2, 1)
+list.printList()
+```
+**Output 9:**
+```
+9 -> 8 -> 7 -> 6 -> 5 -> 4 -> 3 -> 2 -> 1 -> nil
+```
+
+### Protocol Composition
+It can be useful to require a type to conform to multiple protocols at the same time. You can combine multiple protocols into a single requirement with a protocol composition. Protocol compositions behave as if you defined a temporary local protocol that has the combined requirements of all protocols in the composition. Protocol compositions don’t define any new protocol types.
+
+Protocol compositions have the form `SomeProtocol & AnotherProtocol`. You can list as many protocols as you need, separating them with ampersands (`&`). In addition to its list of protocols, a protocol composition can also contain one class type, which you can use to specify a required superclass.
+
+**Example 10:**
+```swift
+protocol Named
+{
+    var name: String { get }
+}
+
+protocol Aged
+{
+    var age: Int { get }
+}
+
+struct Person: Named, Aged
+{
+    var name: String
+    var age: Int
+}
+
+func wishHappyBirthday(to celebrator: Named & Aged)
+{
+    print("Happy birthday, \(celebrator.name), you're \(celebrator.age)!")
+}
+
+let birthdayPerson = Person(name: "Ian Malcolm", age: 21)
+wishHappyBirthday(to: birthdayPerson)
+```
+**Output 10:**
+```
+Happy birthday, Ian Malcolm, you're 21!
+```
+
+### Checking for Protocol Conformance
+You can use the `is` and `as` operators described in [Type Casting](https://techinessoverloaded.github.io/iOSAppDevBasics/typecasting.html) to check for protocol conformance, and to cast to a specific protocol. Checking for and casting to a protocol follows exactly the same syntax as checking for and casting to a type.
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/enums.html">&larr; Enumerations</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/extensions.html">&larr; Extensions</a>
 </span>
 <span style="float: right">
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/generics.html">Generics &rarr;</a>
