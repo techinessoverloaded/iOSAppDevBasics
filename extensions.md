@@ -197,6 +197,73 @@ print(num)
 6561
 ```
 
+### Subscripts
+Extensions can add new subscripts to an existing type.
+
+**Example 5:**
+```
+struct Point
+{
+    var x: Int, y: Int
+    
+    init(_ x: Int, _ y: Int)
+    {
+        self.x = x
+        self.y = y
+    }
+}
+
+struct Square
+{
+    var cornerPoints: (Point, Point, Point, Point)
+    var area: Int
+}
+
+extension Square
+{
+    subscript(_ index: Int) -> Point
+    {
+        switch(index)
+        {
+        case 0:
+            return cornerPoints.0
+        case 1:
+            return cornerPoints.1
+        case 2:
+            return cornerPoints.2
+        case 3:
+            return cornerPoints.3
+        default:
+            fatalError("Invalid Corner Point Index !")
+        }
+    }
+}
+let point1 = Point(0, 2)
+let point2 = Point(2, 2)
+let point3 = Point(2, 0)
+let point4 = Point(4, 2)
+
+let square = Square(cornerPoints: (point1, point2, point3, point4), area: 4)
+
+print("3rd Point of Square is: \(square[2])")
+```
+**Output 5:**
+```
+3rd Point of Square is: Point(x: 2, y: 0)
+```
+
+### Nested Types
+Extensions can add new nested types to existing classes, structures, and enumerations.
+
+**Example 6:**
+```
+
+```
+**Output 6:**
+```
+
+```
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
