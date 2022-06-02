@@ -535,6 +535,93 @@ Happy birthday, Ian Malcolm, you're 21!
 ### Checking for Protocol Conformance
 You can use the `is` and `as` operators described in [Type Casting](https://techinessoverloaded.github.io/iOSAppDevBasics/typecasting.html) to check for protocol conformance, and to cast to a specific protocol. Checking for and casting to a protocol follows exactly the same syntax as checking for and casting to a type.
 
+### Optional Protocol Requirements
+You can define optional requirements for protocols. These requirements don’t have to be implemented by types that conform to the protocol. Optional requirements are prefixed by the optional modifier as part of the protocol’s definition. Optional requirements are available so that you can write code that interoperates with Objective-C. Both the protocol and the optional requirement must be marked with the `@objc` attribute. Note that `@objc` protocols can be adopted only by classes that inherit from Objective-C classes or other `@objc` classes. They can’t be adopted by structures or enumerations.
+
+When you use a method or property in an optional requirement, its type automatically becomes an optional. For example, a method of type `(Int) -> String` becomes `((Int) -> String)?`. Note that the entire function type is wrapped in the optional, not the method’s return value.
+
+An optional protocol requirement can be called with optional chaining, to account for the possibility that the requirement was not implemented by a type that conforms to the protocol. You check for an implementation of an optional method by writing a question mark after the name of the method when it’s called, such as `someOptionalMethod?(someArgument)`.
+
+**Example 11:**
+```swift
+@objc protocol CounterDataSource 
+{
+    @objc optional func increment(forCount count: Int) -> Int
+    @objc optional var fixedIncrement: Int { get }
+}
+```
+
+### Protocol Extensions
+Protocols can be extended to provide method, initializer, subscript, and computed property implementations to conforming types. This allows you to define behavior on protocols themselves, rather than in each type’s individual conformance or in a global function. By creating an extension on the protocol, all conforming types automatically gain this method implementation without any additional modification. Protocol extensions can add implementations to conforming types but can’t make a protocol extend or inherit from another protocol. Protocol inheritance is always specified in the protocol declaration itself.
+
+#### Providing Default Implementations
+You can use protocol extensions to provide a default implementation to any method or computed property requirement of that protocol. If a conforming type provides its own implementation of a required method or property, that implementation will be used instead of the one provided by the extension. Protocol requirements with default implementations provided by extensions are distinct from optional protocol requirements. Although conforming types don’t have to provide their own implementation of either, requirements with default implementations can be called without optional chaining.
+
+**Example 12:**
+```swift
+protocol StringRepresentation: CustomStringConvertible
+{
+    var asString: String { get }
+}
+
+extension StringRepresentation
+{
+    var asString: String
+    {
+        return description
+    }
+}
+
+class Point: StringRepresentation
+{
+    var x: Int, y: Int
+    var description: String
+    {
+        "Point(x: \(x), y: \(y))"
+    }
+    
+    init(_ x: Int, _ y: Int)
+    {
+        self.x = x
+        self.y = y
+    }
+}
+print(Point(8, 10).asString)
+```
+**Output 12:**
+```
+Point(x: 8, y: 10)
+```
+
+#### Adding Constraints to Protocol Extensions
+When you define a protocol extension, you can specify constraints that conforming types must satisfy before the methods and properties of the extension are available. You write these constraints after the name of the protocol you’re extending by writing a generic `where` clause. For more about generic `where` clauses, see [Generics](https://techinessoverloaded.github.io/iOSAppDevBasics/generics.html).
+
+**Example 13:**
+```swift
+extension Collection where Element: Equatable
+{
+    func allEqual() -> Bool
+    {
+        for element in self
+        {
+            if element != self.first
+            {
+                return false
+            }
+        }
+        return true
+    }
+}
+let equalNumbers = [100, 100, 100, 100, 100]
+print(equalNumbers.allEqual())
+```
+**Output 13:**
+```
+true
+```
+
+Now that we have seen about Protocols in Swift, let's move on to see about Generics in Swift.
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
