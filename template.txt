@@ -10,3 +10,18 @@
 <span style="float: right">
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html"> &rarr;</a>
 </span>
+
+
+**Syntax:**
+```swift
+
+```
+
+**Example 1:**
+```swift
+
+```
+**Output 1:**
+```
+
+```
