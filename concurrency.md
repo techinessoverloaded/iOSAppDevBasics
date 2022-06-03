@@ -39,7 +39,7 @@ show(photo)
 
 Asynchronous functions can't be called within `main.swift` of a console app since `main` is synchronous. Asynchronous functions can be tried out during Actual App Development.
 
-With this, I would like to conclude this long-running Series. I hope that it was useful for learning Swift language. iOS App Development is a vast subject to be covered and can't be covered here. You can start out by learning about the [UIKit](https://developer.apple.com/documentation/uikit) which is the SDK provided for iOS App Development.
+With this, I would like to conclude this long-running Series. I hope that it was useful for learning Swift language. iOS App Development is a vast subject to be covered and can't be covered here. You can start out by learning about the [UIKit](https://developer.apple.com/documentation/uikit) which is the Framework provided by Apple for iOS App Development.
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
