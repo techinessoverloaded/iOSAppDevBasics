@@ -29,6 +29,7 @@ You can visit each of the Topic Pages using the below Index
 | [Protocols in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/protocols.html) |
 | [Generics in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/generics.html) |
 | [Error Handling in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/errorhandling.html) |
+| [Concurrency in Swift](https://techinessoverloaded.github.io/iOSAppDevBasics/concurrency.html) |
 
 <span style="float: right">
   <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/iosintro.html">iOS Introduction &rarr;</a>
