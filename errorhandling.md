@@ -72,6 +72,128 @@ Swift/ErrorType.swift:200: Fatal error: Error raised at top level: helloworld.Di
 2022-06-03 13:03:24.722211+0530 helloworld[18394:181436] Swift/ErrorType.swift:200: Fatal error: Error raised at top level: helloworld.DivisionError.divideByZero(cause: "Divisor is Zero !")
 ```
 
+#### Handling Errors Using Do-Catch
+You use a `do-catch` statement to handle errors by running a block of code. If an error is thrown by the code in the `do` clause, it’s matched against the `catch` clauses to determine which one of them can handle the error.
+
+**Syntax:**
+```swift
+do 
+{
+    try expression
+    statements
+} 
+catch pattern 1 
+{
+    statements
+} 
+catch pattern 2 where condition 
+{
+    statements
+} catch pattern 3, pattern 4 where condition 
+{
+    statements
+} 
+catch 
+{
+    statements
+}
+```
+
+You write a pattern after `catch` to indicate what errors that clause can handle. If a `catch` clause doesn’t have a pattern, the clause matches any error and binds the error to a local constant named `error`. 
+
+**Example 3:**
+```swift
+enum DivisionError: Error
+{
+    case divideByZero(cause: String)
+}
+
+func divide(_ dividend: Int, _ divisor: Int) throws -> Int
+{
+    guard divisor != 0 else
+    {
+        throw DivisionError.divideByZero(cause: "Divisor is Zero !")
+    }
+    return dividend/divisor
+}
+
+do
+{
+    let quotient = try divide(90, 0)
+    print("Quotient is: \(quotient)")
+}
+catch
+{
+    print(error)
+}
+```
+**Output 3:**
+```
+divideByZero(cause: "Divisor is Zero !")
+```
+
+#### Converting Errors to Optional Values
+You use `try?` to handle an error by converting it to an optional value. If an error is thrown while evaluating the `try?` expression, the value of the expression is `nil`.
+
+**Example 4:**
+```swift
+enum DivisionError: Error
+{
+    case divideByZero(cause: String)
+}
+
+func divide(_ dividend: Int, _ divisor: Int) throws -> Int
+{
+    guard divisor != 0 else
+    {
+        throw DivisionError.divideByZero(cause: "Divisor is Zero !")
+    }
+    return dividend/divisor
+}
+
+var result = try? divide(90, 0)
+if let quotient = result
+{
+    print("Quotient: \(quotient)")
+}
+else
+{
+    print("Error occurred ! Zero was found as divisor !")
+}
+```
+**Output 4:**
+```
+Error occurred ! Zero was found as divisor !
+```
+
+#### Disabling Error Propagation
+Sometimes you know a throwing function or method won’t, in fact, throw an error at runtime. On those occasions, you can write `try!` before the expression to disable error propagation and wrap the call in a runtime assertion that no error will be thrown. If an error actually is thrown, you’ll get a runtime error.
+
+**Example 5:**
+```swift
+enum DivisionError: Error
+{
+    case divideByZero(cause: String)
+}
+
+func divide(_ dividend: Int, _ divisor: Int) throws -> Int
+{
+    guard divisor != 0 else
+    {
+        throw DivisionError.divideByZero(cause: "Divisor is Zero !")
+    }
+    return dividend/divisor
+}
+
+var result = try! divide(90, 45) // It is known beforehand that 90/45 won't throw an error. So, use try!.
+print("Quotient = \(result)")
+```
+**Output 5:**
+```
+Quotient = 2
+```
+
+### Specifying Cleanup Actions
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
