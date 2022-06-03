@@ -295,7 +295,92 @@ print(sum(99, 57, 86, 89.6, -98.2, 563, -42))
 The above example defines a function `sum(_:)` which requires variadic arguments of any Type that conforms to the `SignedNumeric` Protocol of the Swift Standard Library. `SignedNumeric` Protocol is used to represent any number that can have sign. So, types like `Int`, `Double` conform to the protocol. Hence, when multiple numbers are passed, the result is obtained. However, trying to pass a `String` value to the function will throw an error as `String` does not conform to the `SignedNumeric` Protocol.
 
 ### Associated Types
+When defining a protocol, it’s sometimes useful to declare one or more associated types as part of the protocol’s definition. An associated type gives a placeholder name to a type that’s used as part of the protocol. The actual type to use for that associated type isn’t specified until the protocol is adopted. Associated types are specified with the `associatedtype` keyword.
 
+**Example 4:**
+```swift
+protocol Container
+{
+    associatedtype Item
+    mutating func append(_ item: Item)
+    var count: Int { get }
+    subscript(i: Int) -> Item { get }
+}
+
+struct Stack<Element>: Container
+{
+    // Basic Implementation
+    private var values: [Element] = []
+    
+    mutating func push(_ newElement: Element)
+    {
+        values.append(newElement)
+    }
+        
+    mutating func pop()
+    {
+        values.removeLast()
+    }
+        
+    func peek() -> Element?
+    {
+        values.last
+    }
+        
+    func printStack()
+    {
+        print("\(values[values.endIndex - 1]) <- Top")
+        var i = values.endIndex - 2
+        while i >= values.startIndex
+        {
+            print(values[i])
+            i -= 1
+        }
+    }
+    
+    // Implementation of Container Protocol
+    typealias Item = Element
+    
+    mutating func append(_ item: Element)
+    {
+        self.push(item)
+    }
+    
+    var count: Int
+    {
+        values.count
+    }
+        
+    subscript(i: Int) -> Element
+    {
+        values[i]
+    }
+}
+```
+
+#### Extending an Existing Type to Specify an Associated Type
+You can extend an existing type to add conformance to a protocol. This includes a protocol with an associated type.
+
+**Example 5:**
+```swift
+extension Array: Container {}
+```
+
+#### Adding Constraints to an Associated Type
+You can add type constraints to an associated type in a protocol to require that conforming types satisfy those constraints. For example, the following code defines a version of `Container` that requires the items in the container to be `Equatable`.
+
+**Example 6:**
+```swift
+protocol Container 
+{
+    associatedtype Item: Equatable
+    mutating func append(_ item: Item)
+    var count: Int { get }
+    subscript(i: Int) -> Item { get }
+}
+```
+
+#### 
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
