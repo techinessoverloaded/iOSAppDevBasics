@@ -218,11 +218,13 @@ func processFile(filename: String) throws
 }
 ```
 
+Now that we have seen about Error Handling in Swift, let's see about Concurrency in Swift.
+
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
 <br>
 <span style="float: left">
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/generics.html">&larr; Generics</a>
 </span>
 <span style="float: right">
-<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/.html"> &rarr;</a>
+<a href="https://techinessoverloaded.github.io/iOSAppDevBasics/concurrency.html">Concurrency &rarr;</a>
 </span>
