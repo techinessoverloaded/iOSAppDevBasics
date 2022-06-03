@@ -256,6 +256,45 @@ Stack's present state:
 Is intStack empty now ? true
 ```
 
+### Type Constraints
+In general, the type parameter can accept any data type (`Int`, `String`, `Double`, ...).
+
+However, if we want to use generics for some specific types (such as accepting data of number types) only, then we can use type constraints.
+
+You write type constraints by placing a single class or protocol constraint after a type parameter’s name, separated by a colon, as part of the type parameter list. The basic syntax for type constraints on a generic function is shown below (although the syntax is the same for generic types):
+
+**Syntax:**
+```swift
+func someFunction<T: SomeClass, U: SomeProtocol>(someT: T, someU: U)
+{
+  // Function Body
+}
+```
+
+The hypothetical function above has two type parameters. The first type parameter, `T`, has a type constraint that requires `T` to be a subclass of `SomeClass`. The second type parameter, `U`, has a type constraint that requires `U` to conform to the protocol `SomeProtocol`.
+
+**Example 3:**
+```swift
+func sum<T: SignedNumeric>(_ values: T...) -> T
+{
+    var result: T = 0
+    values.forEach {
+        result += $0
+    }
+    
+    return result
+}
+
+print(sum(99, 57, 86, 89.6, -98.2, 563, -42))
+```
+**Output 3:**
+```
+754.4000000000001
+```
+
+The above example defines a function `sum(_:)` which requires variadic arguments of any Type that conforms to the `SignedNumeric` Protocol of the Swift Standard Library. `SignedNumeric` Protocol is used to represent any number that can have sign. So, types like `Int`, `Double` conform to the protocol. Hence, when multiple numbers are passed, the result is obtained. However, trying to pass a `String` value to the function will throw an error as `String` does not conform to the `SignedNumeric` Protocol.
+
+### Associated Types
 
 
 <a href="https://techinessoverloaded.github.io/iOSAppDevBasics/index.html">&larr; Back to Index</a>
